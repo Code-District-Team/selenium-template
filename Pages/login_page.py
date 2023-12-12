@@ -7,10 +7,6 @@ from selenium.webdriver.support import expected_conditions as EC
 class LoginPage:
     def __init__(self, driver):
         self.driver = driver
-        self.email_textbox = (By.ID, 'loginForm_email')
-        self.password_textbox = (By.ID, 'loginForm_password')
-        self.login_button = (By.XPATH, "//button[@type='submit']")
-        self.login_error_message = (By.XPATH, "//div[@class='ant-form-item-explain-error']")
 
     def enter_email(self, email):
         email_field = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located( loginLocators.email_textbox))
