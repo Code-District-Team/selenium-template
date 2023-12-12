@@ -1,0 +1,7 @@
+# requirements.txt
+
+# Selenium
+selenium==4.1.6
+
+# Pytest
+pytest==6.2.5
