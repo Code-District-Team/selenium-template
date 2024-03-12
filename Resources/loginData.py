@@ -6,7 +6,7 @@ class loginTestData:
         
     }
     valid_credential = {
-        "validEmail" : "azher.iqbal@codedistrict.com",
-        "password" : "12345678"
+        "validEmail" : "umer.ehsan+32@codedistrict.com",
+        "password" : "Code@4180"
     }
    

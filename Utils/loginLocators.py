@@ -1,6 +1,5 @@
 from selenium.webdriver.common.by import By
 class loginLocators:
-    email_textbox = (By.ID, 'loginForm_email')
-    password_textbox = (By.ID,'loginForm_password')
-    login_button = (By.XPATH,"//button[@type='submit']")
-    login_error_message = (By.XPATH,"//div[@class='ant-form-item-explain-error']")
+    email_textbox = (By.XPATH, "(//input[@placeholder='Enter Your Email'])[1]")
+    password_textbox = (By.XPATH,"(//input[@placeholder='••••••••••••••••••'])[1]")
+    login_button = (By.ID,":r0:")
