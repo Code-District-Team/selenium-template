@@ -1,6 +1,4 @@
-import pytest
 from config import Config
-from selenium import webdriver
 from Pages.login_page import LoginPage
 from Resources.loginData import loginTestData
 
