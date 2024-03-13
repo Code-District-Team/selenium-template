@@ -38,13 +38,13 @@ class LoginPage:
 
     def login_with_empty_fields(self,):
         self.click_login()
-        time.sleep(3)
+        time.sleep(1)
         email_error_message = self.wait_for_element_visibility(loginLocators.empty_email_field_error)
         print(email_error_message.text)
         expected_error_message = "Please enter your email."
         assert email_error_message.text == expected_error_message, f"Unexpected email error message: Expected '{expected_error_message}', Found '{email_error_message.text}'"
 
-        time.sleep(3)
+        time.sleep(1)
         password_error_message = self.wait_for_element_visibility(loginLocators.empty_password_field_error)
         assert password_error_message.text == "Please enter password", f"Unexpected password error message: {password_error_message.text}"
         time.sleep(1)
