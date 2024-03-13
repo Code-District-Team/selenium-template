@@ -1,3 +1,5 @@
+import email
+
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 import time
@@ -35,6 +37,16 @@ class LoginPage:
         self.enter_password(password)
         self.click_login()
         time.sleep(3)
+    def login_with_invalid_credentials(self, email, password):
+        self.enter_email(email)
+        self.enter_password(password)
+        self.click_login()
+        time.sleep(5)
+        status_message = self.wait_for_element_visibility(loginLocators.status_message)
+        error_message =  "Incorrect username or password"
+        assert status_message.text == error_message, f"Unexpected email error message: Expected '{error_message}', Found '{status_message.text}'"
+
+
 
     def login_with_empty_fields(self,):
         self.click_login()
