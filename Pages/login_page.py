@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-
-=======
->>>>>>> fb2ab70ef35eaee8426a575d9191a9675130ad07
+from selenium.webdriver.support.ui import WebDriverWait
 import time
 
 from selenium.webdriver.support import expected_conditions as EC
