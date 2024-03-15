@@ -1,8 +1,7 @@
 class loginTestData:
     invalid_credentials = {
-        "InvalidEmail": "test@yopmail.com",
-        "InvalidPassword": "test123@",
-
+        "InvalidEmail": "test23@yopmail.com",
+        "InvalidPassword": "test123@"
         
     }
     valid_credential = {
