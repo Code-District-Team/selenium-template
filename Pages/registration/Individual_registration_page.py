@@ -1,10 +1,20 @@
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
 from lib2to3.pgen2 import driver
 
 from selenium.webdriver import Keys
 from selenium.webdriver.common.by import By
+<<<<<<< Updated upstream
+=======
+>>>>>>> 4b858ed11f9ee8da3dcd14041f8b0f7591bc98e5
+>>>>>>> Stashed changes
 from selenium.webdriver.support.ui import WebDriverWait
 import time
 from Utils.registration_locators import registrationLocators
+from Resources.registration_data import RegistrationTestData
 from selenium.webdriver.support import expected_conditions as EC
 
 
@@ -24,7 +34,7 @@ class RegistrationPage:
 
     def enter_email(self):
         email_field = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(registrationLocators.email_text))
-        email_field.send_keys("umer.ehsan+123@codedistrict.com")
+        email_field.send_keys(RegistrationTestData.email)
 
     def click_checkbox(self):
         checkbox_1 = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(registrationLocators.checkbox_1))
@@ -32,13 +42,13 @@ class RegistrationPage:
 
     def personal_info(self):
         name = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(registrationLocators.name_text))
-        name.send_keys("umer")
+        name.send_keys(RegistrationTestData.username)
         surname = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(registrationLocators.surname_text))
-        surname.send_keys("ehsan")
+        surname.send_keys(RegistrationTestData.surname)
         password = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(registrationLocators.newPassword_text))
-        password.send_keys("Code@4180")
+        password.send_keys(RegistrationTestData.password)
         repeat_password = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(registrationLocators.repeatPassword_text))
-        repeat_password.send_keys("Code@4180")
+        repeat_password.send_keys(RegistrationTestData.password)
 
     def job_title(self):
         jobTitle_dropdown = WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable(registrationLocators.jobTitle_dropdown))
@@ -46,7 +56,7 @@ class RegistrationPage:
         jobTitle_option = WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable(registrationLocators.jobTitle_option))
         jobTitle_option.click()
         workplace_dropdown = WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable(registrationLocators.workplace_dropdown))
-        workplace_dropdown.send_keys("Code")
+        workplace_dropdown.send_keys(RegistrationTestData.compnay_name_search)
         workplace_option = WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable(registrationLocators.workplace_option))
         workplace_option.click()
         start_date = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(registrationLocators.start_date))
@@ -80,14 +90,14 @@ class RegistrationPage:
         select_state.click()
         time.sleep(1)
         city_text = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(registrationLocators.city_text))
-        city_text.send_keys("Lahore")
+        city_text.send_keys(RegistrationTestData.address)
         zipcode_text = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(registrationLocators.zipcode_text))
-        zipcode_text.send_keys("54000")
+        zipcode_text.send_keys(RegistrationTestData.zipcode)
         street_address_text = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(registrationLocators.street_address_text))
-        street_address_text.send_keys("54000")
+        street_address_text.send_keys(RegistrationTestData.street_address)
 
     def creat_account_button(self):
-        create_account_button = WebDriverWait(self.driver, 10).until( EC.element_to_be_clickable(registrationLocators.create_account_button))
+        create_account_button = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(registrationLocators.create_account_button))
         create_account_button.click()
 
     def individual_user_signup(self):

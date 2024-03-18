@@ -31,8 +31,9 @@ class LoginPage:
         time.sleep(1)
 
     def login_with_empty_fields(self, ):
+        self.driver.maximize_window()
         self.click_login()
-        time.sleep(4)
+        time.sleep(2)
         email_error_message = self.wait_for_element_visibility(loginLocators.empty_email_field_error)
         print(email_error_message.text)
         expected_error_message = "Please enter your email."
