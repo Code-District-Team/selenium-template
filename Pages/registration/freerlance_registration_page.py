@@ -1,31 +1,47 @@
-from selenium.webdriver.support.ui import WebDriverWait
 import time
-from Utils.registration_locators import registrationLocators
 from Resources.registration_data import RegistrationTestData
-from selenium.webdriver.support import expected_conditions as EC
 
-class RegistrationPage:
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
+
+from Utils.registration_locators import registrationLocators
+class freelance_registration:
     def __init__(self, driver):
         self.driver = driver
-
 
     def click_signup_button(self):
         signup_button = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(registrationLocators.signup_button))
         signup_button.click()
         self.driver.maximize_window()
-
+    time.sleep(3)
+    def select_freelance_option(self):
+        freelance_option = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(registrationLocators.freelance_option))
+        freelance_option.click()
     def click_continue_button(self):
-        Continue_button = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(registrationLocators.Continue_button))
+        Continue_button = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(registrationLocators.Continue_3_button))
         Continue_button.click()
-
     def enter_email(self):
         email_field = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(registrationLocators.email_text))
-        email_field.send_keys(RegistrationTestData.email)
-
+        email_field.send_keys("asad.hafeez+123@codedistrict.com")
     def click_checkbox(self):
         checkbox_1 = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(registrationLocators.checkbox_1))
         checkbox_1.click()
-
+    def freelance_info(self):
+        description_text = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(registrationLocators.description_box))
+        description_text.click()
+        description_text.send_keys("This is an automation text")
+        hourly_rate = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(registrationLocators.hourly_rate))
+        hourly_rate.send_keys("10000")
+        currency_dropdown = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(registrationLocators.currency_dropdown))
+        currency_dropdown.click()
+        select_currency_type = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(registrationLocators.select_currency))
+        select_currency_type.click()
+        mimum_projecct_size = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(registrationLocators.minimum_project_size))
+        mimum_projecct_size.send_keys(RegistrationTestData.minmum_project_price)
+        availability_dropdown = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(registrationLocators.availability_dropdown))
+        availability_dropdown.click()
+        select_availablity = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(registrationLocators.select_availability))
+        select_availablity.click()
     def personal_info(self):
         name = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(registrationLocators.name_text))
         name.send_keys(RegistrationTestData.username)
@@ -35,17 +51,17 @@ class RegistrationPage:
         password.send_keys(RegistrationTestData.password)
         repeat_password = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(registrationLocators.repeatPassword_text))
         repeat_password.send_keys(RegistrationTestData.password)
-
     def job_title(self):
-        jobTitle_dropdown = WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable(registrationLocators.jobTitle_dropdown))
+        jobTitle_dropdown = WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable(registrationLocators.jobTitle_dropdown))
         jobTitle_dropdown.click()
-        jobTitle_option = WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable(registrationLocators.jobTitle_option))
+        jobTitle_option = WebDriverWait(self.driver, 50).until(EC.element_to_be_clickable(registrationLocators.jobTitle_freelance))
         jobTitle_option.click()
-        workplace_dropdown = WebDriverWait(self.driver, 40).until(EC.element_to_be_clickable(registrationLocators.workplace_dropdown))
+        time.sleep(3)
+        workplace_dropdown = WebDriverWait(self.driver, 50).until(EC.element_to_be_clickable(registrationLocators.workplace_freelance_dropdown))
         workplace_dropdown.send_keys(RegistrationTestData.freelance_company)
-        workplace_option = WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable(registrationLocators.workplace_option))
+        workplace_option = WebDriverWait(self.driver, 50).until(EC.element_to_be_clickable(registrationLocators.workplace_freelance_option))
         workplace_option.click()
-        start_date = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(registrationLocators.start_date))
+        start_date = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(registrationLocators.start_date_freelance))
         start_date.click()
         time.sleep(3)
         start_date_select = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(registrationLocators.start_date_select))
@@ -62,7 +78,6 @@ class RegistrationPage:
         checked_box_for_topics.click()
         Done_button = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(registrationLocators.Done_button))
         Done_button.click()
-
     def select_address(self):
         country_dropdown = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(registrationLocators.country_dropdown))
         country_dropdown.click()
@@ -81,24 +96,32 @@ class RegistrationPage:
         zipcode_text.send_keys(RegistrationTestData.zipcode)
         street_address_text = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(registrationLocators.street_address_text))
         street_address_text.send_keys(RegistrationTestData.street_address)
-
     def create_account_button(self):
-        create_account_button = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(registrationLocators.create_account_button))
+        create_account_button = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(registrationLocators.create_freelance_account_button))
         create_account_button.click()
-
-    def individual_user_signup(self):
+    def signup_freelance_user(self):
         self.click_signup_button()
+        time.sleep(2)
+        self.select_freelance_option()
+        time.sleep(2)
         self.click_continue_button()
+        time.sleep(2)
         self.enter_email()
+        time.sleep(2)
         self.click_checkbox()
+        time.sleep(2)
+        self.click_continue_button()
+        self.freelance_info()
+        time.sleep(2)
         self.click_continue_button()
         self.personal_info()
+        time.sleep(2)
         self.click_continue_button()
         self.job_title()
         self.click_continue_button()
         self.select_topic()
         self.click_continue_button()
-        time.sleep(3)
+        time.sleep(2)
         self.select_address()
+        time.sleep(2)
         self.create_account_button()
-        time.sleep(3)

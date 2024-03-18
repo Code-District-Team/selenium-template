@@ -7,3 +7,5 @@ class RegistrationTestData:
     zipcode = "54000"
     street_address = "1st street in lahore"
     compnay_name_search = "Code"
+    minmum_project_price = "10000"
+    freelance_company = "Code"
