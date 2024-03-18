@@ -1,5 +1,5 @@
 from selenium.webdriver.common.by import By
-class email&passwordlocators:
+class email_passwordlocators:
     skip_onboarding = (By.XPATH, "//button[normalize-space()='Skip']")
     emai_tab = (By.XPATH, "(//button[normalize-space()='Email & Password'])[1]")
     change_email_button = (By.XPATH, "(// button[normalize-space() = 'Change'])[1]")
