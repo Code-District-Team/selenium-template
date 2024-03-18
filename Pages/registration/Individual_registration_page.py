@@ -1,4 +1,7 @@
+from lib2to3.pgen2 import driver
+
 from selenium.webdriver import Keys
+from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 import time
 from Utils.registration_locators import registrationLocators
@@ -86,8 +89,6 @@ class RegistrationPage:
     def creat_account_button(self):
         create_account_button = WebDriverWait(self.driver, 10).until( EC.element_to_be_clickable(registrationLocators.create_account_button))
         create_account_button.click()
-
-
 
     def individual_user_signup(self):
         self.click_signup_button()
