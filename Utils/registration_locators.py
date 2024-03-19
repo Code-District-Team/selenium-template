@@ -2,7 +2,7 @@ from selenium.webdriver.common.by import By
 class registrationLocators:
     signup_button = (By.XPATH, "(//a[normalize-space()='Sign Up'])[1]")
     freelance_option = (By.XPATH, "//label[2]")
-    businessbasic_option = (By.XPATH, "//input[@value='businessFree']")
+    business_basic_option = (By.XPATH, "//input[@value='businessFree']")
     Continue_button = (By.XPATH,"(//button[normalize-space()='Continue'])[1]")
     Continue_3_button = (By.XPATH,"/html[1]/body[1]/div[2]/div[2]/div[1]/form[1]/div[2]/button[2]")
     email_text = (By.XPATH,"//input[@name='username']")
