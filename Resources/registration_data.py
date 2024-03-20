@@ -1,5 +1,5 @@
 class RegistrationTestData:
-    email = "umer.ehsan+123@codedistrict.com"
+    email = "anything@8pyk8lj3.mailosaur.net"
     username = "umer"
     surname = "ehsan"
     password = "Code@4180"

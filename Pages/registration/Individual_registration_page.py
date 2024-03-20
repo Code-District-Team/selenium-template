@@ -1,12 +1,16 @@
+from selenium.webdriver import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 import time
 from Utils.registration_locators import registrationLocators
 from Resources.registration_data import RegistrationTestData
+from Pages.registration.guerilla_mail import GuerrillaMailPage,EmailInboxPage
 from selenium.webdriver.support import expected_conditions as EC
+from config import Config
 
 class RegistrationPage:
     def __init__(self, driver):
         self.driver = driver
+
 
 
     def click_signup_button(self):
@@ -18,9 +22,9 @@ class RegistrationPage:
         Continue_button = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(registrationLocators.Continue_button))
         Continue_button.click()
 
-    def enter_email(self):
+    def enter_email(self, email_address):
         email_field = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(registrationLocators.email_text))
-        email_field.send_keys(RegistrationTestData.email)
+        email_field.send_keys(email_address)
 
     def click_checkbox(self):
         checkbox_1 = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(registrationLocators.checkbox_1))
@@ -86,10 +90,22 @@ class RegistrationPage:
         create_account_button = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(registrationLocators.create_account_button))
         create_account_button.click()
 
-    def individual_user_signup(self):
+    def otp(self, otp_digits):
+        signup_button = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(registrationLocators.otp_text_1))
+        self.driver.execute_script("arguments[0].value = arguments[1];", signup_button, otp_digits)
+        signup_button.send_keys(Keys.CONTROL + "v")
+
+
+
+
+    def individual_user_signup(self, email_address):
+        original_window_handle = self.driver.current_window_handle
+        self.driver.execute_script("window.open('" + Config.base_url + "', 'new window')")
+
+        self.driver.switch_to.window(self.driver.window_handles[1])
         self.click_signup_button()
         self.click_continue_button()
-        self.enter_email()
+        self.enter_email(email_address)
         self.click_checkbox()
         self.click_continue_button()
         self.personal_info()
@@ -102,3 +118,13 @@ class RegistrationPage:
         self.select_address()
         self.create_account_button()
         time.sleep(3)
+        self.driver.switch_to.window(original_window_handle)
+        self.driver.refresh()
+        time.sleep(1)
+
+    def authenticating_user(self, otp_digits):
+        self.driver.switch_to.window(self.driver.window_handles[1])
+        self.otp(otp_digits)
+        time.sleep(16)
+
+

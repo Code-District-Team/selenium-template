@@ -15,6 +15,13 @@ class registrationLocators:
     jobTitle_dropdown = (By.NAME, "jobTitle")
     jobTitle_option = (By.ID,":r2:-option-2")
     jobTitle_freelance = (By.XPATH, "/html[1]/body[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/li[3]")
+    otp_text_1 = (By.XPATH, "(//input[@aria-label='Please enter OTP character 1'])[1]")
+    otp_text_2 = (By.XPATH, "(//input[@aria-label='Please enter OTP character 2'])[1]")
+    otp_text_3 = (By.XPATH, "(//input[@aria-label='Please enter OTP character 3'])[1]")
+    otp_text_4 = (By.XPATH, "(//input[@aria-label='Please enter OTP character 4'])[1]")
+    otp_text_5 = (By.XPATH, "(//input[@aria-label='Please enter OTP character 5'])[1]")
+    otp_text_6 = (By.XPATH, "(//input[@aria-label='Please enter OTP character 6'])[1]")
+
     workplace_dropdown = (By.ID, ":r4:")
     selfemployeed_checkbox = (By.XPATH, "//span[@class='MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label mui-1w6h4uc']")
     workplace_option = (By.ID, ":r4:-option-0")
