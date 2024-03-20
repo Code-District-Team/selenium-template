@@ -6,7 +6,6 @@ class buisness_registrationTestData:
     revenue = "10000"
     company_size = "100"
     country_name = "Afghanistan"
-    state_name = ""
     city_name = "Lahore"
     postalcode = "50000"
     street_address = "Queens road"

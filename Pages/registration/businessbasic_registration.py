@@ -1,4 +1,5 @@
 import time
+from lib2to3.pgen2 import driver
 
 from selenium.webdriver import Keys
 
@@ -13,11 +14,12 @@ from Utils.businessbasic_registration_locators import busniness_registrationLoca
 class business_basic_registration:
     def __init__(self, driver):
         self.driver = driver
-        self.driver.maximize_window
+
 
     def click_signup_button(self):
         signup_button = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(registrationLocators.signup_button))
         signup_button.click()
+        self.driver.maximize_window()
     time.sleep(3)
     def select_business_basic_option(self):
         business_basic_option = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(busniness_registrationLocators.business_basic_option))
@@ -40,7 +42,7 @@ class business_basic_registration:
         enter_business_url.send_keys(buisness_registrationTestData.business_url)
         continue_button = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(busniness_registrationLocators.continue_button))
         continue_button.click()
-        time.sleep(2)
+        time.sleep(3)
         country_dropdown = WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable(busniness_registrationLocators.country_dropdown))
         country_dropdown.click()
         country_dropdown.send_keys(buisness_registrationTestData.country_name)
@@ -55,7 +57,6 @@ class business_basic_registration:
         postal_code.send_keys(buisness_registrationTestData.postalcode)
         street_address = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(busniness_registrationLocators.street_address_input_field))
         street_address.send_keys(buisness_registrationTestData.street_address)
-        time.sleep(50)
         continue_button_1 = WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable(busniness_registrationLocators.continue_button_1))
         continue_button_1.click()
         time.sleep(2)
@@ -63,15 +64,21 @@ class business_basic_registration:
         revenue_input.send_keys(buisness_registrationTestData.revenue)
         company_size = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(busniness_registrationLocators.company_size_input_field))
         company_size.send_keys(buisness_registrationTestData.company_size)
-        entity_type_dropdown = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(busniness_registrationLocators.entity_type_dropdown))
+        ownership_type_dropdown = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(busniness_registrationLocators.ownership_type_dropdown))
+        ownership_type_dropdown.click()
+        ownership_type_option = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(busniness_registrationLocators.ownership_type_option))
+        ownership_type_option.click()
+        entity_type_dropdown = WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable(busniness_registrationLocators.entity_type_dropdown))
         entity_type_dropdown.click()
         entity_type_option = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(busniness_registrationLocators.entity_type_option))
         entity_type_option.click()
-        founded_year_dropdown = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(busniness_registrationLocators.founded_year_option))
+        time.sleep(2)
+        founded_year_dropdown = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(busniness_registrationLocators.founded_year_dropdown))
         founded_year_dropdown.click()
-        founded_year_option = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(busniness_registrationLocators.founded_year_option))
+        founded_year_option = WebDriverWait(self.driver, 40).until(EC.element_to_be_clickable(busniness_registrationLocators.founded_year_option))
         founded_year_option.click()
-        continue_button_2 = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(busniness_registrationLocators.continue_button_2))
+        time.sleep(2)
+        continue_button_2 = WebDriverWait(self.driver, 0).until(EC.element_to_be_clickable(busniness_registrationLocators.continue_button_2))
         continue_button_2.click()
         time.sleep(3)
         primary_industry_button = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(busniness_registrationLocators.browse_button))
@@ -175,18 +182,26 @@ class business_basic_registration:
         time.sleep(2)
         self.add_business()
         time.sleep(2)
+        self.continue_button_click()
+        time.sleep(2)
         self.enter_email()
         time.sleep(2)
         self.click_checkbox()
         time.sleep(2)
+        self.click_continue_button()
+        time.sleep(2)
         self.personal_info()
         time.sleep(3)
+        self.click_continue_button()
+        time.sleep(3)
         self.job_title()
+        self.click_continue_button()
         time.sleep(3)
         self.select_topic()
+        self.click_continue_button()
         time.sleep(3)
         self.select_address()
-        time.sleep(3)
+        time.sleep(50)
         self.create_account_button()
         time.sleep(5)
 
