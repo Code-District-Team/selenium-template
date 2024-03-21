@@ -1,18 +1,21 @@
 import time
-from lib2to3.pgen2 import driver
+
 
 from selenium.webdriver import Keys
 
 from Resources.registration_data import RegistrationTestData
 from Resources.business_registration_data import buisness_registrationTestData
-
+from Pages.registration.payment_page import payment_processing
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
 from Utils.registration_locators import registrationLocators
 from Utils.businessbasic_registration_locators import busniness_registrationLocators
 class business_basic_registration:
+    payment_processing: object
+
     def __init__(self, driver):
+        self.payment_processing = driver
         self.driver = driver
 
 
@@ -204,8 +207,7 @@ class business_basic_registration:
         time.sleep(50)
         self.create_account_button()
         time.sleep(5)
-
-
+        var = self.payment_processing
 
 
 
