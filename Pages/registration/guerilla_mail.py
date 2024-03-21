@@ -41,7 +41,7 @@ class EmailInboxPage:
 
 
     def copy_otp(self):
-        self.driver.execute_script("window.scrollBy(0, window.innerHeight/2);")
-        copy_email = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, "div[class='email_body'] h3")))
-        time.sleep(5)
-        return copy_email.text
+        self.driver.execute_script("window.scrollBy(0, window.innerHeight/4);")
+        copy_otp = WebDriverWait(self.driver, 15).until(EC.presence_of_element_located((By.XPATH, "/html[1]/body[1]/div[4]/div[1]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/h3[1]")))
+        text = copy_otp.text
+        return text

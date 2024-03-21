@@ -92,8 +92,9 @@ class RegistrationPage:
 
     def otp(self, otp_digits):
         signup_button = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(registrationLocators.otp_text_1))
-        self.driver.execute_script("arguments[0].value = arguments[1];", signup_button, otp_digits)
-        signup_button.send_keys(Keys.CONTROL + "v")
+        # self.driver.execute_script("arguments[0].value = arguments[1];", signup_button, otp_digits)
+        # # signup_button.send_keys(Keys.CONTROL + "v")
+        signup_button.send_keys(otp_digits)
 
 
 
@@ -125,6 +126,8 @@ class RegistrationPage:
     def authenticating_user(self, otp_digits):
         self.driver.switch_to.window(self.driver.window_handles[1])
         self.otp(otp_digits)
-        time.sleep(16)
+        time.sleep(3)
+        self.click_continue_button()
+        time.sleep(10)
 
 
