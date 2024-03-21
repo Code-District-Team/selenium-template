@@ -53,3 +53,4 @@ class registrationLocators:
     browse_industries = (By.XPATH, "/html[1]/body[1]/div[2]/div[2]/div[1]/form[1]/div[1]/div[3]/div[1]/button[1]")
     primary_option = (By.XPATH, "//li[@id=':r1q:-54']//div[@class='MuiTreeItem-iconContainer']//*[name()='svg']")
     create_freelance_account_button = (By.CSS_SELECTOR, "body > div:nth-child(17) > div:nth-child(2) > div:nth-child(1) > form:nth-child(2) > div:nth-child(2) > button:nth-child(2)")
+    verify_account = (By.XPATH, "(//h2[normalize-space()='Verify account'])[1]")
