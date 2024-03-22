@@ -42,6 +42,8 @@ class busniness_registrationLocators:
     continue_button_4 = (By.XPATH, "//button[normalize-space()='Continue']")
     same_as_previous_checkbox = (By.XPATH, "//span[normalize-space()='Same as previously added business']")
     create_basic_business_account_button = (By.XPATH, "//button[@id=':r14:']")
+    continue_button_5 = (By.ID, ":r18:")
+
 
 
 

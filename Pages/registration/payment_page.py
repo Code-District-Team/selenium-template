@@ -17,3 +17,4 @@ class payment_processing:
         cvv_number.send_keys(payment_data.cvv_code)
         continue_button = WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable(payment_page_locators.continue_button))
         continue_button.click()
+

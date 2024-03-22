@@ -5,9 +5,10 @@ from selenium.webdriver import Keys
 
 from Resources.registration_data import RegistrationTestData
 from Resources.business_registration_data import buisness_registrationTestData
-from Pages.registration.payment_page import payment_processing
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
+from config import Config
+from Pages.registration.guerilla_mail import GuerrillaMailPage,EmailInboxPage
 
 from Utils.registration_locators import registrationLocators
 from Utils.businessbasic_registration_locators import busniness_registrationLocators
@@ -15,7 +16,7 @@ class business_basic_registration:
     payment_processing: object
 
     def __init__(self, driver):
-        self.payment_processing = driver
+
         self.driver = driver
 
 

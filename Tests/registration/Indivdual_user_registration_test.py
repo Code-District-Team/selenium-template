@@ -22,6 +22,6 @@ def test_individual_signup(driver_setup):
 
     email_inbox_page.wait_for_email_list()
     email_inbox_page.click_verification_email()
-    otp_digits= email_inbox_page.copy_otp()
+    otp_digits = email_inbox_page.copy_otp()
     individual_user.authenticating_user(otp_digits)
 

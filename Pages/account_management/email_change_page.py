@@ -7,5 +7,3 @@ class email_change:
         self.driver = driver
     def wait_for_element_visibility(self, locator):
         return WebDriverWait(self.driver, 15).until(EC.visibility_of_element_located(locator))
-
-

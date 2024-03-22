@@ -8,6 +8,7 @@ class buisness_registrationTestData:
         return ''.join(random.choice(letters) for _ in range(length))
 
     business_email = "test@codedistrict.com"
+
     business_name = generate_random_letters()
     business_unit_name = "Automation"
     business_url = "https://codedistrict.com"

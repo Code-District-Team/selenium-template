@@ -5,7 +5,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 class GuerrillaMailPage:
-    EMAIL_WIDGET = (By.ID, "email-widget")
+    EMAIL_WIDGET = (By.ID, 'email-widget')
 
     def __init__(self, driver):
         self.driver = driver
