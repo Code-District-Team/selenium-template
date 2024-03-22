@@ -117,9 +117,10 @@ class business_basic_registration:
     def continue_button_click(self):
         continue_button = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(busniness_registrationLocators.continue_button_4))
         continue_button.click()
-    def enter_email(self):
+
+    def enter_email(self, email_address):  # Corrected method signature here
         email_field = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(registrationLocators.email_text))
-        email_field.send_keys(buisness_registrationTestData.basic_user_email)
+        email_field.send_keys(email_address)  # Corrected parameter name here
     def click_checkbox(self):
         checkbox_1 = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(registrationLocators.checkbox_1))
         checkbox_1.click()
@@ -172,38 +173,47 @@ class business_basic_registration:
     def create_account_button(self):
         create_account_button = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(busniness_registrationLocators.create_basic_business_account_button))
         create_account_button.click()
-    def signup_basic_business(self):
+    def complete_signup_process_button(self):
+        complete_signup_button =WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(busniness_registrationLocators.continue_button_5))
+        complete_signup_button.click()
+    def otp(self, otp_digits):
+        signup_button = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(registrationLocators.otp_text_1))
+        # self.driver.execute_script("arguments[0].value = arguments[1];", signup_button, otp_digits)
+        # # signup_button.send_keys(Keys.CONTROL + "v")
+        signup_button.send_keys(otp_digits)
+
+    def signup_basic_business(self, driver, email_address):
+        original_window_handle: object = driver.current_window_handle
+        self.driver.execute_script("window.open('" + Config.base_url + "', 'new window')")
+        self.driver.switch_to.window(self.driver.window_handles[1])
         self.click_signup_button()
-
         self.select_business_basic_option()
-
         self.click_continue_button()
-
         self.add_business()
-
         self.continue_button_click()
-
-        self.enter_email()
-
+        self.enter_email(email_address)
+        time.sleep(2)
         self.click_checkbox()
-
         self.click_continue_button()
-
         self.personal_info()
-
         self.click_continue_button()
-
         self.job_title()
         self.click_continue_button()
-
         self.select_topic()
         self.click_continue_button()
-
         self.select_address()
-
         self.create_account_button()
+        time.sleep(4)
+        driver.switch_to.window(original_window_handle)
+        driver.refresh()
+        time.sleep(3)
+    def authenticating_user(self, otp_digits):
+        self.driver.switch_to.window(self.driver.window_handles[1])
+        self.otp(otp_digits)
+        time.sleep(3)
+        self.complete_signup_process_button()
+        time.sleep(30)
 
-        var = self.payment_processing
 
 
 

@@ -1,4 +1,6 @@
 import time
+from lib2to3.pgen2 import driver
+
 from Resources.registration_data import RegistrationTestData
 from Resources.payment_data import payment_data
 from selenium.webdriver.common.by import By
@@ -111,36 +113,6 @@ class freelance_registration:
         continue_to_payment_button = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(registrationLocators.continue_2_payment_screen))
         continue_to_payment_button.click()
 
-    def payment_processing(self):
-        # Enter credit card number
-        WebDriverWait(self.driver, 40).until(
-            EC.frame_to_be_available_and_switch_to_it((By.XPATH, "//iframe[@id='braintree-hosted-field-number']")))
-        card_number_input = WebDriverWait(self.driver, 60).until(
-            EC.element_to_be_clickable((By.XPATH, "//input[@class='number' and @id='credit-card-number']")))
-        card_number_input.send_keys(payment_data.credit_card_number)
-        self.driver.switch_to.default_content()
-
-        # Enter expiration date
-        WebDriverWait(self.driver, 40).until(EC.frame_to_be_available_and_switch_to_it(
-            (By.XPATH, "//iframe[@id='braintree-hosted-field-expirationDate']")))
-        expiry_date_input = WebDriverWait(self.driver, 20).until(
-            EC.element_to_be_clickable((By.XPATH, "//input[@class='expirationDate' and @id='expiration']")))
-        expiry_date_input.send_keys(payment_data.expiry_date)
-        self.driver.switch_to.default_content()
-
-        # Enter CVV
-        WebDriverWait(self.driver, 40).until(
-            EC.frame_to_be_available_and_switch_to_it((By.XPATH, "//iframe[@id='braintree-hosted-field-cvv']")))
-        cvv_input = WebDriverWait(self.driver, 20).until(
-            EC.element_to_be_clickable((By.XPATH, "//input[@class='cvv' and @id='cvv']")))
-        cvv_input.send_keys(payment_data.cvv_code)
-        self.driver.switch_to.default_content()
-
-        # Click continue button
-        continue_button = WebDriverWait(self.driver, 40).until(
-            EC.element_to_be_clickable(payment_page_locators.continue_button))
-        time.sleep(2)
-        continue_button.click()
 
     def signup_freelance(self, driver, email_address):
         original_window_handle = driver.current_window_handle  # Corrected here
@@ -181,5 +153,8 @@ class freelance_registration:
         self.otp(otp_digits)
         time.sleep(5)
         self.continue_to_payment()
-        time.sleep(40)
-        self.payment_processing()
+
+    def freelance_payment(self, driver):
+        freelance_payment = payment_processing(driver)
+        freelance_payment.payment_processing()
+

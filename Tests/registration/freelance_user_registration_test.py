@@ -1,3 +1,5 @@
+import time
+
 from config import Config
 from Pages.registration.freerlance_registration_page import freelance_registration
 from Pages.registration.guerilla_mail import GuerrillaMailPage,EmailInboxPage
@@ -18,4 +20,6 @@ def test_freelance_signup(driver_setup):
     email_inbox_page.click_verification_email()
     otp_digits = email_inbox_page.copy_otp()
     freelance_user.authenticating_user(otp_digits)
+    freelance_user.freelance_payment(driver)
+    time.sleep(15)
 
