@@ -54,3 +54,5 @@ class registrationLocators:
     primary_option = (By.XPATH, "//li[@id=':r1q:-54']//div[@class='MuiTreeItem-iconContainer']//*[name()='svg']")
     create_freelance_account_button = (By.CSS_SELECTOR, "body > div:nth-child(17) > div:nth-child(2) > div:nth-child(1) > form:nth-child(2) > div:nth-child(2) > button:nth-child(2)")
     verify_account = (By.XPATH, "(//h2[normalize-space()='Verify account'])[1]")
+    business_plus_account = (By.XPATH, "//label[4]")
+    seats_button = (By.XPATH, "(//*[name()='svg'][@class='MuiSvgIcon-root MuiSvgIcon-fontSizeMedium counter-icon mui-vubbuv'])[2]")

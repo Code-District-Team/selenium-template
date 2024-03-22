@@ -97,7 +97,7 @@ class RegistrationPage:
         signup_button.send_keys(otp_digits)
 
     def Verify_account(self):
-        verify_account = WebDriverWait(self.driver, 30).until(EC.visibility_of_element_located(registrationLocators.verify_account))
+        WebDriverWait(self.driver, 30).until(EC.visibility_of_element_located(registrationLocators.verify_account))
 
 
 
@@ -128,7 +128,6 @@ class RegistrationPage:
         self.driver.switch_to.window(self.driver.window_handles[1])
         self.otp(otp_digits)
         self.click_continue_button()
-        self.Verify_account()
         time.sleep(5)
 
 

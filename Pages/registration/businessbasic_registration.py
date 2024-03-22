@@ -136,12 +136,10 @@ class business_basic_registration:
         jobTitle_dropdown.click()
         jobTitle_option = WebDriverWait(self.driver, 50).until(EC.element_to_be_clickable(registrationLocators.jobTitle_freelance))
         jobTitle_option.click()
-        time.sleep(3)
         same_as_privious = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(busniness_registrationLocators.same_as_previous_checkbox))
         same_as_privious.click()
         start_date = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(registrationLocators.start_date_freelance))
         start_date.click()
-        time.sleep(3)
         start_date_select = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(registrationLocators.start_date_select))
         start_date_select.click()
     def select_topic(self):
@@ -160,13 +158,10 @@ class business_basic_registration:
         country_dropdown.click()
         select_country = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(registrationLocators.select_country))
         select_country.click()
-        time.sleep(1)
         state_dropdown = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(registrationLocators.state_dropdown))
         state_dropdown.click()
-        time.sleep(1)
         select_state = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(registrationLocators.select_state))
         select_state.click()
-        time.sleep(1)
         city_text = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(registrationLocators.city_text))
         city_text.send_keys(RegistrationTestData.address)
         zipcode_text = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(registrationLocators.zipcode_text))
@@ -178,35 +173,35 @@ class business_basic_registration:
         create_account_button.click()
     def signup_basic_business(self):
         self.click_signup_button()
-        time.sleep(2)
+
         self.select_business_basic_option()
-        time.sleep(2)
+
         self.click_continue_button()
-        time.sleep(2)
+
         self.add_business()
-        time.sleep(2)
+
         self.continue_button_click()
-        time.sleep(2)
+
         self.enter_email()
-        time.sleep(2)
+
         self.click_checkbox()
-        time.sleep(2)
+
         self.click_continue_button()
-        time.sleep(2)
+
         self.personal_info()
-        time.sleep(3)
+
         self.click_continue_button()
-        time.sleep(3)
+
         self.job_title()
         self.click_continue_button()
-        time.sleep(3)
+
         self.select_topic()
         self.click_continue_button()
-        time.sleep(3)
+
         self.select_address()
-        time.sleep(50)
+
         self.create_account_button()
-        time.sleep(5)
+
         var = self.payment_processing
 
 
