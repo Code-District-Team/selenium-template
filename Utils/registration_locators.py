@@ -43,7 +43,7 @@ class registrationLocators:
     zipcode_text = (By.XPATH, "(//input[@name='addressZip'])[1]")
     street_address_text = (By.XPATH, "(//input[@name='address1'])[1]")
     create_account_button = (By.CSS_SELECTOR, "button.MuiButton-root.btn-continue")
-    description_box = (By.XPATH, "/html[1]/body[1]/div[2]/div[2]/div[1]/form[1]/div[1]/div[1]/div[1]/textarea[1]")
+    description_box = (By.ID, ":r2:")
     hourly_rate = (By.NAME, "hourlyRate")
     currency_dropdown = (By.XPATH, "//div[@id='mui-component-select-currency']")
     select_currency = (By.XPATH, "//li[contains(text(),'Costa Rica Colon (₡)')]")

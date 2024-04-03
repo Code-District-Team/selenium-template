@@ -31,7 +31,7 @@ class business_basic_registration:
     def click_continue_button(self):
         continue_button = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(registrationLocators.Continue_3_button))
         continue_button.click()
-    def add_business(self,):
+    def add_business(self):
         business_dropdown = WebDriverWait(self.driver, 40).until(EC.element_to_be_clickable(busniness_registrationLocators.business_basic_dropdown))
         business_dropdown.click()
         add_business = WebDriverWait(self.driver, 40).until(EC.element_to_be_clickable(busniness_registrationLocators.add_business_select))

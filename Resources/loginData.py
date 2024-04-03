@@ -5,9 +5,25 @@ class loginTestData:
         
     }
     valid_credential = {
-        "validEmail" : "asad.hafeez+66@codedistrict.com",
-        "password" : "Test@124"
+        "validEmail" : "asad.hafeez+13@codedistrict.com",
+        "password" : "Asadcs12@"
 
+    }
+    valid_credential_individual_to_freelance = {
+        "validEmail": "asad.hafeez+21@codedistrict.com",
+        "password": "Asadcs12@"
+    }
+    valid_credential_individual_to_business_basic = {
+        "validEmail": "asad.hafeez+21@codedistrict.com",
+        "password": "Asadcs12@"
+    }
+    valid_credential_individual_to_business_plus = {
+        "validEmail": "asad.hafeez+21@codedistrict.com",
+        "password": "Asadcs12@"
+    }
+    valid_credential_busniess_basic_to_business_plus = {
+        "validEmail": "asad.hafeez+21@codedistrict.com",
+        "password": "Asadcs12@"
     }
 
    
