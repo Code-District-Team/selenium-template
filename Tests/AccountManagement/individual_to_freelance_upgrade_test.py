@@ -6,12 +6,13 @@ from Pages.account_management.password_change import password_change
 import time
 
 
-def test_indvidual_to_freelance_upgrade(driver_setup):
+def test_individual_to_freelance_upgrade(driver_setup):
     driver = driver_setup
     driver.get(Config.base_url)
     login_page = LoginPage(driver)
     driver.maximize_window()
     login_page.login(loginTestData.valid_credential["validEmail"], loginTestData.valid_credential["password"])
+    time.sleep(50)
     skip_account_verification = password_change(driver)
     skip_account_verification.skip_account_verification()
     upgrade_individual_to_freelance = Subscription_upgrade_individual_to_freelance(driver)

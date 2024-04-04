@@ -18,5 +18,20 @@ class Subscriptionupgradelocators:
     upgrade_to_business_basic = (By.XPATH, "//button[normalize-space()='Upgrade to Business Basic']")
     upgrade_to_business_plus = (By.XPATH, "//button[normalize-space()='Upgrade to Business Plus']")
     seat_increase_button = (By.XPATH, "//div[@role='presentation']//button[2]//*[name()='svg']")
+    click_to_continue = (By.ID, ":r12:")
+    add_business_field = (By.ID, ":rd:")
+    add_business_button = (By.XPATH, "//p[@class='MuiTypography-root MuiTypography-body1 body1 mui-1w6h4uc']")
+    country_dropdown = (By.XPATH, "//input[@id=':ri:']")
+    continue_button_1 = (By.ID, ":rh:")
+    primary_industry_browser = (By.XPATH, "/html/body/div[8]/div[3]/div/div[2]/form/div[1]/div/div[1]/button")
+    primary_industry_option = (By.ID, ":rs:-541110-02")
+    secondary_industry_browser = (By.XPATH, "//button[@class='MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall btn-browse mui-1ianhrz']")
+    secondary_industry_option = (By.XPATH, "//span[normalize-space()='Soybean farming, field and seed production']")
+    continue_business_basic = (By.XPATH, "//button[@id=':rf:']")
+    continue_to_increase_seat = (By.ID, ":rf:")
+    continue_to_payment_button = (By.ID, ":r12:")
+    add_business_plus_field = (By.XPATH, "//input[@id=':rd:']")
+    proceed_to_business_plus_payment = (By.ID, ":rc:")
+
 
 
