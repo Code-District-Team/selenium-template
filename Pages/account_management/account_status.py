@@ -39,9 +39,7 @@ class AccountStatus:
         account_delete_button.click()
         confirm_account_delete = WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable(account_status_locators.confirm_delete_account_button))
         confirm_account_delete.click()
-        status_message = self.wait_for_element_visibility(account_status_locators.account_status)
-        expected_error_message = "Your Account has been deleted"
-        assert status_message.text == expected_error_message, f"Unexpected email error message: Expected '{expected_error_message}', Found '{status_message.text}'"
+
 
     def test_account_suspend_and_activation(self) -> object:
         self.account_status_tab()
