@@ -12,10 +12,10 @@ def test_account_suspend_activation(driver_setup):
     login_page = LoginPage(driver)
     driver.maximize_window()
     login_page.login(loginTestData.valid_credential["validEmail"], loginTestData.valid_credential["password"])
-    time.sleep(20)
     skip_account_verification = password_change(driver)
     skip_account_verification.skip_account_verification()
     account_suspend = AccountStatus(driver)
-    account_suspend.test_account_suspend_and_activation()
+    account_suspend.test_account_delete()
+    time.sleep(20)
 
 
