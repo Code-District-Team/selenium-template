@@ -19,8 +19,8 @@ class RegistrationPage:
         self.driver.maximize_window()
 
     def click_continue_button(self):
-        Continue_button = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(registrationLocators.Continue_button))
-        Continue_button.click()
+        continue_button = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(registrationLocators.continue_button))
+        continue_button.click()
 
     def enter_email(self, email_address):
         email_field = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(registrationLocators.email_text))
@@ -41,22 +41,21 @@ class RegistrationPage:
         repeat_password.send_keys(RegistrationTestData.password)
 
     def job_title(self):
-        jobTitle_dropdown = WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable(registrationLocators.jobTitle_dropdown))
-        jobTitle_dropdown.click()
-        jobTitle_option = WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable(registrationLocators.jobTitle_option))
-        jobTitle_option.click()
+        job_title_dropdown = WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable(registrationLocators.jobTitle_dropdown))
+        job_title_dropdown.click()
+        job_title_option = WebDriverWait(self.driver, 50).until(EC.element_to_be_clickable(registrationLocators.jobTitle_dropdownitle_option))
+        job_title_option.click()
         workplace_dropdown = WebDriverWait(self.driver, 40).until(EC.element_to_be_clickable(registrationLocators.workplace_dropdown))
         workplace_dropdown.send_keys(RegistrationTestData.freelance_company)
         workplace_option = WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable(registrationLocators.workplace_option))
         workplace_option.click()
         start_date = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(registrationLocators.start_date))
         start_date.click()
-        time.sleep(3)
         start_date_select = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(registrationLocators.start_date_select))
         start_date_select.click()
 
     def select_topic(self):
-        topics_browse = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(registrationLocators.topics_browse))
+        topics_browse = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(registrationLocators.browse_button))
         topics_browse.click()
         select_topic_primary = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(registrationLocators.select_topic_primary))
         select_topic_primary.click()
@@ -118,6 +117,7 @@ class RegistrationPage:
         self.job_title()
         self.click_continue_button()
         self.select_topic()
+        time.sleep(5)
         self.click_continue_button()
         self.select_address()
         self.create_account_button()

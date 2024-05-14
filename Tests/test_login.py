@@ -1,3 +1,5 @@
+import time
+
 from Pages import login_page
 from config import Config
 from Pages.login_page import LoginPage
@@ -22,3 +24,4 @@ def test_login_valid_credentials(driver_setup):
     driver.get(Config.base_url)
     login_page = LoginPage(driver)
     login_page.login(loginTestData.valid_credential["validEmail"], loginTestData.valid_credential["password"])
+    time.sleep(30)
