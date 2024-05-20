@@ -5,6 +5,7 @@ from Pages.registration.payment_page import payment_processing
 from Utils.registration_locators import registrationLocators
 from Pages.registration.businessbasic_registration import business_basic_registration
 from selenium.webdriver.support import expected_conditions as EC
+from Pages.registration.Individual_registration_page import RegistrationPage
 from config import Config
 class BusinessPluss:
 
@@ -42,10 +43,11 @@ class BusinessPluss:
         registration_page_instance.click_continue_button()
         business_registration_instance.job_title()
         registration_page_instance.click_continue_button()
-        business_registration_instance.select_topic()
+        registration_page_instance.select_topic()
         registration_page_instance.click_continue_button()
         registration_page_instance.select_address()
         registration_page_instance.create_account_button()
+
         self.add_seats()
         time.sleep(3)
         registration_page_instance.click_continue_button()
@@ -58,6 +60,7 @@ class BusinessPluss:
         payment_screen = payment_processing(driver)
 
         payment_screen.payment_processing()
+        time.sleep(30)
 
 
 

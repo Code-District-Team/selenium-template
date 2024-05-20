@@ -11,32 +11,28 @@ class password_change:
     def __init__(self, driver):
         self.driver = driver
 
-    def skip_account_verification(self):
-        skip_button = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(email_password_locators.skip_onboarding))
-        skip_button.click()
+
     def change_password_button(self):
         change_password_button  = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(email_password_locators.change_password_button))
         change_password_button.click()
 
     def enter_old_password(self, password = loginTestData.valid_credential["password"]):
         old_password_field = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(email_password_locators.old_password_field))
+        old_password_field.click()
         old_password_field.send_keys(password)
 
     def enter_new_password(self):
-        new_password_field = WebDriverWait(self.driver, 10).until(
-            EC.element_to_be_clickable(email_password_locators.new_password_field))
+        new_password_field = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(email_password_locators.new_password_field))
+        new_password_field.click()
         new_password_field.send_keys(email_password_change_data.new_password)
 
     def repeat_new_password(self):
         repeat_password_field = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(email_password_locators.repeat_password_filed))
+        repeat_password_field.click()
         repeat_password_field.send_keys(email_password_change_data.repeat_password)
     def save_password(self):
-        save_button_locator = email_password_locators.save_password_button
-        save_password_button = WebDriverWait(self.driver, 20).until(
-            EC.visibility_of_element_located(save_button_locator))
-
-        # Click on the Save button
-        save_password_button.click()
+        save_button= WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(email_password_locators.save_button))
+        save_button.click()
         time.sleep(3)
 
 

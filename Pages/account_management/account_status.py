@@ -26,7 +26,7 @@ class AccountStatus:
         assert status_message.text == expected_error_message, f"Unexpected email error message: Expected '{expected_error_message}', Found '{status_message.text}'"
 
     def account_activation(self):
-        account_activation_button = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(account_status_locators.suspend_account_button))
+        account_activation_button = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(account_status_locators.active_account_button))
         account_activation_button.click()
         confirm_account_activation = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(account_status_locators.confirm_active_account_button))
         confirm_account_activation.click()
@@ -44,6 +44,10 @@ class AccountStatus:
     def test_account_suspend_and_activation(self) -> object:
         self.account_status_tab()
         self.account_suspend()
+        time.sleep(20)
+        self.account_activation()
+
+
 
     def test_account_delete(self):
         self.account_status_tab()

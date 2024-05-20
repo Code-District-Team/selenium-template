@@ -117,7 +117,7 @@ class RegistrationPage:
         self.job_title()
         self.click_continue_button()
         self.select_topic()
-        time.sleep(5)
+        time.sleep(40)
         self.click_continue_button()
         self.select_address()
         self.create_account_button()
@@ -128,6 +128,6 @@ class RegistrationPage:
         self.driver.switch_to.window(self.driver.window_handles[1])
         self.otp(otp_digits)
         self.click_continue_button()
-        time.sleep(5)
+        time.sleep(20)
 
 

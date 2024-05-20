@@ -43,8 +43,8 @@ class freelance_registration:
         currency_dropdown.click()
         select_currency_type = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(registrationLocators.select_currency))
         select_currency_type.click()
-        minimumprojectsize = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(registrationLocators.minimum_project_size))
-        minimumprojectsize.send_keys(RegistrationTestData.minmum_project_price)
+        minimumProjectsize = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(registrationLocators.minimum_project_size))
+        minimumProjectsize.send_keys(RegistrationTestData.minmum_project_price)
         availability_dropdown = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(registrationLocators.availability_dropdown))
         availability_dropdown.click()
         select_availablity = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(registrationLocators.select_availability))
@@ -83,6 +83,7 @@ class freelance_registration:
         self.click_to_continue()
         area_of_interest = RegistrationPage(driver)
         area_of_interest.select_topic()
+        time.sleep(20)
         self.click_continue_button()
         select_address = RegistrationPage(driver)
         select_address.select_address()
@@ -96,7 +97,7 @@ class freelance_registration:
     def authenticating_user(self, otp_digits):
         self.driver.switch_to.window(self.driver.window_handles[1])
         self.otp(otp_digits)
-        time.sleep(40)
+        time.sleep(10)
         self.click_continue_button()
 
     def freelance_payment(self, driver):

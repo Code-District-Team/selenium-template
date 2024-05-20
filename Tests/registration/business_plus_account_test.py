@@ -25,7 +25,7 @@ def test_individual_signup(driver_setup):
     # Back to guerrilla email to fetch the OTP and then authenticate the user.
     email_inbox_page.wait_for_email_list()
     email_inbox_page.click_verification_email()
-    otp_digits= email_inbox_page.copy_otp()
+    otp_digits = email_inbox_page.copy_otp()
     individual_user.authenticating_user(otp_digits)
 
 #     Payment screen

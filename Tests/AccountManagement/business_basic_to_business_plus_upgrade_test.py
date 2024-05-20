@@ -13,8 +13,6 @@ def test_individual_to_business_plus_upgrade(driver_setup):
     driver.maximize_window()
     login_page.login(loginTestData.valid_credential_busniess_basic_to_business_plus["validEmail"], loginTestData.valid_credential_busniess_basic_to_business_plus["password"])
     time.sleep(30)
-    skip_account_verification = password_change(driver)
-    skip_account_verification.skip_account_verification()
     upgrade_business_basic_to_business_plus = Subscription_upgrade_business_basic_to_business_plus(driver)
     upgrade_business_basic_to_business_plus.upgrade_to_business_plus(driver)
     subscription_payment = Subscription_upgrade_business_basic_to_business_plus(driver)

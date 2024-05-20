@@ -15,7 +15,7 @@ class Subscription_upgrade_business_basic_to_business_plus:
         upgrade_to_business_plus_button = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(Subscriptionupgradelocators.upgrade_to_business_plus))
         upgrade_to_business_plus_button.click()
     def click_continue_to_payment(self):
-        click_to_continue = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(Subscriptionupgradelocators.proceed_to_business_plus_payment))
+        click_to_continue = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(Subscriptionupgradelocators.continue_button))
         click_to_continue.click()
 
 
@@ -24,7 +24,7 @@ class Subscription_upgrade_business_basic_to_business_plus:
         self.click_to_upgrade_business_plus()
         increase_seats = Subscription_upgrade_individual_to_business_plus(driver_setup)
         increase_seats.increase_seat_number()
-        time.sleep(15)
+        time.sleep(10)
         self.click_continue_to_payment()
 
     def payment_for_subscription_upgrade(self, driver):
