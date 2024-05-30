@@ -3,8 +3,8 @@ import time
 from config import Config
 from Pages.login_page import LoginPage
 from Resources.loginData import loginTestData
-from Pages.account_management.account_status import AccountStatus
-from Pages.account_management.password_change import password_change
+from Pages.userprofile.account_management.account_status import AccountStatus
+
 
 def test_account_suspend_activation(driver_setup):
     driver = driver_setup

@@ -3,7 +3,7 @@ import time
 from config import Config
 from Pages.login_page import LoginPage
 from Resources.loginData import loginTestData
-from Pages.onboarding.freelance_onbaording import FreelanceOnboardingPage
+from Pages.userprofile.onboarding import FreelanceOnboardingPage
 
 def test_freelance_onboarding(driver_setup):
     driver = driver_setup

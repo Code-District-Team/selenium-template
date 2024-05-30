@@ -2,10 +2,10 @@ import os
 import pyautogui
 from selenium.webdriver import Keys
 from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 import time
 from Utils.onboardingLocators import onboardingLocators
 from Resources.onboarding_data import onboardingTestData
-from selenium.webdriver.support import expected_conditions as EC
 
 class OnboardingPage:
     def __init__(self, driver: object) -> object:
@@ -78,6 +78,7 @@ class OnboardingPage:
     def tagline(self):
         tagline = WebDriverWait(self.driver, 60).until(EC.element_to_be_clickable(onboardingLocators.tagline))
         tagline.send_keys("We are dreamers")
+        time.sleep(40)
 
     def wait_and_click(self, locator):
         print(f"Waiting for element {locator} to be clickable...")

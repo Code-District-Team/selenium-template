@@ -3,7 +3,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 import time
 from Utils.registration_locators import registrationLocators
 from Resources.registration_data import RegistrationTestData
-from Pages.registration.guerilla_mail import GuerrillaMailPage,EmailInboxPage
+from Pages.userprofile.registration.guerilla_mail import GuerrillaMailPage,EmailInboxPage
 from selenium.webdriver.support import expected_conditions as EC
 from config import Config
 
@@ -117,7 +117,7 @@ class RegistrationPage:
         self.job_title()
         self.click_continue_button()
         self.select_topic()
-        time.sleep(40)
+        time.sleep(10)
         self.click_continue_button()
         self.select_address()
         self.create_account_button()

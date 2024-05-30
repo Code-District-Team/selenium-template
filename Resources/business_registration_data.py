@@ -2,7 +2,7 @@ import random
 import string
 
 
-class buisness_registrationTestData:
+class business_registrationTestData:
     def generate_random_letters(length=8):
         letters = string.ascii_letters
         return ''.join(random.choice(letters) for _ in range(length))

@@ -5,8 +5,8 @@ from Resources.loginData import loginTestData
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 from Resources.registration_data import RegistrationTestData
-from Pages.registration.payment_page import payment_processing
-from Pages.registration.freerlance_registration_page import freelance_registration
+from Pages.userprofile.registration.payment_page import payment_processing
+from Pages.userprofile.registration.freerlance_registration_page import freelance_registration
 class Subscription_upgrade_individual_to_freelance:
     def __init__(self, driver):
         self.driver = driver
@@ -32,7 +32,7 @@ class Subscription_upgrade_individual_to_freelance:
     def upgrade_subcription_indvidual_to_free_lance(self, driver):
         self.navigate_to_subscription_tab()
         self.click_to_upgrade_freelance()
-        time.sleep(60)
+        time.sleep(20)
         self.click_to_continue_button()
         self.click_to_continue_button()
         self.click_to_next()

@@ -1,8 +1,8 @@
 import time
 
 from config import Config
-from Pages.registration.freerlance_registration_page import freelance_registration
-from Pages.registration.guerilla_mail import GuerrillaMailPage,EmailInboxPage
+from Pages.userprofile.registration.freerlance_registration_page import freelance_registration
+from Pages.userprofile.registration.guerilla_mail import GuerrillaMailPage,EmailInboxPage
 
 
 

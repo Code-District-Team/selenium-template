@@ -1,8 +1,7 @@
 from config import Config
 from Pages.login_page import LoginPage
 from Resources.loginData import loginTestData
-from Pages.account_management.password_change import password_change
-from Pages.account_management.subscription_upgrade_business_basic_to_business_plus import Subscription_upgrade_business_basic_to_business_plus
+from Pages.userprofile.account_management.subscription_upgrade_business_basic_to_business_plus import Subscription_upgrade_business_basic_to_business_plus
 import time
 
 

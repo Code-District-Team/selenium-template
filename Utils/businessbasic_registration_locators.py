@@ -4,10 +4,8 @@ from selenium.webdriver.common.by import By
 class busniness_registrationLocators:
     business_basic_option = (By.XPATH, "//label[3]")
     business_basic_dropdown = (By.XPATH, "//input[@id=':r1:']")
-    add_business_select = (By.ID, "btn-add-business")
     email_input_field = (By.NAME, "businessEmail")
     company_name_input_field = (By.ID, "businessName")
-    business_division_name = (By.ID, "business-unit-name")
     business_url = (By.ID, "businessUrl")
     continue_button = (By.ID, "addBusinessContinue")
     country_dropdown = (By.XPATH, "//input[@id=':r4:']")

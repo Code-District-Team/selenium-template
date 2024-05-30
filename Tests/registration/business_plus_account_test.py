@@ -1,8 +1,8 @@
 import time
 
-from Pages.registration.business_plus_registration import BusinessPluss
-from Pages.registration.guerilla_mail import GuerrillaMailPage,EmailInboxPage
-from Pages.registration.Individual_registration_page import RegistrationPage
+from Pages.userprofile.registration.business_plus_registration import BusinessPluss
+from Pages.userprofile.registration.guerilla_mail import GuerrillaMailPage,EmailInboxPage
+from Pages.userprofile.registration.Individual_registration_page import RegistrationPage
 
 
 

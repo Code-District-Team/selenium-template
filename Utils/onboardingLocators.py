@@ -21,10 +21,11 @@ class onboardingLocators:
     snapchatUrlText = (By.NAME, "snapChatUrl")
     instgramUrlText = (By.NAME, "instagramUrl")
     titleText = (By.NAME, "title")
-    projectDescription = (By.NAME, "description")
+    projectDescription = (By.TAG_NAME, "textarea")
     projectUrl = (By.NAME, "projectUrl")
     descriptionInputText = (By.NAME, "businessOverviewDescription")
     updateButtonFreelance = (By.XPATH, "//button[normalize-space()='Update']")
+
 
 
 

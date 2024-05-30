@@ -7,11 +7,11 @@ from selenium.webdriver.common.by import By
 
 
 from selenium.webdriver.support import expected_conditions as EC
-from Pages.registration.payment_page import payment_processing
+from Pages.userprofile.registration.payment_page import payment_processing
 from selenium.webdriver.support.ui import WebDriverWait
 from Utils.registration_locators import registrationLocators
 from config import Config
-from Pages.registration.Individual_registration_page import RegistrationPage
+from Pages.userprofile.registration.Individual_registration_page import RegistrationPage
 class freelance_registration:
     def __init__(self, driver):
         self.driver = driver
@@ -83,7 +83,7 @@ class freelance_registration:
         self.click_to_continue()
         area_of_interest = RegistrationPage(driver)
         area_of_interest.select_topic()
-        time.sleep(20)
+        time.sleep(10)
         self.click_continue_button()
         select_address = RegistrationPage(driver)
         select_address.select_address()
