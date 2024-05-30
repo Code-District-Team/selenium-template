@@ -1,4 +1,6 @@
 import time
+import os
+import pyautogui
 
 from Utils.profile_locators import profileLocators
 from selenium.webdriver.support import expected_conditions as EC
@@ -13,6 +15,17 @@ class Userprofile:
 
         viewProfileButton = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(profileLocators.viewProfile))
         viewProfileButton.click()
+
+    def uploadProfileImage(self):
+        editProfileImage = WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable(profileLocators.editProfileImage))
+        editProfileImage.click()
+        self.wait_and_click(profileLocators.addImage)
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        file_path = os.path.join(current_dir, 'Profile image', "profile.jpg")
+        pyautogui.sleep(1)
+        pyautogui.typewrite(file_path)
+        pyautogui.press("enter")
+        time.sleep(10)
     def click_on_edit(self):
         editButton = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(profileLocators.editButton))
         editButton.click()

@@ -1,3 +1,4 @@
+from typing import Tuple
 
 from selenium.webdriver.common.by import By
 class profileLocators:
@@ -50,6 +51,15 @@ class profileLocators:
     inviteButton = (By.XPATH, "//button[normalize-space()='Invite new']")
     markMember = (By.XPATH, "(//input[@type='checkbox'])[2]")
     inviteSelected = (By.XPATH, "//button[normalize-space()='Invite selected']")
+    followButton = (By.XPATH, "//a[normalize-space()='Follow']")
+    unFollow = (By.XPATH, "//a[normalize-space()='Following']")
+    sendBusinessCard = (By.ID, "btn-send-business")
+    sendRequest = (By.XPATH, "(//button[normalize-space()='Send request'])[1]")
+    editProfileImage: tuple[str, str] = (By.XPATH, "//div[@class='MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault avatar-badge mui-vkkhjl']//*[name()='svg']")
+    addImage = (By.XPATH, "//p[@class='MuiTypography-root MuiTypography-body1 text-primary mui-1w6h4uc']")
+    addCoverPhoto = (By.XPATH, "//button[normalize-space()='Change Cover Photo']")
+    changeCoverPhoto = (By.ID, "obdBtnChangePhoto")
+
 
 
 
