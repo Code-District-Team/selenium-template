@@ -8,7 +8,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from Resources.businessInfo_data import businessInfoData
 from Pages.businessprofile.businessinfo import Businessinfo
 
-class businessTrade:
+class businesstrade:
     def __init__(self, driver):
         self.driver = driver
 
@@ -94,8 +94,10 @@ class businessTrade:
         saveButton = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(tradelocators.saveButton))
         saveButton.click()
     def tradeInfo(self, driver):
-        businessTab = Businessinfo(driver)
-        businessTab.navigate_to_business_tab()
+        businessTab_instance = Businessinfo(driver)
+        businessTab_instance.skip_account_verification()
+        businessTab_instance.skip_account_verification()
+        businessTab_instance.navigate_to_business_tab()
         self.navigate_to_trade_tab()
         time.sleep(10)
         self.add_brands()
