@@ -10,7 +10,7 @@ class buyerIntentLocators:
     serviceTypeChildOption_1 = (By.XPATH, "(//span[@class='MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label mui-1w6h4uc'])[1]")
     doneButton = (By.ID, "areaOfInterestBtnDone")
     interestLevelInput = (By.ID, "mui-component-select-interestLevel")
-    interestLevelOption = (By.ID, "//li[normalize-space()='Planning budgeting']")
+    interestLevelOption = (By.XPATH, "//li[normalize-space()='Planning budgeting']")
     submitButton = (By.XPATH, "//button[@type='submit']")
     productTab = (By.XPATH, "//button[normalize-space()='Products']")
     productTabParentOption = (By.XPATH, "//h6[normalize-space()='Retail Trade (13)']")

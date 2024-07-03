@@ -1,6 +1,8 @@
+
+from faker import Faker
 class onboardingTestData:
     email = "anything@8pyk8lj3.mailosaur.net"
-    username = "umer"
+    username = Faker.name()
     surname = "ehsan"
     password = "Code@4180"
     address = "Lahore"

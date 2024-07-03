@@ -10,7 +10,7 @@ class tradelocators:
     addAcceptedCurrencyButton = (By.XPATH, "(//button[@type='button'][normalize-space()='Add more'])[3]")
     addAcceptedCurrencyButtonOption = (By.ID,"tags-standard-option-1")
     addNearestPortButton = (By.XPATH, "//button[@class='MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeLarge MuiButton-outlinedSizeLarge MuiButton-fullWidth MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeLarge MuiButton-outlinedSizeLarge MuiButton-fullWidth !mt-8 mui-1itomeg']//span[@class='MuiButton-startIcon MuiButton-iconSizeLarge mui-coclz']//*[name()='svg']")
-    choseCountry = (By.CLASS_NAME, "MuiInputBase-input MuiInput-input MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused mui-1ev6tyo")
+    choseCountry = (By.XPATH, "/html/body/div[5]/div[3]/div/div[2]/form/div[1]/div/div/input")
     chooseState = (By.ID, "mui-component-select-province")
     chooseStateOption = (By.XPATH, "//li[contains(text(),'Badakhshān (AF-BDS)')]")
     cityInput = (By.ID, "city")

@@ -5,7 +5,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 
 
-class userprofile:
+class User_follow_unfollow:
     def __init__(self, driver):
         self.driver = driver
 
@@ -18,7 +18,8 @@ class userprofile:
     def sendBusinessCardRequest(self):
         sendBusinessCard = WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable(profileLocators.sendBusinessCard))
         sendBusinessCard.click()
-        sendRequest = WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable(profileLocators.sendRequest))
+        time.sleep(10)
+        sendRequest = WebDriverWait(self.driver, 40).until(EC.element_to_be_clickable(profileLocators.sendRequest))
         sendRequest.click()
     def test_userprofile(self):
         self.follow_user()

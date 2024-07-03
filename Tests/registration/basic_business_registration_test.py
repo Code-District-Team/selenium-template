@@ -1,4 +1,4 @@
-from config import Config
+
 from Pages.userprofile.registration.businessbasic_registration import business_basic_registration
 from Pages.userprofile.registration.guerilla_mail import GuerrillaMailPage,EmailInboxPage
 

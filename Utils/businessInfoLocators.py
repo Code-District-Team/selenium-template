@@ -12,14 +12,15 @@ class businessInfoLocators:
     businessContactFax = (By.XPATH, "//input[@name='businessFax']")
     changeBusinessContact = (By.XPATH, "//div[@class='MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root account-card !relative mui-r4co1p']//button[@id='change-info']")
     businessEmail = (By.NAME, "businessEmail")
-    changeLocation = (By.XPATH, "(//button[@id='change-info'])[5]")
-    countryDropdown = (By.CLASS_NAME, "MuiInputBase-input MuiInput-input MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused mui-1ev6tyo")
+    changeLocation = (By.XPATH, "(//button[@id='change-info'])[7]")
+    countryDropdown = (By.XPATH, "/html[1]/body[1]/div[3]/div[3]/div[1]/div[3]/div[1]/div[8]/div[1]/form[1]/div[1]/div[1]/div[1]/input[1]")
     stateDropdown = (By.XPATH, "//div[@id='mui-component-select-province']")
     stateDropdownOption = (By.XPATH, "//li[normalize-space()='Berat (AL-01)']")
     cityInput = (By.ID, "city")
     zipCode = (By.ID, "zip-code")
     streetAddress = (By.ID, "street-address")
     saveLocation = (By.XPATH, "//button[@type='submit']")
+    skipAccountVerification = (By.ID, "verifyBtnSkip")
 
 
 

@@ -27,3 +27,6 @@ urllib3==2.2.1
 wheel==0.38.4
 wsproto==1.2.0
 pyautogui == 0.9.54
+
+requests~=2.32.3
+Faker~=25.3.0

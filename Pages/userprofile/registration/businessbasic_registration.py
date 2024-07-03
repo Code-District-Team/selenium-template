@@ -23,7 +23,6 @@ class business_basic_registration:
     def click_signup_button(self):
         signup_button = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(registrationLocators.signup_button))
         signup_button.click()
-        self.driver.maximize_window()
     time.sleep(3)
     def select_business_basic_option(self):
         business_basic_option = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(busniness_registrationLocators.business_basic_option))
@@ -34,7 +33,7 @@ class business_basic_registration:
     def add_business(self):
         business_dropdown = WebDriverWait(self.driver, 40).until(EC.element_to_be_clickable(busniness_registrationLocators.business_basic_dropdown))
         business_dropdown.click()
-        add_business = WebDriverWait(self.driver, 40).until(EC.element_to_be_clickable(busniness_registrationLocators.add_business_select))
+        add_business = WebDriverWait(self.driver, 40).until(EC.element_to_be_clickable(busniness_registrationLocators.addBusinessBtn))
         add_business.click()
         enter_email = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(busniness_registrationLocators.email_input_field))
         enter_email.send_keys(business_registrationTestData.business_email)
@@ -46,7 +45,7 @@ class business_basic_registration:
         continue_button.click()
         country_dropdown = WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable(busniness_registrationLocators.country_dropdown))
         country_dropdown.click()
-        time.sleep(20)
+        time.sleep(5)
         country_dropdown.send_keys(business_registrationTestData.country_name)
         country_dropdown.send_keys(Keys.ENTER)
         state_dropdown = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(busniness_registrationLocators.state_dropdown))
@@ -172,7 +171,7 @@ class business_basic_registration:
         self.otp(otp_digits)
         time.sleep(3)
         self.click_continue_button()
-        time.sleep(30)
+        time.sleep(5)
 
 
 

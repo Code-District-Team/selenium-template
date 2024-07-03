@@ -35,7 +35,8 @@ class busniness_registrationLocators:
     jobTitle_dropdown = (By.ID, ":ri:")
     jobTitle_option = (By.ID, ":ri:-option-0")
     startDate_field = (By.ID, ":rm:")
-    startDate_option = (By.XPATH, "//button[normalize-space()='13']")
+    startDate_option = (By.XPATH, "//button[normalize-space()='1']")
+    addBusinessBtn = (By.XPATH, "//p[@class='MuiTypography-root MuiTypography-body1 body1 mui-1w6h4uc']")
 
 
 

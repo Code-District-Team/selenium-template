@@ -14,7 +14,7 @@ class LoginPage:
     def enter_email(self, email):
         email_field = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located( loginLocators.email_textbox))
         email_field.send_keys(email)
-        
+
 
     def enter_password(self, password):
         password_field = WebDriverWait(self.driver, 15).until(EC.visibility_of_element_located(loginLocators.password_textbox))
@@ -57,7 +57,8 @@ class LoginPage:
     def login(self, email, password):
         self.enter_email(email)
         self.enter_password(password)
+        time.sleep(10)
         self.click_login()
-        time.sleep(3)
+        time.sleep(20)
 
 

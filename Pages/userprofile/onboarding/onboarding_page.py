@@ -89,7 +89,7 @@ class OnboardingPage:
 
     def scroll_to_element(self, element):
         self.driver.execute_script("arguments[0].scrollIntoView(true);", element)
-        time.sleep(1)  # Give some time for scrolling to finish
+        time.sleep(1)
 
     def onboarding_start(self):
         self.click_start_onboarding_button()

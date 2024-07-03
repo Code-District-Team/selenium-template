@@ -29,7 +29,7 @@ class registrationLocators:
     workplace_freelance_option = (By.XPATH, '/html[1]/body[1]/div[3]/div[1]/ul[1]/li[4]/div[2]/span[1]')
     start_date = (By.ID, ":r6:")
     start_date_freelance = (By.XPATH, "/html[1]/body[1]/div[2]/div[2]/div[1]/form[1]/div[1]/div[4]/div[1]/div[1]/div[1]/input[1]")
-    start_date_select = (By.XPATH, "/html/body/div[3]/div[2]/div/div/div/div[2]/div/div/div[2]/div/div[3]/button[2]")
+    start_date_select = (By.XPATH, "//button[normalize-space()='1']")
     browse_button = (By.XPATH, "(//button[@id='btn-browse'])[1]")
     select_topic_primary = (By.XPATH, "//h6[normalize-space()='Life (6)']")
     select_topic_2nd_tree = (By.XPATH, "//p[normalize-space()='Family (8)']")

@@ -78,10 +78,6 @@ class RegistrationPage:
         select_state = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(registrationLocators.select_state))
         select_state.click()
         time.sleep(1)
-        city_text = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(registrationLocators.city_text))
-        city_text.send_keys(RegistrationTestData.address)
-        zipcode_text = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(registrationLocators.zipcode_text))
-        zipcode_text.send_keys(RegistrationTestData.zipcode)
         street_address_text = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(registrationLocators.street_address_text))
         street_address_text.send_keys(RegistrationTestData.street_address)
 

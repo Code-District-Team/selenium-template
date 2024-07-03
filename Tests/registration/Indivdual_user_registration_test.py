@@ -35,5 +35,4 @@ def test_individual_signup(driver_setup):
     except Exception as e:
         print(f"Test failed: {str(e)}")
         take_screenshot(driver, "screenshot")
-    finally:
-        driver.quit()
+

@@ -5,10 +5,8 @@ from selenium.webdriver import Keys
 from Utils.byerintentLocators import buyerIntentLocators
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
-from Resources.businessInfo_data import businessInfoData
-from Pages.businessprofile.businessinfo import Businessinfo
 
-class  buyerIntent:
+class  buyerintent:
     def __init__(self, driver):
         self.driver = driver
 
@@ -62,9 +60,12 @@ class  buyerIntent:
     def buyer_intent(self):
         self.navigate_to_buyer_intent()
         time.sleep(10)
+        self.add_buyer_service()
         self.delete_Intent()
         time.sleep(10)
+        self.navigate_to_product_tab()
         self.add_a_product()
+        time.sleep(10)
 
 
 

@@ -1,22 +1,20 @@
 import random
 import string
+from faker import Faker
 
 
 class business_registrationTestData:
-    def generate_random_letters(length=8):
-        letters = string.ascii_letters
-        return ''.join(random.choice(letters) for _ in range(length))
+    faker = Faker()
 
-    business_email = "test@codedistrict.com"
+    business_email = faker.email()
 
-    business_name = generate_random_letters()
+    business_name = faker.company()
     business_unit_name = "Automation"
     business_url = "https://codedistrict.com"
     revenue = "10000"
     company_size = "100"
     country_name = "Afghanistan"
-    city_name = "Lahore"
-    postalcode = "50000"
-    street_address = "Queens road"
-    basic_user_email = "asad.hafeez+909@codedistrict.com"
+    city_name = faker.city()
+    postalcode = faker.zipcode_plus4()
+    street_address = faker.street_address()
 
