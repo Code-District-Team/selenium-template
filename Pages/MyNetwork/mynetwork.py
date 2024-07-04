@@ -99,6 +99,7 @@ class NetworkPage:
     def navigate_to_block_tab(self):
         contactsTab = WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable(mynetworkLocators.blockTab))
         contactsTab.click()
+
     def verify_block_tab(self):
         getUserABlock = WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable(mynetworkLocators.userBFollowing))
         userA = getUserABlock.text
