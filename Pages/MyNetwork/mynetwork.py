@@ -92,9 +92,9 @@ class NetworkPage:
         acceptButton = WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable(profileLocators.acceptButton))
         acceptButton.click()
         # assertion
-        businessalert_ = WebDriverWait(self.driver, 30).until(
+        businessAlert_ = WebDriverWait(self.driver, 30).until(
             EC.visibility_of_element_located(profileLocators.businessAlert))
-        expected_text = businessalert_.text
+        expected_text = businessAlert_.text
         actual_text = "Invitation has been Accepted."
         assert actual_text == expected_text, f"Expected '{expected_text}', but got '{actual_text}'"
         print("User B accepts User A's business card request")
