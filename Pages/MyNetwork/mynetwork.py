@@ -14,7 +14,7 @@ class NetworkPage:
     def follow_send_business_card(self):
         followUser = WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable(profileLocators.followButton))
         followUser.click()
-        time.sleep(5)
+        time.sleep(2)
     def send_business_card(self):
         sendBusinessCard = WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable(profileLocators.sendBusinessCard))
         sendBusinessCard.click()
@@ -40,7 +40,7 @@ class NetworkPage:
     def navigate_to_sent_business_card_tab(self):
         sentBusinessCardTab = WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable(mynetworkLocators.sentBusinessCardTab))
         sentBusinessCardTab.click()
-    def verif_sent_business_card_tab(self):
+    def verify_sent_business_card_tab(self):
         getUserBBusinessCard = WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable(mynetworkLocators.userABusinessCard))
         userB = getUserBBusinessCard.text
         if userB == MyNetwork.name2:
@@ -50,6 +50,7 @@ class NetworkPage:
     def sign_out(self):
         profileAvtar = WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable(mynetworkLocators.profileAvtar))
         profileAvtar.click()
+        time.sleep(5)
         sign_outButton = WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable(mynetworkLocators.sign_outButton))
         sign_outButton.click()
     def navigate_to_login_page(self):
@@ -93,7 +94,7 @@ class NetworkPage:
         viewBusinessCardRequest.click()
         blockButton = WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable(mynetworkLocators.blockUser))
         blockButton.click()
-        time.sleep(5)
+        time.sleep(3)
         notificationButton = WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable(profileLocators.notificationButton))
         notificationButton.click()
     def navigate_to_block_tab(self):
@@ -123,29 +124,29 @@ class NetworkPage:
         self.navigate_to_mynetwork()
         self.navigate_to_following_tab()
         self.verify_following_tab()
-        time.sleep(10)
+        time.sleep(3)
         self.navigate_to_business_card_tab()
         self.navigate_to_sent_business_card_tab()
-        self.verif_sent_business_card_tab()
+        self.verify_sent_business_card_tab()
         self.sign_out()
-        time.sleep(10)
+        time.sleep(3)
         self.navigate_to_login_page()
     def network_Tab_for_UserB(self):
         self.accept_business_card()
-        time.sleep(5)
+        time.sleep(2)
         self.navigate_to_mynetwork()
-        time.sleep(10)
+        time.sleep(2)
         self.verify_contacts()
         self.navigate_to_followers_tab()
         self.verify_followers_tab()
         self.unfollow_User()
-        time.sleep(5)
+        time.sleep(2)
         self.navigate_to_following_tab()
-        time.sleep(5)
+        time.sleep(2)
         self.verify_user_unfollowed()
-        time.sleep(5)
+        time.sleep(2)
         self.navigate_to_followers_tab()
-        time.sleep(10)
+        time.sleep(5)
     def block_business_card_request(self):
         self.block_user_request()
         self.navigate_to_mynetwork()
