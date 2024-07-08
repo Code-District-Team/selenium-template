@@ -62,6 +62,8 @@ class profileLocators:
     loginButton = (By.XPATH, "//a[normalize-space()='Log In']")
     notificationButton = (By.XPATH, "(//div[@class='MuiBackdrop-root MuiModal-backdrop mui-919eu4'])[1]")
     acceptButton = (By.XPATH, "(//button[normalize-space()='Accept'])[1]")
+    sendMessage = (By.XPATH, "//textarea[starts-with(@id,':r')]")
+    businessAlert = (By.XPATH, "//div[@role='status']")
 
 
 

@@ -63,9 +63,9 @@ def navigate_to_user_two_profile(driver_setup):
         driver.switch_to.window(driver.window_handles[-1])
         time.sleep(5)  # Wait for the new page to load
         skip_account_verification(Businessinfo(driver))
-        time.sleep(5)
+        time.sleep(10)
         follow_sendcard(NetworkPage(driver))
-        time.sleep(5)
+        time.sleep(10)
 
         # Close the new window
         driver.close()
@@ -109,19 +109,17 @@ def userB_Network_tab(follow_sendcard_fixture):
     follow_sendcard_fixture.network_Tab_for_UserB()
 
 
-def test_mynetwork(create_user, skip_account_verification_fixture, login_page, navigate_to_user_two_profile,
-                   follow_sendcard_fixture, login_user_b_fixture):
+def test_block_unblock(create_user, skip_account_verification_fixture, login_page, navigate_to_user_two_profile,follow_sendcard_fixture, login_user_b_fixture):
     signup(create_user)
-    time.sleep(3)
+    time.sleep(5)
     skip_account_verification(skip_account_verification_fixture)
-    time.sleep(3)
+    time.sleep(5)
     navigate_to_user_two_profile()
-    time.sleep(3)
+    time.sleep(5)
     userA_Network_tab(follow_sendcard_fixture)
-    time.sleep(3)
+    time.sleep(5)
     login_user_b(login_user_b_fixture)
-    time.sleep(3)
+    time.sleep(5)
     skip_account_verification(skip_account_verification_fixture)
-    time.sleep(3)
-    userB_Network_tab(follow_sendcard_fixture)
-
+    time.sleep(5)
+    bloclock_unblock(follow_sendcard_fixture)
