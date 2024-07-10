@@ -31,9 +31,9 @@ class NetworkPage:
         sendMessage_.send_keys(" This is a test message!! ")
         sendRequest = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(profileLocators.sendRequest))
         sendRequest.click()
-        businessalert_ = WebDriverWait(self.driver, 30).until(
+        businessAlert_ = WebDriverWait(self.driver, 30).until(
             EC.visibility_of_element_located(profileLocators.businessAlert))
-        expected_text = businessalert_.text
+        expected_text = businessAlert_.text
         actual_text = "1 Business Requests sent successfully."
         assert actual_text == expected_text, f"Expected '{expected_text}', but got '{actual_text}'"
         print("User A successfully sent the business card request")

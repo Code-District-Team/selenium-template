@@ -1,6 +1,12 @@
 from selenium.webdriver.common.by import By
+import faker as Faker
+
+
+
 class registrationLocators:
-    signup_button = (By.ID, "btn-signup")
+
+
+    signup_button = (By.ID, "btnJoinForFree")
     freelance_option = (By.XPATH, "//label[2]")
     business_basic_option = (By.XPATH, "//input[@value='businessFree']")
     continue_button = (By.ID,"regBtnContinue")
@@ -12,8 +18,7 @@ class registrationLocators:
     surname_text = (By.ID, "surname")
     newPassword_text = (By.NAME, "password")
     repeatPassword_text = (By.NAME, "confirmPassword")
-    jobTitle_dropdown = (By.XPATH, "/html[1]/body[1]/div[2]/div[2]/div[1]/form[1]/div[1]/div[1]/div[1]/div[1]/input[1]")
-    jobTitle_dropdownitle_option = (By.XPATH,"/html[1]/body[1]/div[3]/div[1]/ul[1]/li[1]")
+    jobTitle_input = (By.XPATH, "//input[@placeholder='Search your job title here']")
     jobTitle_freelance = (By.XPATH, "/html[1]/body[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/li[3]")
     otp_text_1 = (By.XPATH, "(//input[@aria-label='Please enter OTP character 1'])[1]")
     otp_text_2 = (By.XPATH, "(//input[@aria-label='Please enter OTP character 2'])[1]")
@@ -22,14 +27,11 @@ class registrationLocators:
     otp_text_5 = (By.XPATH, "(//input[@aria-label='Please enter OTP character 5'])[1]")
     otp_text_6 = (By.XPATH, "(//input[@aria-label='Please enter OTP character 6'])[1]")
 
-    workplace_dropdown = (By.ID, ":r4:")
+    workplace_dropdown = (By.XPATH, "//div[starts-with(@class,'MuiAutocomplete') and @name='businessId']//div[starts-with(@class,'MuiInputBase')]//input")
     selfemployeed_checkbox = (By.XPATH, "//span[@class='MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label mui-1w6h4uc']")
-    workplace_option = (By.ID, ":r4:-option-0")
-    workplace_freelance_dropdown = (By.XPATH, "/html[1]/body[1]/div[2]/div[2]/div[1]/form[1]/div[1]/div[3]/div[1]/div[1]/input[1]")
-    workplace_freelance_option = (By.XPATH, '/html[1]/body[1]/div[3]/div[1]/ul[1]/li[4]/div[2]/span[1]')
-    start_date = (By.ID, ":r6:")
+    start_date = (By.XPATH, "//input[@placeholder='MMMM YYYY' and @type='text' ]")
     start_date_freelance = (By.XPATH, "/html[1]/body[1]/div[2]/div[2]/div[1]/form[1]/div[1]/div[4]/div[1]/div[1]/div[1]/input[1]")
-    start_date_select = (By.XPATH, "//button[normalize-space()='1']")
+    start_date_year = (By.XPATH, "//button[@type='button' and @role='radio' and @tabindex='0' and @aria-current='date' and @aria-checked='false' and contains(@class, 'MuiPickersYear-yearButton') and text()='2024']")
     browse_button = (By.XPATH, "(//button[@id='btn-browse'])[1]")
     select_topic_primary = (By.XPATH, "//h6[normalize-space()='Life (6)']")
     select_topic_2nd_tree = (By.XPATH, "//p[normalize-space()='Family (8)']")
