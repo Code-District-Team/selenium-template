@@ -7,6 +7,9 @@ from selenium.webdriver.support import expected_conditions as EC
 class LoginPage:
     def __init__(self, driver):
         self.driver = driver
+    def navigate_to_login_page(self):
+        loginPage= WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located( loginLocators.loginPage))
+        loginPage.click()
 
     def wait_for_element_visibility(self, locator):
         return WebDriverWait(self.driver, 15).until(EC.visibility_of_element_located(locator))
@@ -55,6 +58,7 @@ class LoginPage:
         assert status_message.text == error_message, f"Unexpected email error message: Expected '{error_message}', Found '{status_message.text}'"
 
     def login(self, email, password):
+        self.navigate_to_login_page()
         self.enter_email(email)
         self.enter_password(password)
         time.sleep(10)

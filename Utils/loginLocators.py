@@ -2,6 +2,7 @@ import selenium.webdriver.common.by
 
 
 class loginLocators:
+    loginPage = (selenium.webdriver.common.by.By.ID, "btnLogin")
     email_textbox = (selenium.webdriver.common.by.By.ID, "login-email")
     password_textbox = (selenium.webdriver.common.by.By.ID, "password-input")
     login_button = (selenium.webdriver.common.by.By.XPATH, "(//button[normalize-space()='Log In'])[1]")
