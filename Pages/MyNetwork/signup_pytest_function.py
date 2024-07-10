@@ -69,7 +69,7 @@ class MyNetwork:
         print(response.status_code)
         return response
 
-    def signup(self):
+    def signup_test(self):
         user_data = [self.generate_user_data() for _ in range(2)]
         for index, data in enumerate(user_data):
             base_url = self.base_url
