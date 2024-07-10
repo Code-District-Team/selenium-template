@@ -69,26 +69,26 @@ class IndividualSignup:
         return response
 
 
-@pytest.fixture(scope="module")
-def user_data():
-    return IndividualSignup.generate_user_data()
+    @pytest.fixture(scope="module")
+    def user_data(self):
+        return IndividualSignup.generate_user_data()
 
 
-def test_signup(user_data):
-    base_url = IndividualSignup.base_url
+    def signup(self):
+        base_url = IndividualSignup.base_url
 
-    # Create Cognito user
-    cognito_user_payload, create_user_payload, email, password, name = user_data
-    cognito_response, message = IndividualSignup.cognition_user(base_url, cognito_user_payload)
-    assert cognito_response.status_code == 201, "Failed to create Cognito user"
+        # Create Cognito user
+        cognito_user_payload, create_user_payload, email, password, name = self.generate_user_data()
+        cognito_response, message = IndividualSignup.cognition_user(base_url, cognito_user_payload)
+        assert cognito_response.status_code == 201, "Failed to create Cognito user"
 
-    # Create user
-    user_response = IndividualSignup.create_user(base_url, create_user_payload)
-    assert user_response.status_code == 201, "Failed to create user"
+        # Create user
+        user_response = IndividualSignup.create_user(base_url, create_user_payload)
+        assert user_response.status_code == 201, "Failed to create user"
 
-    print("User Created Successfully")
-    print("Username: ", name)
-    print("Password: ", password)
-    print("Email: ", email)
+        print("User Created Successfully")
+        print("Username: ", name)
+        print("Password: ", password)
+        print("Email: ", email)
 
-    return email, password
+        return email, password
