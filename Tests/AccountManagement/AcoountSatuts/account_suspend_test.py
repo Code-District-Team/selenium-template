@@ -1,9 +1,10 @@
 import time
 
-from config import Config
+
 from Pages.login_page import LoginPage
-from Resources.loginData import loginTestData
 from Pages.userprofile.account_management.account_status import AccountStatus
+from Resources.loginData import loginTestData
+from config import Config
 
 
 def test_account_suspend_activation(driver_setup):
