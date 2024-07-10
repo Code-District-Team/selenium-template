@@ -7,8 +7,8 @@ from Utils.businessbasic_registration_locators import busniness_registrationLoca
 from Resources.business_registration_data import business_registrationTestData
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
-from Pages.userprofile.registration.businessbasic_registration import business_basic_registration
-from Pages.userprofile.registration.Individual_registration_page import RegistrationPage
+from Pages.userprofile.Registration.businessbasic_registration import business_basic_registration
+from Pages.userprofile.Registration.Individual_registration_page import RegistrationPage
 class Subscription_upgrade_individual_to_business_basic:
     def __init__(self, driver):
         self.driver = driver

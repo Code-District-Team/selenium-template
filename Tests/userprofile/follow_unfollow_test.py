@@ -3,7 +3,7 @@ import time
 from Pages.userprofile.user_follow_unfollw import User_follow_unfollow
 from config import Config
 from Pages.businessprofile.businessinfo import Businessinfo
-from Pages.userprofile.registration.businessbasic_registration import business_basic_registration
+from Pages.userprofile.Registration.businessbasic_registration import business_basic_registration
 from Pages.login_page import LoginPage
 from Resources.loginData import loginTestData
 def testfollow_unfollow(driver_setup):

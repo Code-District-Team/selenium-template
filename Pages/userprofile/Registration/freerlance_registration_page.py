@@ -7,11 +7,11 @@ from selenium.webdriver.common.by import By
 
 
 from selenium.webdriver.support import expected_conditions as EC
-from Pages.userprofile.registration.payment_page import payment_processing
+from Pages.userprofile.Registration.payment_page import payment_processing
 from selenium.webdriver.support.ui import WebDriverWait
 from Utils.registration_locators import registrationLocators
 from config import Config
-from Pages.userprofile.registration.Individual_registration_page import RegistrationPage
+from Pages.userprofile.Registration.Individual_registration_page import RegistrationPage
 class freelance_registration:
     def __init__(self, driver):
         self.driver = driver

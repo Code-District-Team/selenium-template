@@ -3,8 +3,8 @@ import time
 
 from Pages.businessprofile.business_trade import businesstrade
 
-from Pages.userprofile.registration.businessbasic_registration import business_basic_registration
-from Pages.userprofile.registration.guerilla_mail import GuerrillaMailPage,EmailInboxPage
+from Pages.userprofile.Registration.businessbasic_registration import business_basic_registration
+from Pages.userprofile.Registration.guerilla_mail import GuerrillaMailPage,EmailInboxPage
 
 
 def test_buinesstrade(driver_setup):

@@ -4,7 +4,7 @@ from Utils.subscription_upgrade_locators import Subscriptionupgradelocators
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 from Pages.userprofile.account_management.upgrade_individual_to_busines_plus import Subscription_upgrade_individual_to_business_plus
-from Pages.userprofile.registration.payment_page import payment_processing
+from Pages.userprofile.Registration.payment_page import payment_processing
 class Subscription_upgrade_business_basic_to_business_plus:
     def __init__(self, driver):
         self.driver = driver

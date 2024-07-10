@@ -3,7 +3,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 import time
 from Utils.registration_locators import registrationLocators
 from Resources.registration_data import RegistrationTestData
-from Pages.userprofile.registration.guerilla_mail import GuerrillaMailPage, EmailInboxPage
+from Pages.userprofile.Registration.guerilla_mail import GuerrillaMailPage, EmailInboxPage
 from selenium.webdriver.support import expected_conditions as EC
 from config import Config
 
