@@ -68,17 +68,12 @@ class IndividualSignup:
         print(response.status_code)
         return response
 
-
-@pytest.fixture(scope="module")
-def user_data():
-    return IndividualSignup.generate_user_data()
-
-
-def test_signup(user_data):
+@staticmethod
+def signup(self):
     base_url = IndividualSignup.base_url
 
     # Create Cognito user
-    cognito_user_payload, create_user_payload, email, password, name = user_data
+    cognito_user_payload, create_user_payload, email, password, name = self.user_data
     cognito_response, message = IndividualSignup.cognition_user(base_url, cognito_user_payload)
     assert cognito_response.status_code == 201, "Failed to create Cognito user"
 
@@ -92,3 +87,7 @@ def test_signup(user_data):
     print("Email: ", email)
 
     return email, password
+
+
+def example():
+    signup(user_data)
