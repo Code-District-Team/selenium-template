@@ -12,3 +12,4 @@ class RegistrationTestData:
     minimum_project_price = "10000"
     employer_company = "Code District Learn"
     Job_title = fake.job()
+    otp = "123456"

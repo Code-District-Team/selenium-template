@@ -1,15 +1,10 @@
 import time
-<<<<<<< HEAD
-=======
 from config import Config
 from Pages.userprofile.registration.Individual_registration_page import RegistrationPage
 
 from Resources.business_registration_data import business_registrationTestData
 
->>>>>>> stash
 
-from Pages.userprofile.Registration.Individual_registration_page import RegistrationPage
-from Pages.userprofile.Registration.guerilla_mail import GuerrillaMailPage, EmailInboxPage
 def take_screenshot(driver, filename):
     timestamp = time.strftime("%Y%m%d-%H%M%S")
     file_path = f"C:/Users/asad.hafeez/PycharmProjects/selenium-template/screenshot/{filename}_{timestamp}.png"
