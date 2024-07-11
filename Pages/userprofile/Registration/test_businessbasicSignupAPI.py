@@ -128,11 +128,11 @@ def user_data():
     return BusinessBasicSignup.generate_user_data()
 
 
-def test_signup(user_data):
+def signup(self):
     base_url = BusinessBasicSignup.base_url
 
     # Create Cognito user
-    cognito_user_payload, create_user_payload, email, password, name = user_data
+    cognito_user_payload, create_user_payload, email, password, name = self.user_data
     cognito_response, message = BusinessBasicSignup.cognition_user(base_url, cognito_user_payload)
     assert cognito_response.status_code == 201, "Failed to create Cognito user"
 

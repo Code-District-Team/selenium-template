@@ -21,3 +21,4 @@ def test_account_suspend_activation(driver_setup):
 
     account_suspend = AccountStatus(driver)
     account_suspend.test_account_suspend_and_activation()
+
