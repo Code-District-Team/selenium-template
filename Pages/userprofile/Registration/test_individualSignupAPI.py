@@ -69,7 +69,7 @@ class IndividualSignup:
         return response
 
 
-    @pytest.fixture(scope="module")
+
     def user_data(self):
         return IndividualSignup.generate_user_data()
 
