@@ -2,7 +2,7 @@ from config import Config
 from Pages.login_page import LoginPage
 from Resources.loginData import loginTestData
 from Pages.userprofile.account_management.upgrade_individual_to_busines_plus import Subscription_upgrade_individual_to_business_plus
-from Pages.registration.payment_page import payment_processing
+from Pages.userprofile.registration.payment_page import payment_processing
 import time
 
 
