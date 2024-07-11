@@ -1,7 +1,7 @@
 import time
 from Pages.userprofile.verify_account import VerifyAccountPage
 from config import Config
-from Pages.userprofile.Registration.test_individualSignupAPI import IndividualSignup
+from Pages.userprofile.registration.test_individualSignupAPI import IndividualSignup
 from Pages.login_page import LoginPage
 def test_verifyAccount(driver_setup):
     # Signup with API method for new user

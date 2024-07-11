@@ -29,6 +29,8 @@ class Subscriptionupgradelocators:
     continue_to_increase_seat = (By.ID, ":rf:")
     continue_button_business = (By.ID, "regBtnContinue")
     nextButton = (By.ID, "createAccount")
+    closeButton = (By.XPATH, "//button[normalize-space()='Close']")
+    currentSubscription = (By.XPATH, "//span[@class='MuiChip-label MuiChip-labelMedium mui-9iedg7']")
 
 
 
