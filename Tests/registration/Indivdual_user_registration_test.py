@@ -4,7 +4,12 @@ from Pages.userprofile.registration.Individual_registration_page import Registra
 
 from Resources.business_registration_data import business_registrationTestData
 
+<<<<<<< Updated upstream
 
+=======
+from Pages.userprofile.Registration.Individual_registration_page import RegistrationPage
+from Pages.userprofile.Registration.guerilla_mail import GuerrillaMailPage, EmailInboxPage
+>>>>>>> Stashed changes
 def take_screenshot(driver, filename):
     timestamp = time.strftime("%Y%m%d-%H%M%S")
     file_path = f"C:/Users/asad.hafeez/PycharmProjects/selenium-template/screenshot/{filename}_{timestamp}.png"
