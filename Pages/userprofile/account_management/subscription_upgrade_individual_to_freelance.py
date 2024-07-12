@@ -30,9 +30,9 @@ class Subscription_upgrade_individual_to_freelance:
         nextButton = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(Subscriptionupgradelocators.nextButton))
         nextButton.click()
     def close_popup(self):
-        closeButton = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(Subscriptionupgradelocators.closeButton))
+        closeButton = WebDriverWait(self.driver, 40).until(EC.element_to_be_clickable(Subscriptionupgradelocators.closeButton))
         closeButton.click()
-    def verify_subscription(self, currentSubscription=None):
+    def verify_subscription(self):
         currentSubscription = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(Subscriptionupgradelocators.currentSubscription))
         currentSubscription = currentSubscription.text
         print(currentSubscription)
