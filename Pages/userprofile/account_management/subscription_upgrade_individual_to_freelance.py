@@ -1,11 +1,10 @@
 import time
 
 from Utils.subscription_upgrade_locators import Subscriptionupgradelocators
-from Resources.loginData import loginTestData
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
-from Resources.registration_data import RegistrationTestData
-from Pages.userprofile.registration.payment_page import payment_processing
+
+from Pages.userprofile.registration.payment_page import PaymentPage
 from Pages.userprofile.registration.freerlance_registration_page import FreelanceRegistration
 class Subscription_upgrade_individual_to_freelance:
     def __init__(self, driver):
@@ -46,14 +45,14 @@ class Subscription_upgrade_individual_to_freelance:
         self.click_to_upgrade_freelance()
         time.sleep(10)
         self.click_to_continue_button()
-        time.sleep(30)
+        time.sleep(5)
         self.click_to_continue_button()
         self.click_to_next()
         freelance_info = FreelanceRegistration(driver)
         freelance_info.freelance_info()
         self.continue_button()
         self.click_to_continue_button()
-        subscription_payment = payment_processing(driver)
+        subscription_payment = PaymentPage(driver)
         subscription_payment.payment_processing()
         self.click_to_continue_button()
         time.sleep(10)

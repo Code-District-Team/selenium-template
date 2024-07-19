@@ -1,11 +1,10 @@
 from selenium.webdriver.support.ui import WebDriverWait
 import time
-from Pages.userprofile.registration.payment_page import payment_processing
+from Pages.userprofile.registration.payment_page import PaymentPage
 from Utils.registration_locators import registrationLocators
 from Pages.userprofile.registration.businessbasic_registration import BusinessBasicRegistration
 from selenium.webdriver.support import expected_conditions as EC
 from Pages.userprofile.registration.Individual_registration_page import RegistrationPage
-from config import Config
 
 
 class BusinessPlus:
@@ -45,5 +44,9 @@ class BusinessPlus:
         isinstance_registration.otp()
         isinstance_registration.click_continue_button()
         self.add_seats()
-        time.sleep(10)
-        payment_processing.payment_processing(driver)
+        isinstance_registration.click_continue_button()
+        time.sleep(5)
+        payment = PaymentPage(driver)
+        payment.payment_processing()
+        isinstance_registration.click_continue_button()
+        time.sleep(15)

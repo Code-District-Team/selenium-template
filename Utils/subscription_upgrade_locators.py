@@ -22,7 +22,7 @@ class Subscriptionupgradelocators:
     add_business_field = (By.XPATH, "//input[@type='text' and @role='combobox' and contains(@class, 'MuiInputBase-input MuiInput-input MuiAutocomplete-input MuiAutocomplete-inputFocused')]")
     add_business_button = (By.XPATH, "//p[@class='MuiTypography-root MuiTypography-body1 body1 mui-1w6h4uc']")
     country_dropdown = (By.XPATH, "/html[1]/body[1]/div[6]/div[3]/div[1]/div[2]/form[1]/div[1]/div[1]/div[1]/div[1]/input[1]")
-    primary_industry_parent_option = (By.XPATH, "(//span[contains(text(),'a')])[41]")
+    primary_industry_parent_option = (By.XPATH, "//h6[@class='MuiTypography-root MuiTypography-h6 mui-1mopw5e' and .//span[1][text()='P'] and .//span[3][text()='r'] and .//span[5][text()='o']]")
     primary_industry_child_option = (By.XPATH, "(//p[normalize-space()='Legal Services (4)'])[1]")
     primary_industry_child_option_1 = (By.XPATH, "(//p[normalize-space()='Offices of Lawyers'])[1]")
     primary_industry_child_option_2 = (By.XPATH, '(//span[normalize-space()="Attorneys\' offices"])[1]')
@@ -31,6 +31,11 @@ class Subscriptionupgradelocators:
     nextButton = (By.ID, "createAccount")
     closeButton = (By.XPATH, "//button[normalize-space()='Close']")
     currentSubscription = (By.XPATH, "//span[@class='MuiChip-label MuiChip-labelMedium mui-9iedg7']")
+    downgradeToIndividual = (By.XPATH, "(//button[normalize-space()='Downgrade to Individual'])[1]")
+    confirmDowngrade = (By.XPATH, "//button[text()='Continue']")
+    downgradeToBusinessBasic = (By.XPATH, "")
+
+
 
 
 

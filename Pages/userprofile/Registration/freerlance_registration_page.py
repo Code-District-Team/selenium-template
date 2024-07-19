@@ -6,7 +6,7 @@ from Resources.payment_data import payment_data
 
 
 from selenium.webdriver.support import expected_conditions as EC
-from Pages.userprofile.registration.payment_page import payment_processing
+from Pages.userprofile.registration.payment_page import PaymentPage
 from selenium.webdriver.support.ui import WebDriverWait
 from Utils.registration_locators import registrationLocators
 class FreelanceRegistration:
@@ -72,7 +72,7 @@ class FreelanceRegistration:
         isinstance_registration.create_account_button()
         isinstance_registration.otp()
         isinstance_registration.click_continue_button()
-        freelance_payment = payment_processing(driver)
+        freelance_payment = PaymentPage(driver)
         freelance_payment.payment_processing()
         isinstance_registration.click_continue_button()
         time.sleep(15)

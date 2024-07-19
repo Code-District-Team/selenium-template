@@ -3,7 +3,7 @@ import time
 from Utils.subscription_upgrade_locators import Subscriptionupgradelocators
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
-from Pages.userprofile.registration.payment_page import payment_processing
+from Pages.userprofile.registration.payment_page import PaymentPage
 from Pages.userprofile.account_management.subscription_upgrade_individual_business_basic import Subscription_upgrade_individual_to_business_basic
 from Pages.userprofile.registration.Individual_registration_page import RegistrationPage
 
@@ -59,5 +59,5 @@ class Subscription_upgrade_individual_to_business_plus:
         time.sleep(5)
         continue_button = RegistrationPage(driver_setup)
         continue_button.click_continue_button()
-        subscription_payment = payment_processing(driver_setup)
+        subscription_payment = PaymentPage(driver_setup)
         subscription_payment.payment_processing()
