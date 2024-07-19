@@ -26,7 +26,7 @@ class busniness_registrationLocators:
     founded_year_dropdown = (By.ID, "mui-component-select-founded")
     founded_year_option = (By.XPATH, "//li[normalize-space()='2024']")
     browse_button = (By.ID, "btn-browse")
-    primary_industry_parent_option = (By.XPATH, "/html/body/div[4]/div[3]/div/div[2]/div/div[3]/ul/li[1]/div/div[2]/div/h6")
+    primary_industry_parent_option = (By.XPATH, "//h6[@class='MuiTypography-root MuiTypography-h6 mui-1mopw5e' and .//span[1][text()='P'] and .//span[3][text()='r'] and .//span[5][text()='o']]")
     primary_industry_child_option = (By.XPATH, "(//p[normalize-space()='Legal Services (4)'])[1]")
     primary_industry_child_option_1 = (By.XPATH, "(//p[normalize-space()='Offices of Lawyers'])[1]")
     primary_industry_child_option_2 = (By.XPATH, '(//span[normalize-space()="Attorneys\' offices"])[1]')

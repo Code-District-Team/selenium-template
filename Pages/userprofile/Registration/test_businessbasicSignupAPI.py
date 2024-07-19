@@ -123,26 +123,26 @@ class BusinessBasicSignup:
         return response
 
 
-@pytest.fixture(scope="module")
-def user_data():
-    return BusinessBasicSignup.generate_user_data()
+
+    def user_data(self):
+       return BusinessBasicSignup.generate_user_data()
 
 
-def signup(self):
-    base_url = BusinessBasicSignup.base_url
+    def signup(self):
+        base_url = BusinessBasicSignup.base_url
 
     # Create Cognito user
-    cognito_user_payload, create_user_payload, email, password, name = self.user_data
-    cognito_response, message = BusinessBasicSignup.cognition_user(base_url, cognito_user_payload)
-    assert cognito_response.status_code == 201, "Failed to create Cognito user"
+        cognito_user_payload, create_user_payload, email, password, name = self.user_data()
+        cognito_response, message = BusinessBasicSignup.cognition_user(base_url, cognito_user_payload)
+        assert cognito_response.status_code == 201, "Failed to create Cognito user"
 
     # Create user
-    user_response = BusinessBasicSignup.create_user(base_url, create_user_payload)
-    assert user_response.status_code == 201, "Failed to create user"
+        user_response = BusinessBasicSignup.create_user(base_url, create_user_payload)
+        assert user_response.status_code == 201, "Failed to create user"
 
-    print("User Created Successfully")
-    print("Username: ", name)
-    print("Password: ", password)
-    print("Email: ", email)
+        print("User Created Successfully")
+        print("Username: ", name)
+        print("Password: ", password)
+        print("Email: ", email)
 
-    return email, password
+        return email, password

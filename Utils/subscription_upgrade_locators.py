@@ -19,16 +19,23 @@ class Subscriptionupgradelocators:
     upgrade_to_business_plus = (By.XPATH, "(//button[normalize-space()='Upgrade to Business Plus'])[1]")
     seat_increase_button = (By.XPATH, "(//*[name()='svg'][@class='MuiSvgIcon-root MuiSvgIcon-fontSizeMedium counter-icon mui-vubbuv'])[2]")
     click_to_continue = (By.ID, ":r12:")
-    add_business_field = (By.XPATH, "/html[1]/body[1]/div[5]/div[3]/div[1]/div[2]/div[1]/form[1]/div[1]/div[1]/div[1]/div[1]/input[1]")
+    add_business_field = (By.XPATH, "//input[@type='text' and @role='combobox' and contains(@class, 'MuiInputBase-input MuiInput-input MuiAutocomplete-input MuiAutocomplete-inputFocused')]")
     add_business_button = (By.XPATH, "//p[@class='MuiTypography-root MuiTypography-body1 body1 mui-1w6h4uc']")
     country_dropdown = (By.XPATH, "/html[1]/body[1]/div[6]/div[3]/div[1]/div[2]/form[1]/div[1]/div[1]/div[1]/div[1]/input[1]")
-    primary_industry_parent_option = (By.XPATH, '//*[@id=":rp:-54"]/div/div[2]/div/h6')
-    primary_industry_child_option = (By.XPATH, '//*[@id=":rp:-5411"]/div/div[2]/div/p')
-    primary_industry_child_option_1 = (By.XPATH, '//*[@id=":rp:-541110"]/div/div[2]/div/p[1]')
-    primary_industry_child_option_2 = (By.XPATH, '//*[@id=":rp:-541110-01"]/div/div[2]/label/span[2]')
+    primary_industry_parent_option = (By.XPATH, "//h6[@class='MuiTypography-root MuiTypography-h6 mui-1mopw5e' and .//span[1][text()='P'] and .//span[3][text()='r'] and .//span[5][text()='o']]")
+    primary_industry_child_option = (By.XPATH, "(//p[normalize-space()='Legal Services (4)'])[1]")
+    primary_industry_child_option_1 = (By.XPATH, "(//p[normalize-space()='Offices of Lawyers'])[1]")
+    primary_industry_child_option_2 = (By.XPATH, '(//span[normalize-space()="Attorneys\' offices"])[1]')
     continue_to_increase_seat = (By.ID, ":rf:")
     continue_button_business = (By.ID, "regBtnContinue")
     nextButton = (By.ID, "createAccount")
+    closeButton = (By.XPATH, "//button[normalize-space()='Close']")
+    currentSubscription = (By.XPATH, "//span[@class='MuiChip-label MuiChip-labelMedium mui-9iedg7']")
+    downgradeToIndividual = (By.XPATH, "(//button[normalize-space()='Downgrade to Individual'])[1]")
+    confirmDowngrade = (By.XPATH, "//button[text()='Continue']")
+    downgradeToBusinessBasic = (By.XPATH, "")
+
+
 
 
 

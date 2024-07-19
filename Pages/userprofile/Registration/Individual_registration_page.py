@@ -3,12 +3,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 import time
 from Utils.registration_locators import registrationLocators
 from Resources.registration_data import RegistrationTestData
-<<<<<<< HEAD:Pages/userprofile/Registration/Individual_registration_page.py
-from Pages.userprofile.Registration.guerilla_mail import GuerrillaMailPage, EmailInboxPage
-=======
->>>>>>> stash:Pages/userprofile/registration/Individual_registration_page.py
 from selenium.webdriver.support import expected_conditions as EC
-from config import Config
 
 
 class RegistrationPage:
@@ -51,12 +46,14 @@ class RegistrationPage:
 
         workplace_dropdown = WebDriverWait(self.driver, 40).until( EC.element_to_be_clickable(registrationLocators.workplace_dropdown))
         workplace_dropdown.send_keys(RegistrationTestData.employer_company)
-        workplace_dropdown.send_keys(Keys.ENTER)
+        time.sleep(5)
+        workplace_dropdown.send_keys(Keys.ARROW_UP, Keys.ENTER)
         start_date = WebDriverWait(self.driver, 60).until(EC.element_to_be_clickable(registrationLocators.start_date))
         start_date.click()
         start_date_year = WebDriverWait(self.driver, 50).until(EC.element_to_be_clickable(registrationLocators.start_date_year))
         start_date_year.click()
-        time.sleep(50)
+        start_month = WebDriverWait(self.driver, 50).until(EC.element_to_be_clickable(registrationLocators.start_month))
+        start_month.click()
 
     def select_topic(self):
         topics_browse = WebDriverWait(self.driver, 40).until(EC.element_to_be_clickable(registrationLocators.browse_button))
@@ -73,33 +70,19 @@ class RegistrationPage:
         Done_button.click()
 
     def select_address(self):
-        country_dropdown = WebDriverWait(self.driver, 40).until(EC.element_to_be_clickable(registrationLocators.country_dropdown))
-        country_dropdown.click()
-        select_country = WebDriverWait(self.driver, 40).until(EC.element_to_be_clickable(registrationLocators.select_country))
-        select_country.click()
-        time.sleep(1)
-        state_dropdown = WebDriverWait(self.driver, 40).until(EC.element_to_be_clickable(registrationLocators.state_dropdown))
-        state_dropdown.click()
-        time.sleep(1)
-        select_state = WebDriverWait(self.driver, 40).until(
-            EC.element_to_be_clickable(registrationLocators.select_state))
-        select_state.click()
-        time.sleep(1)
-        street_address_text = WebDriverWait(self.driver, 40).until(
-            EC.element_to_be_clickable(registrationLocators.street_address_text))
-        street_address_text.send_keys(RegistrationTestData.street_address)
+          street_address_text = WebDriverWait(self.driver, 40).until(EC.element_to_be_clickable(registrationLocators.street_address_text))
+          street_address_text.send_keys(RegistrationTestData.street_address)
 
     def create_account_button(self):
         create_account_button = WebDriverWait(self.driver, 40).until(
             EC.element_to_be_clickable(registrationLocators.create_account_button))
         create_account_button.click()
 
-    def otp(self, otp_digits):
-        signup_button = WebDriverWait(self.driver, 40).until(
-            EC.element_to_be_clickable(registrationLocators.otp_text_1))
+    def otp(self):
+        signup_button = WebDriverWait(self.driver, 40).until(EC.element_to_be_clickable(registrationLocators.otp_text_1))
         # self.driver.execute_script("arguments[0].value = arguments[1];", signup_button, otp_digits)
         # # signup_button.send_keys(Keys.CONTROL + "v")
-        signup_button.send_keys(otp_digits)
+        signup_button.send_keys(RegistrationTestData.otp)
 
     def Verify_account(self):
         WebDriverWait(self.driver, 30).until(EC.visibility_of_element_located(registrationLocators.verify_account))
@@ -114,4 +97,13 @@ class RegistrationPage:
         self.click_continue_button()
         self.job_title()
         self.click_continue_button()
+        self.select_topic()
+        time.sleep(10)
+        self.click_continue_button()
+        time.sleep(5)
+        self.select_address()
+        self.create_account_button()
+        self.otp()
+        self.click_continue_button()
+        time.sleep(15)
 

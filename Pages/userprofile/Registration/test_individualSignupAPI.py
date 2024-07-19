@@ -21,7 +21,7 @@ class IndividualSignup:
         zip_code = faker.postcode()
         primary_industry = "541110-01"
         area_of_interest = "171113"
-        country = "LS"
+        country = "AF"
         name = f"{first_name} {last_name}"
 
         cognito_user_payload = json.dumps({
@@ -42,6 +42,7 @@ class IndividualSignup:
             "address1": address1,
             "addressZip": zip_code,
             "country": country,
+            "province": "AF",
             "industryIds": [
                 primary_industry
             ],

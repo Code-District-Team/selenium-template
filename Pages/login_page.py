@@ -51,7 +51,7 @@ class LoginPage:
         self.enter_email(email)
         self.enter_password(password)
         self.click_login()
-        time.sleep(2)
+        time.sleep(1)
         status_message = self.wait_for_element_visibility(loginLocators.status_message)
         print(status_message.text)
         error_message = "Incorrect username or password."
@@ -61,8 +61,7 @@ class LoginPage:
         self.navigate_to_login_page()
         self.enter_email(email)
         self.enter_password(password)
-        time.sleep(10)
         self.click_login()
-        time.sleep(20)
+        time.sleep(7)
 
 

@@ -3,8 +3,8 @@ import time
 from Utils.subscription_upgrade_locators import Subscriptionupgradelocators
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
+from Pages.userprofile.registration.payment_page import PaymentPage
 from Pages.userprofile.account_management.upgrade_individual_to_busines_plus import Subscription_upgrade_individual_to_business_plus
-from Pages.userprofile.Registration.payment_page import payment_processing
 class Subscription_upgrade_business_basic_to_business_plus:
     def __init__(self, driver):
         self.driver = driver
@@ -24,9 +24,13 @@ class Subscription_upgrade_business_basic_to_business_plus:
         self.click_to_upgrade_business_plus()
         increase_seats = Subscription_upgrade_individual_to_business_plus(driver_setup)
         increase_seats.increase_seat_number()
-        time.sleep(10)
+        time.sleep(5)
         self.click_continue_to_payment()
-
-    def payment_for_subscription_upgrade(self, driver):
-        subscription_payment = payment_processing(driver)
+        subscription_payment = PaymentPage(driver_setup)
         subscription_payment.payment_processing()
+        isinstance_subscription = Subscription_upgrade_individual_to_business_plus(driver_setup)
+        isinstance_subscription.click_to_continue()
+        time.sleep(10)
+
+
+

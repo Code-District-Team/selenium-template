@@ -1,12 +1,11 @@
 import time
 
 from Utils.subscription_upgrade_locators import Subscriptionupgradelocators
-from Resources.loginData import loginTestData
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
-from Resources.registration_data import RegistrationTestData
-from Pages.userprofile.Registration.payment_page import payment_processing
-from Pages.userprofile.Registration.freerlance_registration_page import freelance_registration
+
+from Pages.userprofile.registration.payment_page import PaymentPage
+from Pages.userprofile.registration.freerlance_registration_page import FreelanceRegistration
 class Subscription_upgrade_individual_to_freelance:
     def __init__(self, driver):
         self.driver = driver
@@ -29,17 +28,34 @@ class Subscription_upgrade_individual_to_freelance:
     def click_to_next(self):
         nextButton = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(Subscriptionupgradelocators.nextButton))
         nextButton.click()
+    def close_popup(self):
+        closeButton = WebDriverWait(self.driver, 40).until(EC.element_to_be_clickable(Subscriptionupgradelocators.closeButton))
+        closeButton.click()
+    def verify_subscription(self):
+        currentSubscription = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(Subscriptionupgradelocators.currentSubscription))
+        currentSubscription = currentSubscription.text
+        print(currentSubscription)
+        if currentSubscription == "Freelancer":
+            print("Subscription changes for individual to Freelance successfully")
+        else:
+            print("Subscription not changed successfully")
+
     def upgrade_subcription_indvidual_to_free_lance(self, driver):
         self.navigate_to_subscription_tab()
         self.click_to_upgrade_freelance()
-        time.sleep(20)
+        time.sleep(10)
         self.click_to_continue_button()
+        time.sleep(5)
         self.click_to_continue_button()
         self.click_to_next()
-        freelance_info = freelance_registration(driver)
+        freelance_info = FreelanceRegistration(driver)
         freelance_info.freelance_info()
         self.continue_button()
         self.click_to_continue_button()
-    def payment_for_subscription_upgrade(self, driver):
-        subscription_payment = payment_processing(driver)
+        subscription_payment = PaymentPage(driver)
         subscription_payment.payment_processing()
+        self.click_to_continue_button()
+        time.sleep(10)
+        self.close_popup()
+        self.navigate_to_subscription_tab()
+        self.verify_subscription()

@@ -3,16 +3,13 @@ from Pages.userprofile.registration.Individual_registration_page import Registra
 
 from Resources.registration_data import RegistrationTestData
 from Resources.payment_data import payment_data
-from selenium.webdriver.common.by import By
 
 
 from selenium.webdriver.support import expected_conditions as EC
-from Pages.userprofile.Registration.payment_page import payment_processing
+from Pages.userprofile.registration.payment_page import PaymentPage
 from selenium.webdriver.support.ui import WebDriverWait
 from Utils.registration_locators import registrationLocators
-from config import Config
-from Pages.userprofile.Registration.Individual_registration_page import RegistrationPage
-class freelance_registration:
+class FreelanceRegistration:
     def __init__(self, driver):
         self.driver = driver
 
@@ -42,7 +39,7 @@ class freelance_registration:
         select_availablity = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(registrationLocators.select_availability))
         select_availablity.click()
     def click_to_continue(self):
-        continue_button = Continue_button = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(registrationLocators.continue_button_freelance))
+        continue_button =  WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(registrationLocators.continue_button_freelance))
         continue_button.click()
     def create_account_button(self):
         create_account_button = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(registrationLocators.create_freelance_account_button))
@@ -55,16 +52,29 @@ class freelance_registration:
         continue_to_payment_button.click()
 
 
-    def signup_freelance(self):
+    def signup_freelance(self, driver):
         isinstance_registration = RegistrationPage(self.driver)
         isinstance_registration.click_signup_button()
         self.select_freelance_option()
-        self.enter_email()
+        isinstance_registration.click_continue_button()
+        isinstance_registration.enter_email()
         isinstance_registration.click_checkbox()
+        isinstance_registration.click_continue_button()
+        isinstance_registration.personal_info()
         isinstance_registration.click_continue_button()
         isinstance_registration.job_title()
         isinstance_registration.click_continue_button()
-    def freelance_payment(self, driver):
-        freelance_payment = payment_processing(driver)
+        self.freelance_info()
+        self.click_to_continue()
+        isinstance_registration.select_topic()
+        isinstance_registration.click_continue_button()
+        isinstance_registration.select_address()
+        isinstance_registration.create_account_button()
+        isinstance_registration.otp()
+        isinstance_registration.click_continue_button()
+        freelance_payment = PaymentPage(driver)
         freelance_payment.payment_processing()
+        isinstance_registration.click_continue_button()
+        time.sleep(15)
+
 
