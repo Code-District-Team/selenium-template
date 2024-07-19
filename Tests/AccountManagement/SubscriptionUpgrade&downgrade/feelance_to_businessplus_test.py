@@ -6,7 +6,7 @@ from Pages.userprofile.Registration.freerlance_registration_page import Freelanc
 from Pages.businessprofile.businessinfo import Businessinfo
 
 
-def test_freelance_to_individual_downgrade(driver_setup):
+def test_freelance_to_businessplus_upgrade(driver_setup):
     driver = driver_setup
     driver.get(Config.base_url)
     driver.maximize_window()

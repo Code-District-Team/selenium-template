@@ -51,6 +51,16 @@ class FreelanceRegistration:
         continue_to_payment_button = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(registrationLocators.continue_2_payment_screen))
         continue_to_payment_button.click()
 
+    def enter_email(self):
+        fake = Faker()
+        uuid = RegistrationTestData.generate_uuid()
+        email = f"{uuid}{fake.email()}"
+        email_field = WebDriverWait(self.driver, 40).until(
+        EC.visibility_of_element_located(registrationLocators.email_text))
+        email_field.send_keys(email)
+        email = RegistrationTestData.email
+        print(email)
+
 
     def signup_freelance(self, driver):
         isinstance_registration = RegistrationPage(self.driver)

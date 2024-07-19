@@ -42,6 +42,7 @@ class Subscription_upgrade_individual_to_business_plus:
         continue_to_payment = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(Subscriptionupgradelocators.continue_to_payment_button))
         continue_to_payment.click()
     def verfiy_downgrade(self):
+        self.half_page_scroll()
         currentSubscription = WebDriverWait(self.driver, 30).until(
             EC.element_to_be_clickable(Subscriptionupgradelocators.currentSubscription))
         currentSubscription = currentSubscription.text
@@ -50,9 +51,14 @@ class Subscription_upgrade_individual_to_business_plus:
             print("Subscription changes for Individual to Business Plus successfully")
         else:
             print("Subscription not changed successfully")
+    def half_page_scroll(self):
+        total_height = self.driver.execute_script("return document.body.scrollHeight")
+        half_height = total_height / 2
+        self.driver.execute_script(f"window.scrollTo(0, {half_height});")
 
     def upgrade_to_business_plus(self, driver_setup):
         self.navigate_to_subscription_tab()
+        self.half_page_scroll()
         self.click_to_upgrade_business_plus()
         click_to_add_business_field = Subscription_upgrade_individual_to_business_basic(driver_setup)
         click_to_add_business_field.click_to_add_business_field()

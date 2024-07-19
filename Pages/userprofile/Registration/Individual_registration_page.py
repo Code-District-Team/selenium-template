@@ -4,6 +4,7 @@ import time
 from Utils.registration_locators import registrationLocators
 from Resources.registration_data import RegistrationTestData
 from selenium.webdriver.support import expected_conditions as EC
+from faker import Faker
 
 
 class RegistrationPage:
@@ -21,9 +22,14 @@ class RegistrationPage:
         continue_button.click()
 
     def enter_email(self):
+        fake = Faker()
+        uuid = RegistrationTestData.generate_uuid()
+        email = f"{uuid}{fake.email()}"
         email_field = WebDriverWait(self.driver, 40).until(
             EC.visibility_of_element_located(registrationLocators.email_text))
-        email_field.send_keys(RegistrationTestData.email)
+        email_field.send_keys(email)
+        email = RegistrationTestData.email
+        print(email)
 
     def click_checkbox(self):
         checkbox1 = WebDriverWait(self.driver, 40).until(EC.element_to_be_clickable(registrationLocators.checkbox_1))
