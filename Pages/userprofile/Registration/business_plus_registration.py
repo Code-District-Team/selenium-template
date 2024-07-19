@@ -1,10 +1,10 @@
 from selenium.webdriver.support.ui import WebDriverWait
 import time
-from Pages.userprofile.registration.payment_page import PaymentPage
+from Pages.userprofile.Registration.payment_page import PaymentPage
 from Utils.registration_locators import registrationLocators
-from Pages.userprofile.registration.businessbasic_registration import BusinessBasicRegistration
+from Pages.userprofile.Registration.businessbasic_registration import BusinessBasicRegistration
 from selenium.webdriver.support import expected_conditions as EC
-from Pages.userprofile.registration.Individual_registration_page import RegistrationPage
+from Pages.userprofile.Registration.Individual_registration_page import RegistrationPage
 
 
 class BusinessPlus:

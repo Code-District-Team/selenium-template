@@ -1,7 +1,7 @@
 from config import Config
 from Pages.login_page import LoginPage
 from Pages.userprofile.account_management.upgrade_individual_to_busines_plus import Subscription_upgrade_individual_to_business_plus
-from Pages.userprofile.registration.test_individualSignupAPI import IndividualSignup
+from Pages.userprofile.Registration.test_individualSignupAPI import IndividualSignup
 from Pages.businessprofile.businessinfo import Businessinfo
 import time
 

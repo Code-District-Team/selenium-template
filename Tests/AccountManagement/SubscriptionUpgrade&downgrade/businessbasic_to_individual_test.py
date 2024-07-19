@@ -1,7 +1,7 @@
 from config import Config
 from Pages.login_page import LoginPage
 from Pages.userprofile.account_management.susbscription_downgrade_businessbasic_to_individual import Subscription_downgrade_business_basic_to_individual
-from Pages.userprofile.registration.test_businessbasicSignupAPI import BusinessBasicSignup
+from Pages.userprofile.Registration.test_businessbasicSignupAPI import BusinessBasicSignup
 from Pages.businessprofile.businessinfo import Businessinfo
 
 

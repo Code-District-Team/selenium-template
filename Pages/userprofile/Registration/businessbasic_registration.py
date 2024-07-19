@@ -6,8 +6,7 @@ from Resources.registration_data import RegistrationTestData
 from Resources.business_registration_data import business_registrationTestData
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
-from config import Config
-from Pages.userprofile.registration.Individual_registration_page import RegistrationPage
+from Pages.userprofile.Registration.Individual_registration_page import RegistrationPage
 
 from Utils.registration_locators import registrationLocators
 from Utils.businessbasic_registration_locators import busniness_registrationLocators

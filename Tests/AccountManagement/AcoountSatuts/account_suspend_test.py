@@ -1,7 +1,7 @@
 import time
 
 from Pages.login_page import LoginPage
-from Pages.userprofile.registration.test_individualSignupAPI import IndividualSignup
+from Pages.userprofile.Registration.test_individualSignupAPI import IndividualSignup
 from Pages.userprofile.account_management.account_status import AccountStatus
 from Resources.loginData import loginTestData
 from config import Config

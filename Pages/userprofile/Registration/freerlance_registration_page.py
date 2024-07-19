@@ -1,12 +1,12 @@
 import time
-from Pages.userprofile.registration.Individual_registration_page import RegistrationPage
+from Pages.userprofile.Registration.Individual_registration_page import RegistrationPage
 
 from Resources.registration_data import RegistrationTestData
 from Resources.payment_data import payment_data
 
 
 from selenium.webdriver.support import expected_conditions as EC
-from Pages.userprofile.registration.payment_page import PaymentPage
+from Pages.userprofile.Registration.payment_page import PaymentPage
 from selenium.webdriver.support.ui import WebDriverWait
 from Utils.registration_locators import registrationLocators
 class FreelanceRegistration:

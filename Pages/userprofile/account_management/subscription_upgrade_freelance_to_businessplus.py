@@ -1,6 +1,6 @@
 import time
 
-from selenium.webdriver import Keys
+
 
 from Utils.subscription_upgrade_locators import Subscriptionupgradelocators
 
@@ -9,7 +9,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from Pages.userprofile.account_management.subscription_upgrade_individual_business_basic import Subscription_upgrade_individual_to_business_basic
 from Pages.userprofile.account_management.subscription_upgrade_individual_to_freelance import Subscription_upgrade_individual_to_freelance
 from Pages.userprofile.account_management.upgrade_individual_to_busines_plus import Subscription_upgrade_individual_to_business_plus
-from Pages.userprofile.registration.payment_page import PaymentPage
+from Pages.userprofile.Registration.payment_page import PaymentPage
 class Subscription_upgrade_freelance_to_businessplus:
     def __init__(self, driver):
         self.driver = driver

@@ -1,6 +1,6 @@
 from config import Config
 from Pages.login_page import LoginPage
-from Pages.userprofile.registration.test_businessbasicSignupAPI import BusinessBasicSignup
+from Pages.userprofile.Registration.test_businessbasicSignupAPI import BusinessBasicSignup
 from Pages.businessprofile.businessinfo import Businessinfo
 from Pages.userprofile.account_management.subscription_upgrade_business_basic_to_business_plus import Subscription_upgrade_business_basic_to_business_plus
 
@@ -19,4 +19,4 @@ def test_individual_to_business_plus_upgrade(driver_setup):
     skipAccountVerification.skip_account_verification()
     upgrade_individual_to_business_plus = Subscription_upgrade_business_basic_to_business_plus(driver)
     upgrade_individual_to_business_plus.upgrade_to_business_plus(driver)
-    time.sleep(20)
+    time.sleep(5)

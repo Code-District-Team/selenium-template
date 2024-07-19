@@ -33,7 +33,8 @@ class Subscriptionupgradelocators:
     currentSubscription = (By.XPATH, "//span[@class='MuiChip-label MuiChip-labelMedium mui-9iedg7']")
     downgradeToIndividual = (By.XPATH, "(//button[normalize-space()='Downgrade to Individual'])[1]")
     confirmDowngrade = (By.XPATH, "//button[text()='Continue']")
-    downgradeToBusinessBasic = (By.XPATH, "")
+    downgradeToBusinessBasic = (By.XPATH, "(//button[normalize-space()='Downgrade to Business Basic'])[1]")
+    closeOnboardingModal = (By.XPATH, "//*[name()='path' and contains(@d,'M19 6.41 1')]")
 
 
 

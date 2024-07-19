@@ -4,8 +4,8 @@ from Utils.subscription_upgrade_locators import Subscriptionupgradelocators
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 
-from Pages.userprofile.registration.payment_page import PaymentPage
-from Pages.userprofile.registration.freerlance_registration_page import FreelanceRegistration
+from Pages.userprofile.Registration.payment_page import PaymentPage
+from Pages.userprofile.Registration.freerlance_registration_page import FreelanceRegistration
 class Subscription_upgrade_individual_to_freelance:
     def __init__(self, driver):
         self.driver = driver

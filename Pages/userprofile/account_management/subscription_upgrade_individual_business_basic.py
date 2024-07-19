@@ -7,8 +7,9 @@ from Utils.businessbasic_registration_locators import busniness_registrationLoca
 from Resources.business_registration_data import business_registrationTestData
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
-from Pages.userprofile.registration.Individual_registration_page import RegistrationPage
+from Pages.userprofile.Registration.Individual_registration_page import RegistrationPage
 from Pages.userprofile.account_management.subscription_upgrade_individual_to_freelance import Subscription_upgrade_individual_to_freelance
+from Pages.userprofile.account_management.subscription_downgrade_business_plus_to_business_basic import Subscription_downgrade_business_plus_to_business_basic
 class Subscription_upgrade_individual_to_business_basic:
     def __init__(self, driver):
         self.driver = driver
@@ -101,7 +102,7 @@ class Subscription_upgrade_individual_to_business_basic:
         currentSubscription = WebDriverWait(self.driver, 40).until(EC.element_to_be_clickable(Subscriptionupgradelocators.currentSubscription))
         currentSubscription = currentSubscription.text
         print(currentSubscription)
-        if currentSubscription == "BusinessBasic":
+        if currentSubscription == "Business Basic":
             print("Subscription changes for individual to Business Basic successfully")
         else:
             print("Subscription not changed successfully")
@@ -120,6 +121,9 @@ class Subscription_upgrade_individual_to_business_basic:
         Next_button.create_account_button()
         closePopup = Subscription_upgrade_individual_to_freelance(driver)
         closePopup.close_popup()
+        time.sleep(3)
+        closeOnboardingModal = Subscription_downgrade_business_plus_to_business_basic(driver)
+        closeOnboardingModal.close_onboarding_model()
         self.verify_subscription()
 
 

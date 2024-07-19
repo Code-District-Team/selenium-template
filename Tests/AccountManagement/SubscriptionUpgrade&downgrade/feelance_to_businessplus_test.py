@@ -2,7 +2,7 @@ from config import Config
 from Pages.userprofile.account_management.subscription_upgrade_freelance_to_businessplus import Subscription_upgrade_freelance_to_businessplus
 
 import time
-from Pages.userprofile.registration.freerlance_registration_page import FreelanceRegistration
+from Pages.userprofile.Registration.freerlance_registration_page import FreelanceRegistration
 from Pages.businessprofile.businessinfo import Businessinfo
 
 

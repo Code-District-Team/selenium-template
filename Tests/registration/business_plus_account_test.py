@@ -1,6 +1,6 @@
 import time
 
-from Pages.userprofile.registration.business_plus_registration import BusinessPlus
+from Pages.userprofile.Registration.business_plus_registration import BusinessPlus
 
 from config import Config
 
