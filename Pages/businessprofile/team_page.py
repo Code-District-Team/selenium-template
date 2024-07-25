@@ -67,7 +67,9 @@ class  teamPage:
         deleteBtn = WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable(teamLocator.deleteBtn))
         deleteBtn.click()
         deleteSuccessMessage = WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable(teamLocator.deleteSuccessMessage)).text
-        deleteBtn.click()
+        text = "Invitation has been deleted."
+
+        assert deleteSuccessMessage == text
 
 
     def team_internal_members_invite(self):
