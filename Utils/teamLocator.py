@@ -13,3 +13,6 @@ class teamLocator:
     enterEmail = (By.XPATH, "(//input[@placeholder='Enter Your Email'])[1]")
     submitBtn = (By.XPATH, "//button[@type = 'submit']")
     successMessage = (By.XPATH, "(//div[@role='status'])[1]")
+    moreDropdown = (By.XPATH, "(//button[@type='button'])[18]")
+    deleteBtn = (By.XPATH, "(//li[normalize-space()='Delete'])[1]")
+    deleteSuccessMessage = (By.XPATH, "(//div[@role='status'])[1]")

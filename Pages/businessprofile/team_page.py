@@ -47,7 +47,7 @@ class  teamPage:
         enterEmail.send_keys(faker.email())
         submitBtn = WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable(teamLocator.submitBtn))
         submitBtn.click()
-        time.sleep(1)
+        time.sleep(2)
         enterEmail.send_keys(faker.email())
         submitBtn.click()
         time.sleep(1)
@@ -61,6 +61,14 @@ class  teamPage:
         expectedMessage = "3 Invitation(s) sent successfully."
         assert message == expectedMessage
 
+    def delete_member(self):
+        moreDropdown = WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable(teamLocator.moreDropdown))
+        moreDropdown.click()
+        deleteBtn = WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable(teamLocator.deleteBtn))
+        deleteBtn.click()
+        deleteSuccessMessage = WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable(teamLocator.deleteSuccessMessage)).text
+        deleteBtn.click()
+
 
     def team_internal_members_invite(self):
         self.navigate_to_team_page()
@@ -73,3 +81,4 @@ class  teamPage:
         self.invite_external_users()
         self.invite()
         self.success_message()
+        self.delete_member()
