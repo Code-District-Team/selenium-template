@@ -49,4 +49,4 @@ class BusinessPlus:
         payment = PaymentPage(driver)
         payment.payment_processing()
         isinstance_registration.click_continue_button()
-        time.sleep(15)
+        time.sleep(4)

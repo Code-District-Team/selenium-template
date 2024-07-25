@@ -6,7 +6,7 @@ from config import Config
 
 
 
-def test_individual_signup(driver_setup):
+def test_business_plus_signup(driver_setup):
     driver = driver_setup
     driver.get(Config.base_url)
     driver.maximize_window()
