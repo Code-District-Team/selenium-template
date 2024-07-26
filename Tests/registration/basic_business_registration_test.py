@@ -1,5 +1,5 @@
 
-from Pages.userprofile.registration.businessbasic_registration import BusinessBasicRegistration
+from Pages.userprofile.Registration.businessbasic_registration import BusinessBasicRegistration
 from config import Config
 
 

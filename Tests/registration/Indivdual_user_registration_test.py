@@ -1,6 +1,6 @@
 import time
 from config import Config
-from Pages.userprofile.registration.Individual_registration_page import RegistrationPage
+from Pages.userprofile.Registration.Individual_registration_page import RegistrationPage
 
 from Resources.business_registration_data import business_registrationTestData
 

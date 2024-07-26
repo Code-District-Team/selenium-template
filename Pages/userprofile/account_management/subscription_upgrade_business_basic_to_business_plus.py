@@ -3,8 +3,10 @@ import time
 from Utils.subscription_upgrade_locators import Subscriptionupgradelocators
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
-from Pages.userprofile.registration.payment_page import PaymentPage
+from Pages.userprofile.Registration.payment_page import PaymentPage
 from Pages.userprofile.account_management.upgrade_individual_to_busines_plus import Subscription_upgrade_individual_to_business_plus
+from Pages.userprofile.account_management.subscription_upgrade_individual_to_freelance import Subscription_upgrade_individual_to_freelance
+from Pages.userprofile.account_management.subscription_downgrade_business_plus_to_business_basic import Subscription_downgrade_business_plus_to_business_basic
 class Subscription_upgrade_business_basic_to_business_plus:
     def __init__(self, driver):
         self.driver = driver
@@ -17,9 +19,26 @@ class Subscription_upgrade_business_basic_to_business_plus:
     def click_continue_to_payment(self):
         click_to_continue = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(Subscriptionupgradelocators.continue_button))
         click_to_continue.click()
+    def verfiy_subscription(self):
+
+        currentSubscription = WebDriverWait(self.driver, 30).until(
+            EC.element_to_be_clickable(Subscriptionupgradelocators.currentSubscription))
+        currentSubscription = currentSubscription.text
+        self.half_page_scroll()
+        print(currentSubscription)
+        if currentSubscription == "Business Plus":
+            print("Subscription changes for Business Basic to Business plus successfully")
+        else:
+            print("Subscription not changed successfully")
+    def half_page_scroll(self):
+        total_height = self.driver.execute_script("return document.body.scrollHeight")
+        half_height = total_height / 2
+        self.driver.execute_script(f"window.scrollTo(0, {half_height});")
+
 
 
     def upgrade_to_business_plus(self, driver_setup):
+        self.half_page_scroll()
         self.navigate_to_subscription_tab()
         self.click_to_upgrade_business_plus()
         increase_seats = Subscription_upgrade_individual_to_business_plus(driver_setup)
@@ -30,7 +49,15 @@ class Subscription_upgrade_business_basic_to_business_plus:
         subscription_payment.payment_processing()
         isinstance_subscription = Subscription_upgrade_individual_to_business_plus(driver_setup)
         isinstance_subscription.click_to_continue()
-        time.sleep(10)
+        time.sleep(5)
+        closePopup = Subscription_upgrade_individual_to_freelance(driver_setup)
+        closePopup.close_popup()
+        time.sleep(5)
+        closeOnboardingModal = Subscription_downgrade_business_plus_to_business_basic(driver_setup)
+        closeOnboardingModal.close_onboarding_model()
+
+        self.navigate_to_subscription_tab()
+        self.verfiy_subscription()
 
 
 

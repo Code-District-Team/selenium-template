@@ -1,6 +1,6 @@
 import time
 
-from selenium.webdriver import Keys
+
 
 from Utils.subscription_upgrade_locators import Subscriptionupgradelocators
 
@@ -9,7 +9,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from Pages.userprofile.account_management.subscription_upgrade_individual_business_basic import Subscription_upgrade_individual_to_business_basic
 from Pages.userprofile.account_management.subscription_upgrade_individual_to_freelance import Subscription_upgrade_individual_to_freelance
 from Pages.userprofile.account_management.upgrade_individual_to_busines_plus import Subscription_upgrade_individual_to_business_plus
-from Pages.userprofile.registration.payment_page import PaymentPage
+from Pages.userprofile.Registration.payment_page import PaymentPage
 class Subscription_upgrade_freelance_to_businessplus:
     def __init__(self, driver):
         self.driver = driver
@@ -17,6 +17,7 @@ class Subscription_upgrade_freelance_to_businessplus:
         upgrade_to_business_plus = WebDriverWait(self.driver, 60).until(EC.element_to_be_clickable(Subscriptionupgradelocators.upgrade_to_business_plus))
         upgrade_to_business_plus.click()
     def verify_subscription(self):
+        self.half_page_scroll()
         currentSubscription = WebDriverWait(self.driver, 40).until(EC.element_to_be_clickable(Subscriptionupgradelocators.currentSubscription))
         currentSubscription = currentSubscription.text
         print(currentSubscription)
@@ -24,6 +25,10 @@ class Subscription_upgrade_freelance_to_businessplus:
             print("Subscription changes for Freelance to Business Pluse successfully")
         else:
             print("Subscription not changed successfully")
+    def half_page_scroll(self):
+        total_height = self.driver.execute_script("return document.body.scrollHeight")
+        half_height = total_height / 2
+        self.driver.execute_script(f"window.scrollTo(0, {half_height});")
     def freelance_to_businessplus(self, driver):
 
         navigate_to_subscription_tab = Subscription_upgrade_individual_to_freelance(driver)

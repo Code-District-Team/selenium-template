@@ -1,12 +1,12 @@
 import time
-from Pages.userprofile.registration.Individual_registration_page import RegistrationPage
+from Pages.userprofile.Registration.Individual_registration_page import RegistrationPage
 
 from Resources.registration_data import RegistrationTestData
 from Resources.payment_data import payment_data
 
 
 from selenium.webdriver.support import expected_conditions as EC
-from Pages.userprofile.registration.payment_page import PaymentPage
+from Pages.userprofile.Registration.payment_page import PaymentPage
 from selenium.webdriver.support.ui import WebDriverWait
 from Utils.registration_locators import registrationLocators
 class FreelanceRegistration:
@@ -50,6 +50,16 @@ class FreelanceRegistration:
     def continue_to_payment(self):
         continue_to_payment_button = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(registrationLocators.continue_2_payment_screen))
         continue_to_payment_button.click()
+
+    def enter_email(self):
+        fake = Faker()
+        uuid = RegistrationTestData.generate_uuid()
+        email = f"{uuid}{fake.email()}"
+        email_field = WebDriverWait(self.driver, 40).until(
+        EC.visibility_of_element_located(registrationLocators.email_text))
+        email_field.send_keys(email)
+        email = RegistrationTestData.email
+        print(email)
 
 
     def signup_freelance(self, driver):

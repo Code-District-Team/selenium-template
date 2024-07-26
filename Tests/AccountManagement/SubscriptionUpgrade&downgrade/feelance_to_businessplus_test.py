@@ -2,11 +2,11 @@ from config import Config
 from Pages.userprofile.account_management.subscription_upgrade_freelance_to_businessplus import Subscription_upgrade_freelance_to_businessplus
 
 import time
-from Pages.userprofile.registration.freerlance_registration_page import FreelanceRegistration
+from Pages.userprofile.Registration.freerlance_registration_page import FreelanceRegistration
 from Pages.businessprofile.businessinfo import Businessinfo
 
 
-def test_freelance_to_individual_downgrade(driver_setup):
+def test_freelance_to_businessplus_upgrade(driver_setup):
     driver = driver_setup
     driver.get(Config.base_url)
     driver.maximize_window()

@@ -19,7 +19,6 @@ class registrationLocators:
     newPassword_text = (By.NAME, "password")
     repeatPassword_text = (By.NAME, "confirmPassword")
     jobTitle_input = (By.XPATH, "//input[@placeholder='Search your job title here']")
-    jobTitle_freelance = (By.XPATH, "/html[1]/body[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/li[3]")
     otp_text_1 = (By.XPATH, "(//input[@aria-label='Please enter OTP character 1'])[1]")
     otp_text_2 = (By.XPATH, "(//input[@aria-label='Please enter OTP character 2'])[1]")
     otp_text_3 = (By.XPATH, "(//input[@aria-label='Please enter OTP character 3'])[1]")

@@ -7,8 +7,9 @@ from Utils.businessbasic_registration_locators import busniness_registrationLoca
 from Resources.business_registration_data import business_registrationTestData
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
-from Pages.userprofile.registration.Individual_registration_page import RegistrationPage
+from Pages.userprofile.Registration.Individual_registration_page import RegistrationPage
 from Pages.userprofile.account_management.subscription_upgrade_individual_to_freelance import Subscription_upgrade_individual_to_freelance
+from Pages.userprofile.account_management.subscription_downgrade_business_plus_to_business_basic import Subscription_downgrade_business_plus_to_business_basic
 class Subscription_upgrade_individual_to_business_basic:
     def __init__(self, driver):
         self.driver = driver
@@ -98,15 +99,21 @@ class Subscription_upgrade_individual_to_business_basic:
         click_to_continue = WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable(Subscriptionupgradelocators.continue_button_business))
         click_to_continue.click()
     def verify_subscription(self):
+        self.half_page_scroll()
         currentSubscription = WebDriverWait(self.driver, 40).until(EC.element_to_be_clickable(Subscriptionupgradelocators.currentSubscription))
         currentSubscription = currentSubscription.text
         print(currentSubscription)
-        if currentSubscription == "BusinessBasic":
+        if currentSubscription == "Business Basic":
             print("Subscription changes for individual to Business Basic successfully")
         else:
             print("Subscription not changed successfully")
+    def half_page_scroll(self):
+        total_height = self.driver.execute_script("return document.body.scrollHeight")
+        half_height = total_height / 2
+        self.driver.execute_script(f"window.scrollTo(0, {half_height});")
     def upgrade_to_business_basic(self, driver):
         self.navigate_to_subcription_tab()
+        self.half_page_scroll()
         self.click_to_upgrade_business_basic()
         self.click_to_add_business_field()
         self.add_new_business()
@@ -120,6 +127,9 @@ class Subscription_upgrade_individual_to_business_basic:
         Next_button.create_account_button()
         closePopup = Subscription_upgrade_individual_to_freelance(driver)
         closePopup.close_popup()
+        time.sleep(3)
+        closeOnboardingModal = Subscription_downgrade_business_plus_to_business_basic(driver)
+        closeOnboardingModal.close_onboarding_model()
         self.verify_subscription()
 
 

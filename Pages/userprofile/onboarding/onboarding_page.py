@@ -5,7 +5,6 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
 from Utils.onboardingLocators import onboardingLocators
-from Resources.onboarding_data import onboardingTestData
 
 class OnboardingPage:
     def __init__(self, driver: object) -> object:
