@@ -18,7 +18,7 @@ class BusinessBasicSignup:
         last_name = faker.last_name()
         password = "Test@123"
         city = faker.city()
-        region = "202"
+        region = "034"
         start_date = datetime(2020, 1, 1).date()
         end_date = datetime(2024, 12, 31).date()
         date_ = faker.date_between_dates(start_date, end_date).isoformat()
@@ -28,7 +28,7 @@ class BusinessBasicSignup:
         zip_code = faker.postcode()
         primary_industry = "541110-01"
         area_of_interest = "171113"
-        country = "LS"
+        country = "AF"
         name = f"{first_name} {last_name}"
 
         cognito_user_payload = json.dumps({
@@ -45,6 +45,7 @@ class BusinessBasicSignup:
             "membershipType": "businessPlus",
             "opsNotificationConsent": True,
             "opportunitiesConsent": False,
+            "province": "Badakhshān",
             "startDate": date_,
             "jobTitle": "Senior Software Engineer",
             "industryIds": [
@@ -138,6 +139,11 @@ class BusinessBasicSignup:
 
     # Create user
         user_response = BusinessBasicSignup.create_user(base_url, create_user_payload)
+        response_dict = json.loads(user_response.text)  # Convert the JSON response to a dictionary
+
+        # Print the status code and a specific message from the response
+        print("Status Code:", user_response.status_code)
+        print("Response Message:", response_dict.get("message"))
         assert user_response.status_code == 201, "Failed to create user"
 
         print("User Created Successfully")

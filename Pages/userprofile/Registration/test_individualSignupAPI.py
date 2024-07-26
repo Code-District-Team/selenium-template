@@ -1,6 +1,5 @@
 import requests
 import json
-import pytest
 from faker import Faker
 
 faker = Faker()
@@ -69,11 +68,8 @@ class IndividualSignup:
         print(response.status_code)
         return response
 
-
-
     def user_data(self):
         return IndividualSignup.generate_user_data()
-
 
     def signup(self):
         base_url = IndividualSignup.base_url

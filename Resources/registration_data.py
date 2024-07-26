@@ -25,7 +25,7 @@ class RegistrationTestData:
         return uuid
     fake = Faker()
 
-    email = f"{fake.uuid4()}{fake.email()}"
+    email = f"{generate_uuid()}{fake.email()}"
     username = fake.first_name()
     surname = fake.last_name()
     password = "Test@123"

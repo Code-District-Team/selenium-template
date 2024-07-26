@@ -1,16 +1,25 @@
 import time
 
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
+from Utils.onboardingLocators import onboardingLocators
+from Utils.profile_locators import profileLocators
 from config import Config
-from Pages.login_page import LoginPage
-from Resources.loginData import loginTestData
-from Pages.userprofile.onboarding import FreelanceOnboardingPage
+from Pages.userprofile.onboarding.freelance_onbaording import FreelanceOnboardingPage
+from Pages.userprofile.Registration.freerlance_registration_page import FreelanceRegistration
+from Pages.businessprofile.businessinfo import Businessinfo
+
 
 def test_freelance_onboarding(driver_setup):
     driver = driver_setup
     driver.get(Config.base_url)
-    login_page = LoginPage(driver)
     driver.maximize_window()
-    login_page.login(loginTestData.valid_credential_individual_to_freelance["validEmail"], loginTestData.valid_credential_individual_to_freelance["password"])
-    time.sleep(20)
-    freelance_onboarding = FreelanceOnboardingPage(driver_setup)
-    freelance_onboarding.freelanceonboarding(driver_setup)
+    Freelance_signup = FreelanceRegistration(driver)
+    Freelance_signup.signup_freelance(driver)
+    skip_account_verification = Businessinfo(driver)
+    skip_account_verification.skip_account_verification()
+    freelance_onboarding = FreelanceOnboardingPage(driver)
+    freelance_onboarding.freelanceonboarding(driver)
+
+

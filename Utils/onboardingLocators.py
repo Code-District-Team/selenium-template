@@ -21,10 +21,34 @@ class onboardingLocators:
     snapchatUrlText = (By.NAME, "snapChatUrl")
     instgramUrlText = (By.NAME, "instagramUrl")
     titleText = (By.NAME, "title")
-    projectDescription = (By.TAG_NAME, "textarea")
+    projectDescription = (By.XPATH, "//textarea[@NAME='description']")
     projectUrl = (By.NAME, "projectUrl")
     descriptionInputText = (By.NAME, "businessOverviewDescription")
     updateButtonFreelance = (By.XPATH, "//button[normalize-space()='Update']")
+    revenueText = (By.XPATH, "//input[@id='businessRevenue']")
+    noOfEmployeesText = (By.XPATH, "//input[@id='noOfEmployees']")
+    ownerShipText = (By.XPATH, "//div[@id='ownershipType']")
+    ownerShipTypeText = (By.XPATH, "//li[@data-value='Private']")
+    entityText = (By.XPATH, "//div[@id='entityType']")
+    entityTypeText = (By.XPATH, "//li[@data-value='Independent']")
+    headquaterText = (By.XPATH, "//div[@id='headquarter']")
+    headquaterTypeText = (By.XPATH, "//li[@data-value='true']")
+    foundedText = (By.XPATH, "//div[@id='founded']")
+    foundedTypeText = (By.XPATH, "//li[@data-value='2018']")
+    browse_button = (By.XPATH, "//button[@id='btn-browse']")
+    browseoption_btn = (By.XPATH, "//li[@role='treeitem'][1]")
+    subBrowseOption_btn = (By.XPATH, "//div[@class='MuiCollapse-wrapperInner MuiCollapse-vertical mui-8atqhb']//li["
+                                     "@role='treeitem'][1]")
+    checkboxForPrimaryIndustry = (By.XPATH, "//p[normalize-space()='Offices of Lawyers']")
+    primaryChildText = (By.XPATH, '(//span[normalize-space()="Attorneys\' offices"])')
+    donebBtn = (By.XPATH, "//button[@id='areaOfInterestBtnDone']")
+    profileCompleteText = (By.XPATH, "//h5[@class='MuiTypography-root MuiTypography-h5 mui-14eb5wl']")
+    waitTextForLetsCompleteBtn = (By.XPATH, "//h5[@class='MuiTypography-root MuiTypography-h5 mui-14eb5wl' and "
+                                            "contains(text(),'Maximize')]")
+    imagUploadingWait = (By.XPATH, "//h5[@class='MuiTypography-root MuiTypography-h5 mui-14eb5wl' and  contains(text("
+                                   "),'Please tell us')]")
+    businessSummaryWait = (By.XPATH, "//h5[@class='MuiTypography-root MuiTypography-h5 mui-14eb5wl' and  contains("
+                                     "text(),'Business Summary')]")
 
 
 

@@ -79,7 +79,6 @@ class NetworkPage:
     def sign_out(self):
         profileAvtar = WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable(mynetworkLocators.profileAvtar))
         profileAvtar.click()
-        time.sleep(5)
         sign_outButton = WebDriverWait(self.driver, 30).until(
             EC.element_to_be_clickable(mynetworkLocators.sign_outButton))
         sign_outButton.click()
