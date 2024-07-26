@@ -1,15 +1,10 @@
 import os
 import pyautogui
-from selenium.webdriver import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
 from Utils.onboardingLocators import onboardingLocators
-<<<<<<< Updated upstream
-=======
 from Utils.profile_locators import profileLocators
-
->>>>>>> Stashed changes
 
 class OnboardingPage:
     def __init__(self, driver: object) -> object:
