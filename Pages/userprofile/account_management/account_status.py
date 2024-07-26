@@ -1,8 +1,7 @@
-import time
-
 from Utils.account_status_locators import account_status_locators
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
+from Utils.profile_locators import profileLocators
 
 
 class AccountStatus:
@@ -50,9 +49,22 @@ class AccountStatus:
     def test_account_suspend_and_activation(self) -> object:
         self.account_status_tab()
         self.account_suspend()
-        time.sleep(20)
+        suspendAaccountAlert_ = WebDriverWait(self.driver, 30).until(
+            EC.visibility_of_element_located(profileLocators.businessAlert))
+        expected_text = suspendAaccountAlert_.text
+        actual_text = "Your Account has been Suspended"
+        assert actual_text == expected_text, f"Expected '{expected_text}', but got '{actual_text}'"
+        WebDriverWait(self.driver, 30).until(
+            EC.invisibility_of_element_located(profileLocators.businessAlert))
+
         self.account_activation()
+        activate_account_alert = WebDriverWait(self.driver, 30).until(
+            EC.visibility_of_element_located(profileLocators.businessAlert))
+        actual_activate_text = activate_account_alert.text
+        expected_activate_text = "Your Account has been activated"
+        assert actual_activate_text == expected_activate_text, f"Expected '{expected_activate_text}', but got '{actual_activate_text}'"
 
     def test_account_delete(self):
-        self.account_status_tab()
         self.account_delete()
+        WebDriverWait(self.driver, 30).until(
+            EC.element_to_be_clickable(profileLocators.loginButton))

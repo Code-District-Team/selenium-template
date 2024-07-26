@@ -4,6 +4,9 @@ import time
 from Utils.loginLocators import loginLocators
 from selenium.webdriver.support import expected_conditions as EC
 
+from Utils.profile_locators import profileLocators
+
+
 class LoginPage:
     def __init__(self, driver):
         self.driver = driver
@@ -51,7 +54,7 @@ class LoginPage:
         self.enter_email(email)
         self.enter_password(password)
         self.click_login()
-        time.sleep(1)
+        time.sleep(2)
         status_message = self.wait_for_element_visibility(loginLocators.status_message)
         print(status_message.text)
         error_message = "Incorrect username or password."
@@ -62,6 +65,5 @@ class LoginPage:
         self.enter_email(email)
         self.enter_password(password)
         self.click_login()
-        time.sleep(7)
 
 

@@ -1,6 +1,8 @@
 from typing import Tuple
 
 from selenium.webdriver.common.by import By
+
+
 class profileLocators:
     viewProfile = (By.ID, "btnViewYourProfile")
     editButton = (By.XPATH, "//button[normalize-space()='Edit']")
@@ -20,7 +22,8 @@ class profileLocators:
     jobTitleDropdown = (By.XPATH, "/html[1]/body[1]/div[5]/div[3]/div[1]/div[2]/form[1]/div[1]/div[1]/div[1]/input[1]")
     jobTitleOption = (By.XPATH, "/html[1]/body[1]/div[6]/div[1]/ul[1]/li[1]")
     employerInput = (By.XPATH, "/html[1]/body[1]/div[5]/div[3]/div[1]/div[2]/form[1]/div[2]/div[1]/div[1]/input[1]")
-    employerInputOption = (By.XPATH, "(//span[@class='MuiTypography-root MuiTypography-body1 MuiListItemText-primary mui-1bhfyc0'][normalize-space()='Code District'])[1]")
+    employerInputOption = (By.XPATH,
+                           "(//span[@class='MuiTypography-root MuiTypography-body1 MuiListItemText-primary mui-1bhfyc0'][normalize-space()='Code District'])[1]")
     startDate = (By.XPATH, "/html[1]/body[1]/div[5]/div[3]/div[1]/div[2]/form[1]/div[4]/div[1]/div[1]/input[1]")
     startDateOption = (By.XPATH, "//button[normalize-space()='1']")
     currentlyCheckbox = (By.XPATH, "//span[normalize-space()='Currently']")
@@ -32,9 +35,11 @@ class profileLocators:
     edInstitute = (By.XPATH, "/html[1]/body[1]/div[5]/div[3]/div[1]/div[2]/form[1]/div[2]/div[1]/div[1]/input[1]")
     addEducationButtonPop = (By.XPATH, "(//button[@type='submit'][normalize-space()='Add Education'])[1]")
     addSkillsButton = (By.XPATH, "//button[normalize-space()='Add Skills']")
-    enterSkills = (By.XPATH, "/html[1]/body[1]/div[5]/div[3]/div[1]/div[2]/form[1]/div[1]/div[1]/div[1]/div[1]/input[1]")
+    enterSkills = (
+    By.XPATH, "/html[1]/body[1]/div[5]/div[3]/div[1]/div[2]/form[1]/div[1]/div[1]/div[1]/div[1]/input[1]")
     skillOption = (By.XPATH, "/html[1]/body[1]/div[6]/div[1]/ul[1]/li[1]")
-    addSkill = (By.XPATH, "//button[@class='MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall btn-email mui-7jyovo']//*[name()='svg']")
+    addSkill = (By.XPATH,
+                "//button[@class='MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall btn-email mui-7jyovo']//*[name()='svg']")
     doneButton = (By.XPATH, "//button[normalize-space()='Done']")
     addPersonalHonoorsButton = (By.XPATH, "//button[normalize-space()='Add personal honors and certifications']")
     honorDate = (By.XPATH, "/html[1]/body[1]/div[5]/div[3]/div[1]/div[2]/form[1]/div[1]/div[1]/input[1]")
@@ -55,7 +60,8 @@ class profileLocators:
     unFollow = (By.XPATH, "//a[normalize-space()='Following']")
     sendBusinessCard = (By.ID, "btn-send-business")
     sendRequest = (By.XPATH, "(//button[normalize-space()='Send Request'])[1]")
-    editProfileImage = (By.XPATH, "/html[1]/body[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]/div[1]/*[name()='svg'][1]/*[name()='path'][1]")
+    editProfileImage = (By.XPATH,
+                        "/html[1]/body[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]/div[1]/*[name()='svg'][1]/*[name()='path'][1]")
     addImage = (By.XPATH, "//p[@class='MuiTypography-root MuiTypography-body1 text-primary mui-1w6h4uc']")
     addCoverPhoto = (By.XPATH, "//button[normalize-space()='Change Cover Photo']")
     changeCoverPhoto = (By.ID, "obdBtnChangePhoto")
@@ -64,7 +70,4 @@ class profileLocators:
     acceptButton = (By.XPATH, "(//button[normalize-space()='Accept'])[1]")
     sendMessage = (By.XPATH, "//textarea[starts-with(@id,':r')]")
     businessAlert = (By.XPATH, "//div[@role='status']")
-
-
-
-
+    loginText = (By.XPATH, "//a[contains(text(),'Log in')]")
