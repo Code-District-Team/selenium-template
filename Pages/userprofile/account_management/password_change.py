@@ -63,6 +63,6 @@ class password_change:
             EC.visibility_of_element_located(profileLocators.businessAlert))
         actual_PasswordChangeToast_text = PasswordChangeToast_alert .text
         expected_PasswordChangeToast_text = "Password updated successfully"
-        assert actual_PasswordChangeToast_text  == expected_PasswordChangeToast_text, f"Expected '{expected_PasswordChangeToast_text}', but got '{actual_PasswordChangeToast_text }'"
+        assert actual_PasswordChangeToast_text == expected_PasswordChangeToast_text, f"Expected '{expected_PasswordChangeToast_text}', but got '{actual_PasswordChangeToast_text }'"
 
         return newPass

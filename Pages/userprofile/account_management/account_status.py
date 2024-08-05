@@ -49,9 +49,9 @@ class AccountStatus:
     def test_account_suspend_and_activation(self) -> object:
         self.account_status_tab()
         self.account_suspend()
-        suspendAaccountAlert_ = WebDriverWait(self.driver, 30).until(
+        suspendAccountAlert = WebDriverWait(self.driver, 30).until(
             EC.visibility_of_element_located(profileLocators.businessAlert))
-        expected_text = suspendAaccountAlert_.text
+        expected_text = suspendAccountAlert.text
         actual_text = "Your Account has been Suspended"
         assert actual_text == expected_text, f"Expected '{expected_text}', but got '{actual_text}'"
         WebDriverWait(self.driver, 30).until(

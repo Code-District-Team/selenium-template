@@ -19,4 +19,4 @@ def test_business_plus_to_individual_downgrade(driver_setup):
     subscription_downgrade = Subscription_downgrade_business_plus_to_individual(driver)
     subscription_downgrade.subscription_downgrade_business_plus_to_individual(driver)
 
-    time.sleep(10)
+    time.sleep(3)

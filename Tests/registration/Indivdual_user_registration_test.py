@@ -21,7 +21,6 @@ def test_individual_signup(driver_setup):
         driver.maximize_window()
         individual_signup = RegistrationPage(driver)
         individual_signup.individual_user_signup()
-        take_screenshot(driver, "screenshot")
 
     except Exception as e:
         print(f"Test failed: {str(e)}")

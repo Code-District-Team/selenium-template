@@ -1,14 +1,14 @@
-import time
 from faker import Faker
-
-
 from selenium.webdriver import Keys
-
 from Utils.teamLocator import teamLocator
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
+import time
+
 faker = Faker()
-class  teamPage:
+
+
+class teamPage:
     def __init__(self, driver):
         self.driver = driver
 
@@ -25,13 +25,33 @@ class  teamPage:
         inviteAdminBtn = WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable(teamLocator.inviteAdminBtn))
         inviteAdminBtn.click()
 
-
     def invite_internal_members(self):
         searchBtn = WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable(teamLocator.searchBtn))
         searchBtn.click()
+
         searchBtn.send_keys("david")
-        checkBox = WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable(teamLocator.checkBox))
-        checkBox.click()
+        time.sleep(5)
+        addmember_ = self.driver.find_element(*teamLocator.checkBox)
+        addmember_.send_keys(Keys.SPACE)
+        searchBtn.clear()
+
+        searchBtn.send_keys("john")
+        time.sleep(5)
+        addmember_ = self.driver.find_element(*teamLocator.checkBox)
+        addmember_.send_keys(Keys.SPACE)
+        searchBtn.clear()
+
+        searchBtn.send_keys("smith")
+        time.sleep(5)
+        addmember_ = self.driver.find_element(*teamLocator.checkBox)
+        addmember_.send_keys(Keys.SPACE)
+
+        nextBtn = self.driver.find_element(*teamLocator.nextBtn_)
+        nextBtn.click()
+
+        inviteBtn = WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable(teamLocator.nextBtnInvite))
+        inviteBtn.click()
+        time.sleep(2)
 
     def invite(self):
         nextBtn = WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable(teamLocator.nextBtn))
@@ -50,10 +70,11 @@ class  teamPage:
         time.sleep(2)
         enterEmail.send_keys(faker.email())
         submitBtn.click()
-        time.sleep(1)
+        time.sleep(2)
         enterEmail.send_keys(faker.email())
         submitBtn.click()
-        time.sleep(1)
+        time.sleep(2)
+
     def success_message(self):
         successMessage = WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable(teamLocator.successMessage))
         message = successMessage.text
@@ -66,19 +87,21 @@ class  teamPage:
         moreDropdown.click()
         deleteBtn = WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable(teamLocator.deleteBtn))
         deleteBtn.click()
-        deleteSuccessMessage = WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable(teamLocator.deleteSuccessMessage)).text
+        deleteSuccessMessage = WebDriverWait(self.driver, 20).until(
+            EC.element_to_be_clickable(teamLocator.deleteSuccessMessage)).text
+        print(deleteSuccessMessage)
         text = "Invitation has been deleted."
+        time.sleep(5)
 
         assert deleteSuccessMessage == text
-
 
     def team_internal_members_invite(self):
         self.navigate_to_team_page()
         self.invite_administrator()
         self.invite_internal_members()
+        self.success_message()
 
     def team_external_members(self):
-        self.navigate_to_team_page()
         self.invite_administrator()
         self.invite_external_users()
         self.invite()

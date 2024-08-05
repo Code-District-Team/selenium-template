@@ -45,7 +45,7 @@ class BusinessPlus:
         isinstance_registration.click_continue_button()
         self.add_seats()
         isinstance_registration.click_continue_button()
-        time.sleep(5)
+        time.sleep(2)
         payment = PaymentPage(driver)
         payment.payment_processing()
         isinstance_registration.click_continue_button()

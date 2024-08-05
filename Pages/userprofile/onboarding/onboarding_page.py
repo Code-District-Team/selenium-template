@@ -7,7 +7,7 @@ from Utils.onboardingLocators import onboardingLocators
 from Utils.profile_locators import profileLocators
 
 class OnboardingPage:
-    def __init__(self, driver: object) -> object:
+    def __init__(self, driver):
         self.driver = driver
 
     def click_start_onboarding_button(self):
