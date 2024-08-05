@@ -96,4 +96,5 @@ class VerifyAccountPage:
         self.click_selected_invitee()
         self.review_status()
         self.assert_listing()
+        time.sleep(2)
         self.resend_button()

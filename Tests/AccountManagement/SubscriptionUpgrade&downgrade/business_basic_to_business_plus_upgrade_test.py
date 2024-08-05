@@ -1,6 +1,6 @@
 from config import Config
 from Pages.login_page import LoginPage
-from Pages.userprofile.Registration.test_businessbasicSignupAPI import BusinessBasicSignup
+from Pages.userprofile.Registration.businessbasicSignupAPI import BusinessBasicSignup
 from Pages.businessprofile.businessinfo import Businessinfo
 from Pages.userprofile.account_management.subscription_upgrade_business_basic_to_business_plus import Subscription_upgrade_business_basic_to_business_plus
 

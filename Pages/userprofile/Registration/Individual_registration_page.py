@@ -122,4 +122,4 @@ class RegistrationPage:
         self.create_account_button()
         self.otp()
         self.click_continue_button()
-        time.sleep(2)
+        time.sleep(10)

@@ -51,7 +51,7 @@ class BusinessBasicRegistration:
         country_dropdown = WebDriverWait(self.driver, 30).until(
             EC.element_to_be_clickable(busniness_registrationLocators.country_dropdown))
         country_dropdown.click()
-        time.sleep(5)
+        time.sleep(3)
         country_dropdown.send_keys(business_registrationTestData.country_name)
         country_dropdown.send_keys(Keys.ENTER)
         state_dropdown = WebDriverWait(self.driver, 10).until(
