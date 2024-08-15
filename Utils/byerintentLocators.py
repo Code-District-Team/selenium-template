@@ -3,7 +3,7 @@ from selenium.webdriver.common.by import By
 
 class buyerIntentLocators:
     profileAvtar = (By.ID, "profileAvatar")
-    buyerProfile = (By.XPATH, "//li[normalize-space()='My buyer profile']")
+    buyerProfile = (By.XPATH, "//li[normalize-space()='My Buyer Profile']")
     browserButton = (By.ID, "btn-browse")
     serviceTypeParentOption = (By.XPATH, "//h6[normalize-space()='Information (2)']")
     serviceTypeChildOption = (By.XPATH, "//p[normalize-space()='Data Processing, Hosting, and Related Services (1)']")

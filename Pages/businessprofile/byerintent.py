@@ -59,13 +59,12 @@ class  buyerintent:
         addService.click()
     def buyer_intent(self):
         self.navigate_to_buyer_intent()
-        time.sleep(10)
+        time.sleep(5)
         self.add_buyer_service()
         self.delete_Intent()
-        time.sleep(10)
+        time.sleep(5)
         self.navigate_to_product_tab()
         self.add_a_product()
-        time.sleep(10)
 
 
 
