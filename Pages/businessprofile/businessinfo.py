@@ -8,8 +8,7 @@ from Utils.businessInfoLocators import businessInfoLocators
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 from Resources.businessInfo_data import businessInfoData
-
-
+from selenium.webdriver.common.by import By
 
 
 class Businessinfo:
@@ -40,72 +39,90 @@ class Businessinfo:
         except Exception as e:
             print(f"An unexpected exception occurred: {e}")
 
-
     def navigate_to_business_tab(self):
+        avatarTab = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(businessInfoLocators.avatar))
+        avatarTab.click()
+        settingsclick = WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable(businessInfoLocators.accountsettingbtn))
+        settingsclick.click()
         businessTab = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(businessInfoLocators.businessTab))
         businessTab.click()
+
     def change_business_name(self):
-        changeBusinessName = WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable(businessInfoLocators.changeBusinessName))
+        time.sleep(2)
+        self.driver.execute_script("arguments[0].scrollIntoView();", self.driver.find_element(By.XPATH, "//p[text("
+                                                                                                        ")='Company "
+                                                                                                        "Name']"))
+        changeBusinessName = WebDriverWait(self.driver, 30).until(
+            EC.element_to_be_clickable(businessInfoLocators.changeBusinessName))
         changeBusinessName.click()
-        businessName: WebElement = WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable(businessInfoLocators.companyNameInput))
+        businessName: WebElement = WebDriverWait(self.driver, 50).until(
+            EC.element_to_be_clickable(businessInfoLocators.companyNameInput))
         time.sleep(2)
         businessName.send_keys(Keys.CONTROL, 'a')  # Select all text
         businessName.send_keys(Keys.DELETE)
         time.sleep(2)
-        businessName.send_keys("ABCRRR")
-        saveButton = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(businessInfoLocators.companyNameSave))
+        businessName.send_keys("Fenty Beauty")
+        saveButton = WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable(businessInfoLocators.companyNameSave))
         saveButton.click()
+
     def change_business_contact(self):
-        changeRevenueButton = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(businessInfoLocators.changeBusinessContact))
+        time.sleep(5)
+        self.driver.execute_script("arguments[0].scrollIntoView();", self.driver.find_element(By.XPATH, "//p[text()='Contact']"))
+        changeRevenueButton = WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable(businessInfoLocators.changeBusinessContact))
         changeRevenueButton.click()
-        businessContactInput = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(businessInfoLocators.businessContact))
+        businessContactInput = WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable(businessInfoLocators.businessContact))
         businessContactInput.send_keys(businessInfoData.businessContact)
-        businessFax = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(businessInfoLocators.businessContactFax))
+        businessFax = WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable(businessInfoLocators.businessContactFax))
         businessFax.send_keys(businessInfoData.businessFax)
-        businessEmail = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(businessInfoLocators.businessEmail))
-        time.sleep(2)
-        businessEmail.send_keys(Keys.CONTROL, 'a')  # Select all text
+        businessEmail = WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable(businessInfoLocators.businessEmail))
+        ##time.sleep(2)
+        businessEmail.send_keys(Keys.CONTROL, 'a')
         businessEmail.send_keys(Keys.DELETE)
-        time.sleep(2)
+        #time.sleep(2)
         businessEmail.send_keys(businessInfoData.businessEmail)
         saveBtn = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(businessInfoLocators.saveLocation))
         saveBtn.click()
+
     def change_location(self):
-        changeLocationButton = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(businessInfoLocators.changeLocation))
+        changeLocationButton = WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable(businessInfoLocators.changeLocation))
         changeLocationButton.click()
-        countryDropdown = WebDriverWait(self.driver, 70).until(EC.element_to_be_clickable(businessInfoLocators.countryDropdown))
+        countryDropdown = WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable(businessInfoLocators.countryDropdown))
         countryDropdown.click()
-        time.sleep(15)
+        #time.sleep(5)
         countryDropdown.send_keys(businessInfoData.countryName)
         countryDropdown.send_keys(Keys.ENTER)
-        stateDropdown = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(businessInfoLocators.stateDropdown))
+        stateDropdown = WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable(businessInfoLocators.stateDropdown))
         stateDropdown.click()
-        stateDropdownOption = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(businessInfoLocators.stateDropdownOption))
+        stateDropdownOption = WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable(businessInfoLocators.stateDropdownOption))
         stateDropdownOption.click()
         cityInput = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(businessInfoLocators.cityInput))
         cityInput.clear()
         cityInput.send_keys(businessInfoData.city)
         zipCode = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(businessInfoLocators.zipCode))
-        time.sleep(2)
+        #time.sleep(2)
         zipCode.send_keys(Keys.CONTROL, 'a')  # Select all text
         zipCode.send_keys(Keys.DELETE)
-        time.sleep(2)
+        #time.sleep(2)
         zipCode.send_keys(businessInfoData.zipCode)
-        streetAddress = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(businessInfoLocators.streetAddress))
+        streetAddress = WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable(businessInfoLocators.streetAddress))
         streetAddress.send_keys(businessInfoData.streetAddress)
-        saveLocation = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(businessInfoLocators.saveLocation))
+        saveLocation = WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable(businessInfoLocators.saveLocation))
         saveLocation.click()
+
     def changeBusinessInfo(self):
         self.navigate_to_business_tab()
-        time.sleep(10)
         self.change_business_name()
-        time.sleep(10)
         self.change_business_contact()
-        time.sleep(10)
         self.change_location()
-
-
-
-
-
-
