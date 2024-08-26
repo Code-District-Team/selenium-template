@@ -1,4 +1,3 @@
-import time
 
 from selenium.webdriver import Keys
 
@@ -8,8 +7,104 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from Pages.userprofile.Registration.Individual_registration_page import RegistrationPage
 
-from Utils.registration_locators import registrationLocators
-from Utils.businessbasic_registration_locators import busniness_registrationLocators
+# from Utils.registration_locators import registrationLocators
+# from Utils.businessbasic_registration_locators import busniness_registrationLocators
+import time
+
+from selenium.webdriver.common.by import By
+
+
+class registrationLocators:
+
+
+    signup_button = (By.ID, "btnJoinForFree")
+    freelance_option = (By.XPATH, "//label[2]")
+    business_basic_option = (By.XPATH, "//input[@value='businessFree']")
+    continue_button = (By.ID,"regBtnContinue")
+
+    email_text = (By.ID,"userEmail")
+
+    checkbox_1 = (By.XPATH, "//label[contains(@class, 'MuiFormControlLabel-root') and contains(@class, 'Mui-required')]")
+    name_text = (By.ID, "personalName")
+    surname_text = (By.ID, "surname")
+    newPassword_text = (By.NAME, "password")
+    repeatPassword_text = (By.NAME, "confirmPassword")
+    jobTitle_input = (By.XPATH, "//input[@placeholder='Search your job title here']")
+    otp_text_1 = (By.XPATH, "(//input[@aria-label='Please enter OTP character 1'])[1]")
+    otp_text_2 = (By.XPATH, "(//input[@aria-label='Please enter OTP character 2'])[1]")
+    otp_text_3 = (By.XPATH, "(//input[@aria-label='Please enter OTP character 3'])[1]")
+    otp_text_4 = (By.XPATH, "(//input[@aria-label='Please enter OTP character 4'])[1]")
+    otp_text_5 = (By.XPATH, "(//input[@aria-label='Please enter OTP character 5'])[1]")
+    otp_text_6 = (By.XPATH, "(//input[@aria-label='Please enter OTP character 6'])[1]")
+
+    workplace_dropdown = (By.XPATH, "//div[starts-with(@class,'MuiAutocomplete') and @name='businessId']//div[starts-with(@class,'MuiInputBase')]//input")
+    selfemployeed_checkbox = (By.XPATH, "//span[@class='MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label mui-1w6h4uc']")
+    start_date = (By.XPATH, "//input[@placeholder='MMMM YYYY' and @type='text' ]")
+    start_month = (By.XPATH, "//button[normalize-space()='Jul']")
+    start_date_year = (By.XPATH, "//button[normalize-space()='2024']")
+    browse_button = (By.XPATH, "(//button[@id='btn-browse'])[1]")
+    select_topic_primary = (By.XPATH, "//h6[normalize-space()='Life (6)']")
+    select_topic_2nd_tree = (By.XPATH, "//p[normalize-space()='Family (8)']")
+    checked_box_for_topics = (By.XPATH, "//span[normalize-space()='Adoption']")
+    Done_button = (By.ID, "areaOfInterestBtnDone")
+    country_dropdown = (By.NAME, "country")
+    select_country = (By.CSS_SELECTOR, "li.MuiAutocomplete-option.MuiBox-root.mui-yxom3w.Mui-focused")
+    state_dropdown = (By.ID, "mui-component-select-province")
+    select_state = (By.XPATH, "//li[contains(text(),'Farāh (AF-FRA)')]")
+    city_text = (By.ID, "city")
+    zipcode_text = (By.ID, "zip-code")
+    street_address_text = (By.ID, "street-address")
+    create_account_button = (By.ID, "createAccount")
+    description_box = (By.ID, "regFreelanceDescription")
+    hourly_rate = (By.NAME, "hourlyRate")
+    currency_dropdown = (By.ID, "mui-component-select-currency")
+    select_currency = (By.XPATH, "(//li[contains(text(),'Afghanistan Afghani (؋)')])[1]")
+    minimum_project_size = (By.NAME, "minProjectSize")
+    availability_dropdown = (By.ID, "mui-component-select-availability")
+    select_availability = (By.XPATH, "//li[normalize-space()='Full-Time']")
+    continue_button_freelance = (By.XPATH,"//button[normalize-space()='Continue']")
+    primary_option = (By.XPATH, "//li[@id=':r1q:-54']//div[@class='MuiTreeItem-iconContainer']//*[name()='svg']")
+
+    verify_account = (By.XPATH, "(//h2[normalize-space()='Verify account'])[1]")
+    business_plus_account = (By.XPATH, "//label[4]")
+    seats_button = (By.XPATH, "(//*[name()='svg'][@class='MuiSvgIcon-root MuiSvgIcon-fontSizeMedium counter-icon mui-vubbuv'])[2]")
+class busniness_registrationLocators:
+    business_basic_option = (By.XPATH, "//label[3]")
+    business_basic_dropdown = (By.XPATH, "//input[@id=':r1:']")
+    email_input_field = (By.NAME, "businessEmail")
+    company_name_input_field = (By.ID, "businessName")
+    business_url = (By.ID, "businessUrl")
+    continue_button = (By.ID, "addBusinessContinue")
+    country_dropdown = (By.XPATH, "//input[@id=':r4:']")
+    state_dropdown = (By.XPATH, "//div[@id='mui-component-select-province']")
+    state_dropdown_option = (By.XPATH, "//li[contains(text(),'Badakhshān (AF-BDS)')]")
+    city_input_field = (By.ID, "city")
+    postalcode_input_field = (By.ID, "zip-code")
+    street_address_input_field = (By.ID, "street-address")
+    revenue_input_field = (By.ID, "revenue")
+    company_size_input_field = (By.ID, "companySize")
+    ownership_type_dropdown = (By.ID, "ownershipType")
+    ownership_type_option = (By.XPATH, "//li[normalize-space()='Government']")
+    entity_type_dropdown = (By.XPATH, "//div[@id='mui-component-select-entityType']")
+    entity_type_option = (By.XPATH, "//li[normalize-space()='Parent']")
+    headquarter_dropdown = (By.ID, "mui-component-select-headquarter")
+    headquarter_dropdown_option = (By.XPATH, "//li[normalize-space()='Yes']")
+    scroll_element = (By.XPATH, "//div[@class='MuiStack-root add-identity-fields mui-j7qwjs']")
+    founded_year_dropdown = (By.ID, "mui-component-select-founded")
+    founded_year_option = (By.XPATH, "//li[normalize-space()='2024']")
+    browse_button = (By.ID, "btn-browse")
+    primary_industry_parent_option = (By.XPATH, "//h6[@class='MuiTypography-root MuiTypography-h6 mui-1mopw5e' and .//span[1][text()='P'] and .//span[3][text()='r'] and .//span[5][text()='o']]")
+    primary_industry_child_option = (By.XPATH, "(//p[normalize-space()='Legal Services (4)'])[1]")
+    primary_industry_child_option_1 = (By.XPATH, "(//p[normalize-space()='Offices of Lawyers'])[1]")
+    primary_industry_child_option_2 = (By.XPATH, '(//span[normalize-space()="Attorneys\' offices"])[1]')
+    done_button = (By.ID, "areaOfInterestBtnDone")
+    add_business = (By.ID, "addBusinessContinue")
+    jobTitle_dropdown = (By.ID, ":ri:")
+    jobTitle_option = (By.ID, ":ri:-option-0")
+    startDate_field = (By.ID, ":rm:")
+    startDate_option = (By.XPATH, "//button[normalize-space()='1']")
+    addBusinessBtn = (By.XPATH, "//p[@class='MuiTypography-root MuiTypography-body1 body1 mui-1w6h4uc']")
+
 
 
 class BusinessBasicRegistration:

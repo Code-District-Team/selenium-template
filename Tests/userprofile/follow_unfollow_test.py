@@ -3,10 +3,11 @@ import time
 from Pages.userprofile.user_follow_unfollw import User_follow_unfollow
 from config import Config
 from Pages.businessprofile.businessinfo import Businessinfo
-from Pages.userprofile.Registration.businessbasic_registration import business_basic_registration
+
+from Pages.userprofile.Registration.businessbasic_registration import BusinessBasicRegistration
 from Pages.login_page import LoginPage
 from Resources.loginData import loginTestData
-def testfollow_unfollow(driver_setup):
+def test_follow_unfollow(driver_setup):
     driver = driver_setup
     driver.get(Config.base_url)
     driver.maximize_window()

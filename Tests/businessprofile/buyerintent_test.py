@@ -1,7 +1,7 @@
 from Pages.userprofile.Registration.businessbasicSignupAPI import BusinessBasicSignup
 from config import Config
 from Pages.businessprofile.businessinfo import Businessinfo
-from Pages.businessprofile.byerintent import buyerintent
+from Pages.businessprofile.buyerintent import buyerintent
 from Pages.login_page import LoginPage
 
 
