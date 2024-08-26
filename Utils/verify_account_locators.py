@@ -1,0 +1,18 @@
+from selenium.webdriver.common.by import By
+class VerifyAccountLocator:
+    close = (By.XPATH, "(//*[name()='svg'][@class='MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-vubbuv'])[22]")
+    profileAvatar = (By.ID, "profileAvatar")
+    verifyAccount = (By.ID, "verifyAccount")
+    inviteReviewer = (By.ID, "vertical-tab-2")
+    reviewStatus = (By.ID, "vertical-tab-1")
+    searchBar = (By.XPATH, "//input[@placeholder = 'Name, email, etc...']")
+    popupbox = (By.XPATH, "(//div[@role='dialog'])[1]")
+    inviteByEmail = (By.XPATH, "(//button[normalize-space()='Invite by email'])[1]")
+    emailBox = (By.ID, "invite-email")
+    addButton = (By.XPATH, "//button[@type = 'submit']")
+    message = (By.XPATH, "//textarea[@name = 'message']")
+    success_message = (By.XPATH, "//div[@role = 'status']")
+    userList2 = (By.XPATH, "(//input[@type='checkbox'])[2]")
+    userList3 = (By.XPATH, "(//input[@type='checkbox'])[3]")
+    selectedInvitee = (By.ID, "verifyInviteSelected")
+    resendButton = (By.XPATH, "(//button[text() = 'Resend'])[1]")
