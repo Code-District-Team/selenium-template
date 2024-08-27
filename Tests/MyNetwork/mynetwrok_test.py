@@ -1,5 +1,5 @@
 import time
-from lib2to3.pgen2 import driver
+
 
 import pytest
 from Pages.MyNetwork.signup_pytest_function import MyNetwork
@@ -22,7 +22,7 @@ def driver_setup(request):
     from selenium.webdriver.chrome.options import Options
     options = webdriver.ChromeOptions()
     options.add_argument('--headless')
-    driver = webdriver.Chrome("path/to/chromedriver.exe", options=options)
+    driver = webdriver.Chrome(options=options)
     request.addfinalizer(driver.quit)
     return driver
 
