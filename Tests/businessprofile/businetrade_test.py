@@ -4,7 +4,6 @@ from Pages.login_page import LoginPage
 from config import Config
 from Pages.userprofile.Registration.businessbasicSignupAPI import BusinessBasicSignup
 
-
 def test_businesstrade(driver_setup):
     loginLog = BusinessBasicSignup()
     email, password = loginLog.signup()

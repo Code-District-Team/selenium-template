@@ -19,7 +19,10 @@ def create_user():
 @pytest.fixture(scope="module")
 def driver_setup(request):
     from selenium import webdriver
-    driver = webdriver.Chrome()
+    from selenium.webdriver.chrome.options import Options
+    options = webdriver.ChromeOptions()
+    options.add_argument('--headless')
+    driver = webdriver.Chrome("path/to/chromedriver.exe", options=options)
     request.addfinalizer(driver.quit)
     return driver
 
