@@ -1,0 +1,23 @@
+image: ubuntu:24.04
+
+pipelines:
+  branches:
+    feature/devops:
+      - step:
+          name: Build and Deploy DEV-FRONTEND
+          services:
+            - docker
+          script:
+            - echo "SSH to Server"
+            - pipe: atlassian/ssh-run:0.4.1
+              variables:
+                SSH_USER: $SSH_USER
+                SERVER: $SERVER_IP
+                MODE: 'command'
+                COMMAND: |
+                  cd /home/ubuntu/selenium-template;
+                  git stash;
+                  git checkout .;
+                  git pull;
+                  source venv/bin/activate;
+                  ./run_selenium_tests.sh > selenium_test_logs.txt 2>&1;
