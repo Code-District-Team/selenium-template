@@ -20,4 +20,4 @@ pipelines:
                   git checkout .;
                   git pull;
                   source venv/bin/activate;
-                  ./run_selenium_tests.sh > selenium_test_logs.txt 2>&1;
+                  ./run_selenium_tests.sh | tee selenium_test_logs.txt;
