@@ -3,12 +3,20 @@ import time
 from Utils.subscription_upgrade_locators import Subscriptionupgradelocators
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
+from Pages.MyNetwork.mynetwork import NetworkPage
 
 from Pages.userprofile.Registration.payment_page import PaymentPage
 from Pages.userprofile.Registration.freerlance_registration_page import FreelanceRegistration
+from Utils.mynetwork_locators import mynetworkLocators
 class Subscription_upgrade_individual_to_freelance:
     def __init__(self, driver):
         self.driver = driver
+    def click_to_profile_icon(self):
+        profileAvtar = WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable(mynetworkLocators.profileAvtar))
+        profileAvtar.click()
+    def click_to_account_settings(self):
+        accountSettings = WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable(Subscriptionupgradelocators.account_settings_tab))
+        accountSettings.click()
     def navigate_to_subscription_tab(self):
         subscription_tab = WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable(Subscriptionupgradelocators.subscription_tab))
         subscription_tab.click()
@@ -46,6 +54,8 @@ class Subscription_upgrade_individual_to_freelance:
         self.driver.execute_script(f"window.scrollTo(0, {half_height});")
 
     def upgrade_subcription_indvidual_to_free_lance(self, driver):
+        self.click_to_profile_icon()
+        self.click_to_account_settings()
         self.navigate_to_subscription_tab()
         self.half_page_scroll()
         self.click_to_upgrade_freelance()

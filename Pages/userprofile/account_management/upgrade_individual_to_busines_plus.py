@@ -57,6 +57,9 @@ class Subscription_upgrade_individual_to_business_plus:
         self.driver.execute_script(f"window.scrollTo(0, {half_height});")
 
     def upgrade_to_business_plus(self, driver_setup):
+        isinstance_individual = Subscription_upgrade_individual_to_freelance(driver_setup)
+        isinstance_individual.click_to_profile_icon()
+        isinstance_individual.click_to_account_settings()
         self.navigate_to_subscription_tab()
         self.half_page_scroll()
         self.click_to_upgrade_business_plus()

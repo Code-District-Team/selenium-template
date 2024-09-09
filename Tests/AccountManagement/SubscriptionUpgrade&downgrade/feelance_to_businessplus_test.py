@@ -16,6 +16,7 @@ def test_freelance_to_businessplus_upgrade(driver_setup):
 
     skip_account_verification = Businessinfo(driver)
     skip_account_verification.skip_account_verification()
+    skip_account_verification.skip_account_verification()
 
     subscription_upgrade = Subscription_upgrade_freelance_to_businessplus(driver)
     subscription_upgrade.freelance_to_businessplus(driver)

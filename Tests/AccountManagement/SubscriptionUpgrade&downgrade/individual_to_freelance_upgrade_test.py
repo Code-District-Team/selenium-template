@@ -16,6 +16,7 @@ def test_individual_to_freelance_upgrade(driver_setup):
     loginPage.login(email, password)
     skipAccountVerification = Businessinfo(driver)
     skipAccountVerification.skip_account_verification()
+    skipAccountVerification.skip_account_verification()
     freelanceSubscriptionUpgrade = Subscription_upgrade_individual_to_freelance(driver)
     freelanceSubscriptionUpgrade.upgrade_subcription_indvidual_to_free_lance(driver)
 

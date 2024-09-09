@@ -14,7 +14,7 @@ def test_change_password(driver_setup):
     login_page.login(loginTestData.valid_credential_busniess_basic_to_business_plus["validEmail"], loginTestData.valid_credential_busniess_basic_to_business_plus["password"])
     time.sleep(20)
     change_password = password_change(driver)
-    change_password.change_password()
+    change_password.change_password(driver)
 
 
 
