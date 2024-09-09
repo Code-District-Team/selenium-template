@@ -4,6 +4,8 @@ from selenium import webdriver
 
 @pytest.fixture(scope="module")
 def driver_setup(request):
-    driver = webdriver.Chrome()
-    request.addfinalizer(driver.quit)
+   options = Options()
+    options = webdriver.ChromeOptions()
+    options.add_argument('--headless')
+    driver = webdriver.Chrome(options=options)
     return driver
