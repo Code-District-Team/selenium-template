@@ -4,7 +4,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from Pages.userprofile.onboarding.onboarding_page import OnboardingPage
 from Utils.onboardingLocators import onboardingLocators
-from Utils.profile_locators import profileLocators
+import mouseinfo
 
 
 class FreelanceOnboardingPage:

@@ -32,11 +32,12 @@ class Subscription_downgrade_freelance_to_individual:
 
     def downgrade_to_individual(self):
         isinstance_individual = Subscription_upgrade_individual_to_freelance(self.driver)
+        isinstance_individual.click_to_profile_icon()
+        isinstance_individual.click_to_account_settings()
         isinstance_individual.navigate_to_subscription_tab()
+        time.sleep(1)
         self.click_to_downgrade()
-        time.sleep(2)
         self.click_confirm_downgrade()
-        time.sleep(5)
         isinstance_individual.close_popup()
         self.verfiy_downgrade()
 

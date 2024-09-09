@@ -13,9 +13,7 @@ from Pages.userprofile.account_management.subscription_downgrade_business_plus_t
 class Subscription_upgrade_individual_to_business_basic:
     def __init__(self, driver):
         self.driver = driver
-    def navigate_to_subcription_tab(self):
-        subscription_tab = WebDriverWait(self.driver, 40).until(EC.element_to_be_clickable(Subscriptionupgradelocators.subscription_tab))
-        subscription_tab.click()
+
     def click_to_upgrade_business_basic(self):
         upgrade_to_business_basic_button = WebDriverWait(self.driver, 40).until(EC.element_to_be_clickable(Subscriptionupgradelocators.upgrade_to_business_basic))
         upgrade_to_business_basic_button.click()
@@ -112,7 +110,10 @@ class Subscription_upgrade_individual_to_business_basic:
         half_height = total_height / 2
         self.driver.execute_script(f"window.scrollTo(0, {half_height});")
     def upgrade_to_business_basic(self, driver):
-        self.navigate_to_subcription_tab()
+        instance_individual = Subscription_upgrade_individual_to_freelance(driver)
+        instance_individual.click_to_profile_icon()
+        instance_individual.click_to_account_settings()
+        instance_individual.navigate_to_subscription_tab()
         self.half_page_scroll()
         self.click_to_upgrade_business_basic()
         self.click_to_add_business_field()

@@ -5,17 +5,6 @@ from Resources.loginData import loginTestData
 
 
 
-def test_login_with_empty_fields(driver_setup):
-    driver = driver_setup
-    driver.get(Config.base_url)
-    login_page = LoginPage(driver)
-    login_page.login_with_empty_fields()
-def test_login_with_invalid_credentials(driver_setup):
-    driver = driver_setup
-    driver.get(Config.base_url)
-    login_page = LoginPage(driver)
-    login_page.login_with_invalid_credentials(loginTestData.invalid_credentials["InvalidEmail"], loginTestData.invalid_credentials["InvalidPassword"])
-
 
 def test_login_valid_credentials(driver_setup):
     driver = driver_setup

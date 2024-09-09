@@ -15,5 +15,6 @@ def test_business_basic_to_individual_downgrade(driver_setup):
     loginPage.login(email, password)
     skipAccountVerification = Businessinfo(driver)
     skipAccountVerification.skip_account_verification()
+    skipAccountVerification.skip_account_verification()
     downgrade_to_individual = Subscription_downgrade_business_basic_to_individual(driver)
     downgrade_to_individual.subscription_downgrade_business_basic_to_individual(driver)

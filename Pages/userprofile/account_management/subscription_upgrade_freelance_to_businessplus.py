@@ -21,8 +21,8 @@ class Subscription_upgrade_freelance_to_businessplus:
         currentSubscription = WebDriverWait(self.driver, 40).until(EC.element_to_be_clickable(Subscriptionupgradelocators.currentSubscription))
         currentSubscription = currentSubscription.text
         print(currentSubscription)
-        if currentSubscription == "BusinessPlus":
-            print("Subscription changes for Freelance to Business Pluse successfully")
+        if currentSubscription == "Business Plus":
+            print("Subscription changes for Freelance to Business Plus successfully")
         else:
             print("Subscription not changed successfully")
     def half_page_scroll(self):
@@ -32,6 +32,8 @@ class Subscription_upgrade_freelance_to_businessplus:
     def freelance_to_businessplus(self, driver):
 
         navigate_to_subscription_tab = Subscription_upgrade_individual_to_freelance(driver)
+        navigate_to_subscription_tab.click_to_profile_icon()
+        navigate_to_subscription_tab.click_to_account_settings()
         navigate_to_subscription_tab.navigate_to_subscription_tab()
 
         self.click_upgrade_to_businessplus()
@@ -46,7 +48,7 @@ class Subscription_upgrade_freelance_to_businessplus:
         numberOfSeats = Subscription_upgrade_individual_to_business_plus(driver)
         numberOfSeats.increase_number_of_seats()
         add_business_field.click_to_continue()
-        # paymentProcessing = payment_processing(driver)
+        # paymentProcessing = PaymentPage(driver)
         # paymentProcessing.payment_processing()
         time.sleep(5)
         self.verify_subscription()

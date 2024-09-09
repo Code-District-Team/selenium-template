@@ -38,6 +38,9 @@ class Subscription_upgrade_business_basic_to_business_plus:
 
 
     def upgrade_to_business_plus(self, driver_setup):
+        navigate_to_subscription = Subscription_upgrade_individual_to_freelance(driver_setup)
+        navigate_to_subscription.click_to_profile_icon()
+        navigate_to_subscription.click_to_account_settings()
         self.half_page_scroll()
         self.navigate_to_subscription_tab()
         self.click_to_upgrade_business_plus()
