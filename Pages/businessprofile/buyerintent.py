@@ -27,11 +27,12 @@ class buyerIntentLocators:
     deleteConfirmation = (By.XPATH, "//button[normalize-space()='Delete']")
 
 
-class  buyerintent:
+class buyerintent:
     def __init__(self, driver):
         self.driver = driver
 
     def navigate_to_buyer_intent(self):
+        time.sleep(70)
         userProfileAvatar = WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable(buyerIntentLocators.profileAvtar))
         userProfileAvatar.click()
         buyerProfile = WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable(buyerIntentLocators.buyerProfile))
@@ -79,6 +80,7 @@ class  buyerintent:
         addService = WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable(buyerIntentLocators.submitButton))
         addService.click()
     def buyer_intent(self):
+        time.sleep(5)
         self.navigate_to_buyer_intent()
         time.sleep(5)
         self.add_buyer_service()
