@@ -12,7 +12,7 @@ def test_business_plus_to_individual_downgrade(driver_setup):
 
     businessPlus = BusinessPlus(driver)
     businessPlus.business_plus_signup(driver)
-
+    time.sleep(1)
     skip_account_verification = Businessinfo(driver)
     skip_account_verification.skip_account_verification()
 

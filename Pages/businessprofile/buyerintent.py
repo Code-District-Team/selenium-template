@@ -32,7 +32,7 @@ class buyerintent:
         self.driver = driver
 
     def navigate_to_buyer_intent(self):
-        time.sleep(10)
+        time.sleep(70)
         userProfileAvatar = WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable(buyerIntentLocators.profileAvtar))
         userProfileAvatar.click()
         buyerProfile = WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable(buyerIntentLocators.buyerProfile))
