@@ -2,7 +2,7 @@ image: ubuntu:24.04
 
 pipelines:
   branches:
-    feature/devops:
+    dev:
       - step:
           name: Build and Deploy DEV-FRONTEND
           services:
