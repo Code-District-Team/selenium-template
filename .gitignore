@@ -12,6 +12,7 @@ dist/
 
 # Compiled Python bytecode
 *.py[cod]
+Tests/conftest.py
 
 # Log files
 *.log

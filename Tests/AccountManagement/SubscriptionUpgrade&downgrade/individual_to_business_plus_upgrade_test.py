@@ -16,5 +16,6 @@ def test_individual_to_business_plus_upgrade(driver_setup):
     loginPage.login(email, password)
     skipAccountVerification = Businessinfo(driver)
     skipAccountVerification.skip_account_verification()
+    skipAccountVerification.skip_account_verification()
     businessPlus = Subscription_upgrade_individual_to_business_plus(driver)
     businessPlus.upgrade_to_business_plus(driver)

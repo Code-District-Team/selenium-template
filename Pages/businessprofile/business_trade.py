@@ -7,6 +7,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 from Resources.businessInfo_data import businessInfoData
 from Pages.businessprofile.businessinfo import Businessinfo
+from Pages.userprofile.account_management.subscription_upgrade_individual_to_freelance import Subscription_upgrade_individual_to_freelance
 
 
 from selenium.webdriver.common.by import By
@@ -37,6 +38,8 @@ class tradelocators:
     incotermsDropdown = (By.ID, "mui-component-select-incoterms")
     incotermsDropdownOption = (By.XPATH, "//li[normalize-space()='CIF']")
     addOriginAddress = (By.XPATH, "//p[text()='Origin Address']//following::button[1]")
+    businessProfile = (By.XPATH, "//a[normalize-space()='Business Profile']")
+
 
 
 class businesstrade:
@@ -152,6 +155,10 @@ class businesstrade:
         saveButton.click()
 
     def tradeInfo(self, driver):
+        isinstance_profile_avatar = Subscription_upgrade_individual_to_freelance(driver)
+        isinstance_profile_avatar.click_to_profile_icon()
+
+
         businessTab_instance = Businessinfo(driver)
         businessTab_instance.skip_account_verification()
         businessTab_instance.navigate_to_business_tab()

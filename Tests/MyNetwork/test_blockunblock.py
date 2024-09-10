@@ -1,5 +1,4 @@
 import time
-from lib2to3.pgen2 import driver
 
 import pytest
 from Pages.MyNetwork.signup_pytest_function import MyNetwork

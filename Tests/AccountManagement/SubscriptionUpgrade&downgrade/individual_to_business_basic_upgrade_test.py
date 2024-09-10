@@ -6,7 +6,6 @@ from Pages.userprofile.Registration.test_individualSignupAPI import IndividualSi
 from Pages.businessprofile.businessinfo import Businessinfo
 
 
-
 def test_individual_to_business_basic_upgrade(driver_setup):
     loginLog = IndividualSignup()
     email, password = loginLog.signup()
@@ -16,6 +15,7 @@ def test_individual_to_business_basic_upgrade(driver_setup):
     loginPage = LoginPage(driver_setup)
     loginPage.login(email, password)
     skipAccountVerification = Businessinfo(driver)
+    skipAccountVerification.skip_account_verification()
     skipAccountVerification.skip_account_verification()
     upgrade_individual_to_business_basic = Subscription_upgrade_individual_to_business_basic(driver)
     upgrade_individual_to_business_basic.upgrade_to_business_basic(driver)

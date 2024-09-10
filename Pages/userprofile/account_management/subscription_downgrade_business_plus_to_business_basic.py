@@ -32,7 +32,10 @@ class Subscription_downgrade_business_plus_to_business_basic:
 
     def subscription_downgrade_business_plus_to_Business_plus(self, driver):
         navigate_to_subscription = Subscription_upgrade_individual_to_freelance(driver)
+        navigate_to_subscription.click_to_profile_icon()
+        navigate_to_subscription.click_to_account_settings()
         navigate_to_subscription.navigate_to_subscription_tab()
+
         self.half_page_scroll()
         self.click_to_downgrade()
         time.sleep(2)
