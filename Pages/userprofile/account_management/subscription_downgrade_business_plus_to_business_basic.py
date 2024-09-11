@@ -38,7 +38,6 @@ class Subscription_downgrade_business_plus_to_business_basic:
 
         self.half_page_scroll()
         self.click_to_downgrade()
-        time.sleep(2)
         click_on_downgrade = Subscription_downgrade_freelance_to_individual(driver)
         click_on_downgrade.click_confirm_downgrade()
         navigate_to_subscription.close_popup()
