@@ -1,9 +1,11 @@
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+import chromedriver_autoinstaller
 
 @pytest.fixture(scope="module")
 def driver_setup(request):
+    chromedriver_autoinstaller.install()
     # Set up Chrome options for headless mode
     chrome_options = Options()
     chrome_options.add_argument("--headless")
