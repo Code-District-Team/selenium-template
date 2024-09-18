@@ -16,7 +16,7 @@ def test_businessinfo(driver_setup):
     loginPage.login(email, password)
     businessinfo_instance = Businessinfo(driver_setup)
     businessinfo_instance.skip_account_verification()
-    #time.sleep(10)
+    businessinfo_instance.skip_account_verification()
     businessinfo_instance.changeBusinessInfo()
 
 

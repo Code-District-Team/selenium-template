@@ -15,6 +15,7 @@ def test_buyer_intent(driver_setup):
     loginPage.login(email, password)
     businessinfo_instance = Businessinfo(driver_setup)
     businessinfo_instance.skip_account_verification()
+    businessinfo_instance.skip_account_verification()
     buyerIntent = buyerintent(driver_setup)
     buyerIntent.buyer_intent()
 

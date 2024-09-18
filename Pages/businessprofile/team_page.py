@@ -15,9 +15,8 @@ faker = Faker()
 
 
 class teamLocator:
-    verifyAccountBtn = (
-    By.XPATH, "(//*[name()='svg'][@class='MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-vubbuv'])[22]")
-    dontShow = (By.XPATH, "//input[@type='checkbox']")
+    profileAvtar = (By.ID, "profileAvatar")
+    accountSettings = (By.XPATH, "//a[normalize-space()='Account Settings']")
     businessTabBtn = (By.XPATH, "(//button[normalize-space()='Business'])[1]")
     teamTab = (By.XPATH, "(//button[normalize-space()='Team'])[1]")
     inviteAdminBtn = (By.XPATH, "(//button[normalize-space()='Invite Administrators'])[1]")
@@ -42,13 +41,15 @@ class teamPage:
         self.driver = driver
 
     def navigate_to_team_page(self):
-        verifyBtn = WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable(teamLocator.verifyAccountBtn))
-        verifyBtn.click()
-        businessTabBtn = WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable(teamLocator.businessTabBtn))
-        businessTabBtn.click()
-        teamTab = WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable(teamLocator.teamTab))
+        profileAvatar = WebDriverWait(self.driver, 50).until(EC.element_to_be_clickable(teamLocator.profileAvtar))
+        profileAvatar.click()
+        accountSettings = WebDriverWait(self.driver, 50).until(
+            EC.element_to_be_clickable(teamLocator.accountSettings))
+        accountSettings.click()
+        businessTab = WebDriverWait(self.driver, 50).until(EC.element_to_be_clickable(teamLocator.businessTabBtn))
+        businessTab.click()
+        teamTab = WebDriverWait(self.driver, 50).until(EC.element_to_be_clickable(teamLocator.teamTab))
         teamTab.click()
-
     def invite_administrator(self):
         time.sleep(3)
         inviteAdminBtn = WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable(teamLocator.inviteAdminBtn))
@@ -126,6 +127,7 @@ class teamPage:
 
     def team_internal_members_invite(self):
         self.navigate_to_team_page()
+        time.sleep(3)
         self.invite_administrator()
         self.invite_internal_members()
         self.success_message()

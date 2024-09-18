@@ -7,8 +7,6 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from Pages.userprofile.Registration.Individual_registration_page import RegistrationPage
 
-# from Utils.registration_locators import registrationLocators
-# from Utils.businessbasic_registration_locators import busniness_registrationLocators
 import time
 
 from selenium.webdriver.common.by import By
@@ -99,7 +97,7 @@ class busniness_registrationLocators:
     primary_industry_child_option_2 = (By.XPATH, '(//span[normalize-space()="Attorneys\' offices"])[1]')
     done_button = (By.ID, "areaOfInterestBtnDone")
     add_business = (By.ID, "addBusinessContinue")
-    jobTitle_dropdown = (By.ID, ":ri:")
+    jobTitle_dropdown = (By.XPATH, "//input[@placeholder='Search your job title here']")
     jobTitle_option = (By.ID, ":ri:-option-0")
     startDate_field = (By.ID, ":rm:")
     startDate_option = (By.XPATH, "//button[normalize-space()='1']")
@@ -149,7 +147,7 @@ class BusinessBasicRegistration:
         time.sleep(3)
         country_dropdown.send_keys(business_registrationTestData.country_name)
         country_dropdown.send_keys(Keys.ENTER)
-        state_dropdown = WebDriverWait(self.driver, 10).until(
+        state_dropdown = WebDriverWait(self.driver, 50).until(
             EC.element_to_be_clickable(busniness_registrationLocators.state_dropdown))
         state_dropdown.click()
         state_dropdown_option = WebDriverWait(self.driver, 10).until(
@@ -253,19 +251,6 @@ class BusinessBasicRegistration:
             EC.element_to_be_clickable(registrationLocators.repeatPassword_text))
         repeat_password.send_keys(RegistrationTestData.password)
 
-    def job_title(self):
-        jobTitle_dropdown = WebDriverWait(self.driver, 30).until(
-            EC.element_to_be_clickable(busniness_registrationLocators.jobTitle_dropdown))
-        jobTitle_dropdown.click()
-        jobTitle_option = WebDriverWait(self.driver, 50).until(
-            EC.element_to_be_clickable(busniness_registrationLocators.jobTitle_option))
-        jobTitle_option.click()
-        start_date = WebDriverWait(self.driver, 10).until(
-            EC.element_to_be_clickable(busniness_registrationLocators.startDate_field))
-        start_date.click()
-        start_date_select = WebDriverWait(self.driver, 10).until(
-            EC.element_to_be_clickable(busniness_registrationLocators.startDate_option))
-        start_date_select.click()
 
     def create_account_button(self):
         create_account_button = WebDriverWait(self.driver, 10).until(
@@ -276,15 +261,15 @@ class BusinessBasicRegistration:
         signup_button = WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable(registrationLocators.otp_text_1))
         signup_button.send_keys(otp_digits)
-    def job_title(self):
+    def jobTitle(self):
         job_title_dropdown = WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable(registrationLocators.jobTitle_input))
         job_title_dropdown.click()
-        job_title_dropdown.send_keys(RegistrationTestData.Job_title)
-
-
+        job_title_dropdown.send_keys(".Net Architect")
+        job_title_dropdown.send_keys(Keys.RETURN)
         start_date = WebDriverWait(self.driver, 60).until(EC.element_to_be_clickable(registrationLocators.start_date))
         start_date.click()
-        start_date_year = WebDriverWait(self.driver, 50).until(EC.element_to_be_clickable(registrationLocators.start_date_year))
+        start_date_year = WebDriverWait(self.driver, 50).until(
+            EC.element_to_be_clickable(registrationLocators.start_date_year))
         start_date_year.click()
         start_month = WebDriverWait(self.driver, 50).until(EC.element_to_be_clickable(registrationLocators.start_month))
         start_month.click()
@@ -301,7 +286,7 @@ class BusinessBasicRegistration:
         isinstance_registration.click_continue_button()
         isinstance_registration.personal_info()
         isinstance_registration.click_continue_button()
-        self.job_title()
+        self.jobTitle()
         isinstance_registration.click_continue_button()
         isinstance_registration.select_topic()
         isinstance_registration.click_continue_button()

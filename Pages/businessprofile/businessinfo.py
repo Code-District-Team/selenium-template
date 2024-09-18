@@ -10,6 +10,8 @@ from Resources.businessInfo_data import businessInfoData
 from selenium.webdriver.common.by import By
 
 class businessInfoLocators:
+    profileAvtar = (By.ID, "profileAvatar")
+    accountSettings = (By.XPATH, "//a[normalize-space()='Account Settings']")
     businessTab = (By.XPATH, "//button[normalize-space()='Business']")
     changeBusinessName = (By.XPATH, "(//button[@type='button'][normalize-space()='Change'])[1]")
     companyNameInput = (By.XPATH, "//label[text()='Company Name']/following-sibling::div//input")
@@ -62,13 +64,14 @@ class Businessinfo:
             print(f"TimeoutException: {e}")
         except Exception as e:
             print(f"An unexpected exception occurred: {e}")
+        time.sleep(1)
 
     def navigate_to_business_tab(self):
         avatarTab = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(businessInfoLocators.avatar))
         avatarTab.click()
-        settingsclick = WebDriverWait(self.driver, 10).until(
+        settingsClick = WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable(businessInfoLocators.accountsettingbtn))
-        settingsclick.click()
+        settingsClick.click()
         businessTab = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(businessInfoLocators.businessTab))
         businessTab.click()
 

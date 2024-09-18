@@ -15,6 +15,7 @@ def test_business_plus_to_individual_downgrade(driver_setup):
 
     skip_account_verification = Businessinfo(driver)
     skip_account_verification.skip_account_verification()
+    skip_account_verification.skip_account_verification()
 
     subscription_downgrade = Subscription_downgrade_business_plus_to_individual(driver)
     subscription_downgrade.subscription_downgrade_business_plus_to_individual(driver)

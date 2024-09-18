@@ -8,7 +8,7 @@ from Pages.MyNetwork.signup_pytest_function import MyNetwork
 from selenium.webdriver.common.by import By
 
 class mynetworkLocators:
-    networkTab = (By.XPATH, '(//li[@role=\'menuitem\'])[3]')
+    networkTab = (By.XPATH, "//span[normalize-space()='My Network']")
     followingTab = (By.ID, "tab-following")
     networkSearchField = (By.ID, "network-search-field")
     userBFollowing = (By.XPATH, "(//h4[@class='MuiTypography-root MuiTypography-h4 profile-name mui-pu29jg'])[1]")
@@ -25,6 +25,7 @@ class mynetworkLocators:
     blockTab = (By.ID, "tab-blocked")
     unblockUser = (By.XPATH, "(//button[normalize-space()='Unblock'])[1]")
     displayedMessage = (By.XPATH, "//h5[normalize-space()='You have not blocked any users']")
+    drawer = (By.XPATH, "//button[@aria-label='open drawer']//*[name()='svg']")
 
 
 
@@ -60,8 +61,11 @@ class NetworkPage:
         actual_text = "1 Business Requests sent successfully."
         assert actual_text == expected_text, f"Expected '{expected_text}', but got '{actual_text}'"
         print("User A successfully sent the business card request")
+        time.sleep(5)
 
     def navigate_to_mynetwork(self):
+        openDrawer = WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable(mynetworkLocators.drawer))
+        openDrawer.click()
         networkTab = WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable(mynetworkLocators.networkTab))
         networkTab.click()
         self.half_page_scroll()

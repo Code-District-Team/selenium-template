@@ -1,8 +1,9 @@
 import time
 
 from selenium.webdriver import Keys
+from selenium.webdriver.common.by import By
 
-from Utils.subscription_upgrade_locators import Subscriptionupgradelocators
+
 from Utils.businessbasic_registration_locators import busniness_registrationLocators
 from Resources.business_registration_data import business_registrationTestData
 from selenium.webdriver.support import expected_conditions as EC
@@ -10,19 +11,93 @@ from selenium.webdriver.support.wait import WebDriverWait
 from Pages.userprofile.Registration.Individual_registration_page import RegistrationPage
 from Pages.userprofile.account_management.subscription_upgrade_individual_to_freelance import Subscription_upgrade_individual_to_freelance
 from Pages.userprofile.account_management.subscription_downgrade_business_plus_to_business_basic import Subscription_downgrade_business_plus_to_business_basic
+
+
+
+class SubscriptionUpgradeLocators:
+
+    account_settings_tab = (By.XPATH, "//a[normalize-space()='Account Settings']")
+    subscription_tab = (By.XPATH, "//button[normalize-space()='Subscription']")
+    upgrade_to_freelance_button = (By.XPATH, "(//button[normalize-space()='Upgrade to Freelancer'])[1]")
+    button_continue = (By.XPATH, "//button[normalize-space()='Continue']")
+    hourly_rate = (By.NAME, "hourlyRate")
+    currency_dropdown_field = (By.XPATH, "//div[@id='mui-component-select-currency']")
+    currency_dropdown_option = (By.XPATH, "//li[contains(text(),'Costa Rica Colon (₡)')]")
+    minimum_project_size = (By.NAME, "minProjectSize")
+    availability_dropdown = (By.ID, "mui-component-select-availability")
+    availability_dropdown_option = (By.XPATH, "//li[normalize-space()='Full-Time']")
+    continue_button = (By.ID, "regBtnContinue")
+    chose_a_country_input = (By.ID, ":r1e:")
+    state_field_dropdown = (By.ID, "mui-component-select-province")
+    state_input_field_option = (By.XPATH, "//li[contains(text(),'Badakhshān (AF-BDS)')]")
+    upgrade_subscription_button = (By.XPATH, "(//button[normalize-space()='Upgrade Subscription'])[1]")
+    upgrade_to_business_basic = (By.XPATH, "(//button[normalize-space()='Upgrade to Business Basic'])[1]")
+    upgrade_to_business_plus = (By.XPATH, "(//button[normalize-space()='Upgrade to Business Plus'])[1]")
+    seat_increase_button = (By.XPATH, "(//*[name()='svg'][@class='MuiSvgIcon-root MuiSvgIcon-fontSizeMedium counter-icon mui-vubbuv'])[2]")
+    click_to_continue = (By.ID, ":r12:")
+    add_business_field = (By.XPATH, "//input[@class= 'MuiInputBase-input MuiInput-input MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused mui-1ev6tyo']")
+    add_business_button = (By.XPATH, "//p[@class='MuiTypography-root MuiTypography-body1 body1 mui-1w6h4uc']")
+    country_dropdown = (By.XPATH, "/html[1]/body[1]/div[6]/div[3]/div[1]/div[2]/form[1]/div[1]/div[1]/div[1]/div[1]/input[1]")
+    primary_industry_parent_option = (By.XPATH, "//h6[@class='MuiTypography-root MuiTypography-h6 mui-1mopw5e' and .//span[1][text()='P'] and .//span[3][text()='r'] and .//span[5][text()='o']]")
+    primary_industry_child_option = (By.XPATH, "(//p[normalize-space()='Legal Services (4)'])[1]")
+    primary_industry_child_option_1 = (By.XPATH, "(//p[normalize-space()='Offices of Lawyers'])[1]")
+    primary_industry_child_option_2 = (By.XPATH, '(//span[normalize-space()="Attorneys\' offices"])[1]')
+    continue_to_increase_seat = (By.ID, ":rf:")
+    nextButton = (By.ID, "createAccount")
+    closeButton = (By.XPATH, "//button[normalize-space()='Close']")
+    currentSubscription = (By.XPATH, "//span[@class='MuiChip-label MuiChip-labelMedium mui-9iedg7']")
+    downgradeToIndividual = (By.XPATH, "//button[contains(@class, 'MuiButton-outlinedPrimary') and text()='Downgrade to Individual']")
+    confirmDowngrade = (By.XPATH, "//button[normalize-space()='Continue']")
+    downgradeToBusinessBasic = (By.XPATH, "(//button[normalize-space()='Downgrade to Business Basic'])[1]")
+    closeOnboardingModal = (By.XPATH, "//*[name()='path' and contains(@d,'M19 6.41 1')]")
+    business_basic_option = (By.XPATH, "//label[3]")
+    business_basic_dropdown = (By.XPATH, "//input[@id=':r1:']")
+    email_input_field = (By.NAME, "businessEmail")
+    company_name_input_field = (By.ID, "businessName")
+    business_url = (By.ID, "businessUrl")
+    continueButton = (By.ID, "addBusinessContinue")
+    countryDropdown = (By.XPATH, "//input[@id=':r4:']")
+    state_dropdown = (By.XPATH, "//div[@id='mui-component-select-province']")
+    state_dropdown_option = (By.XPATH, "//li[contains(text(),'Badakhshān (AF-BDS)')]")
+    city_input_field = (By.ID, "city")
+    postalcode_input_field = (By.ID, "zip-code")
+    street_address_input_field = (By.ID, "street-address")
+    revenue_input_field = (By.ID, "revenue")
+    company_size_input_field = (By.ID, "companySize")
+    ownership_type_dropdown = (By.ID, "ownershipType")
+    ownership_type_option = (By.XPATH, "//li[normalize-space()='Government']")
+    entity_type_dropdown = (By.XPATH, "//div[@id='mui-component-select-entityType']")
+    entity_type_option = (By.XPATH, "//li[normalize-space()='Parent']")
+    headquarter_dropdown = (By.ID, "mui-component-select-headquarter")
+    headquarter_dropdown_option = (By.XPATH, "//li[normalize-space()='Yes']")
+    scroll_element = (By.XPATH, "//div[@class='MuiStack-root add-identity-fields mui-j7qwjs']")
+    founded_year_dropdown = (By.ID, "mui-component-select-founded")
+    founded_year_option = (By.XPATH, "//li[normalize-space()='2024']")
+    browse_button = (By.ID, "btn-browse")
+    primaryIndustryParentOption = (By.XPATH, "//h6[@class='MuiTypography-root MuiTypography-h6 mui-1mopw5e' and .//span[1][text()='P'] and .//span[3][text()='r'] and .//span[5][text()='o']]")
+    primaryIndustryChildOption = (By.XPATH, "(//p[normalize-space()='Legal Services (4)'])[1]")
+    primaryIndustryChildOption_1 = (By.XPATH, "(//p[normalize-space()='Offices of Lawyers'])[1]")
+    primaryIndustryChildOption_2 = (By.XPATH, '(//span[normalize-space()="Attorneys\' offices"])[1]')
+    done_button = (By.ID, "areaOfInterestBtnDone")
+    add_business = (By.ID, "addBusinessContinue")
+    jobTitle_dropdown = (By.ID, ":ri:")
+    jobTitle_option = (By.ID, ":ri:-option-0")
+    startDate_field = (By.ID, ":rm:")
+    startDate_option = (By.XPATH, "//button[normalize-space()='1']")
+    addBusinessBtn = (By.XPATH, "//p[@class='MuiTypography-root MuiTypography-body1 body1 mui-1w6h4uc']")
 class Subscription_upgrade_individual_to_business_basic:
     def __init__(self, driver):
         self.driver = driver
 
     def click_to_upgrade_business_basic(self):
-        upgrade_to_business_basic_button = WebDriverWait(self.driver, 40).until(EC.element_to_be_clickable(Subscriptionupgradelocators.upgrade_to_business_basic))
+        upgrade_to_business_basic_button = WebDriverWait(self.driver, 40).until(EC.element_to_be_clickable(SubscriptionUpgradeLocators.upgrade_to_business_basic))
         upgrade_to_business_basic_button.click()
     def click_to_add_business_field(self):
-        add_business_field = WebDriverWait(self.driver, 50).until(EC.element_to_be_clickable(Subscriptionupgradelocators.add_business_field))
+        add_business_field = WebDriverWait(self.driver, 50).until(EC.element_to_be_clickable(SubscriptionUpgradeLocators.add_business_field))
         add_business_field.click()
         add_business_field.send_keys("co")
     def add_new_business(self):
-        add_business_button = WebDriverWait(self.driver, 40).until(EC.element_to_be_clickable(Subscriptionupgradelocators.add_business_button))
+        add_business_button = WebDriverWait(self.driver, 40).until(EC.element_to_be_clickable(SubscriptionUpgradeLocators.add_business_button))
         add_business_button.click()
         time.sleep(2)
         enter_email = WebDriverWait(self.driver, 40).until(EC.element_to_be_clickable(busniness_registrationLocators.email_input_field))
@@ -34,7 +109,7 @@ class Subscription_upgrade_individual_to_business_basic:
         time.sleep(2)
         continue_button = WebDriverWait(self.driver, 40).until(EC.element_to_be_clickable(busniness_registrationLocators.continue_button))
         continue_button.click()
-        country_dropdown = WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable(Subscriptionupgradelocators.country_dropdown))
+        country_dropdown = WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable(SubscriptionUpgradeLocators.country_dropdown))
         country_dropdown.click()
         time.sleep(3)
         country_dropdown.send_keys(business_registrationTestData.country_name)
@@ -77,28 +152,28 @@ class Subscription_upgrade_individual_to_business_basic:
         continue_button.click()
         primary_industry_button = WebDriverWait(self.driver, 40).until(EC.element_to_be_clickable(busniness_registrationLocators.browse_button))
         primary_industry_button.click()
-        primary_industry_parent_option = WebDriverWait(self.driver, 40).until(EC.element_to_be_clickable(Subscriptionupgradelocators.primary_industry_parent_option))
+        primary_industry_parent_option = WebDriverWait(self.driver, 40).until(EC.element_to_be_clickable(SubscriptionUpgradeLocators.primary_industry_parent_option))
         primary_industry_parent_option.click()
-        primary_industry_child_option = WebDriverWait(self.driver, 40).until(EC.element_to_be_clickable(Subscriptionupgradelocators.primary_industry_child_option))
+        primary_industry_child_option = WebDriverWait(self.driver, 40).until(EC.element_to_be_clickable(SubscriptionUpgradeLocators.primary_industry_child_option))
         primary_industry_child_option.click()
-        primary_industry_child_option_1 = WebDriverWait(self.driver, 40).until(EC.element_to_be_clickable(Subscriptionupgradelocators.primary_industry_child_option_1))
+        primary_industry_child_option_1 = WebDriverWait(self.driver, 40).until(EC.element_to_be_clickable(SubscriptionUpgradeLocators.primary_industry_child_option_1))
         primary_industry_child_option_1.click()
         time.sleep(1)
-        primary_industry_child_option_2 = WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable(Subscriptionupgradelocators.primary_industry_child_option_2))
+        primary_industry_child_option_2 = WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable(SubscriptionUpgradeLocators.primary_industry_child_option_2))
         primary_industry_child_option_2.click()
         primary_industry_done = WebDriverWait(self.driver, 40).until(EC.element_to_be_clickable(busniness_registrationLocators.done_button))
         primary_industry_done.click()
-        continue_button = WebDriverWait(self.driver, 40).until(EC.element_to_be_clickable(busniness_registrationLocators.continue_button))
+        continue_button = WebDriverWait(self.driver, 40).until(EC.element_to_be_clickable(SubscriptionUpgradeLocators.add_business))
         continue_button.click()
         time.sleep(1)
-        add_business = WebDriverWait(self.driver, 40).until(EC.element_to_be_clickable(busniness_registrationLocators.add_business))
+        add_business = WebDriverWait(self.driver, 40).until(EC.element_to_be_clickable(SubscriptionUpgradeLocators.add_business))
         add_business.click()
     def click_to_continue(self):
-        click_to_continue = WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable(Subscriptionupgradelocators.continue_button_business))
+        click_to_continue = WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable(SubscriptionUpgradeLocators.continue_button))
         click_to_continue.click()
     def verify_subscription(self):
         self.half_page_scroll()
-        currentSubscription = WebDriverWait(self.driver, 40).until(EC.element_to_be_clickable(Subscriptionupgradelocators.currentSubscription))
+        currentSubscription = WebDriverWait(self.driver, 40).until(EC.element_to_be_clickable(SubscriptionUpgradeLocators.currentSubscription))
         currentSubscription = currentSubscription.text
         print(currentSubscription)
         if currentSubscription == "Business Basic":
@@ -118,7 +193,6 @@ class Subscription_upgrade_individual_to_business_basic:
         self.click_to_upgrade_business_basic()
         self.click_to_add_business_field()
         self.add_new_business()
-        time.sleep(5)
         self.click_to_continue()
         self.click_to_continue()
         time.sleep(5)

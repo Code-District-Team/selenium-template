@@ -16,8 +16,8 @@ def test_businesstrade(driver_setup):
 
     businessinfo_instance = Businessinfo(driver_setup)
     businessinfo_instance.skip_account_verification()
-    time.sleep(10)
+    businessinfo_instance.skip_account_verification()
 
     businessTrade = businesstrade(driver)
-    businessTrade.Trade_Info(driver)
+    businessTrade.tradeInfo(driver)
 

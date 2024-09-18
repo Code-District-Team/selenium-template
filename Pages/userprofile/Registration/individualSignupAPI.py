@@ -71,7 +71,7 @@ class IndividualSignup:
     def user_data(self):
         return IndividualSignup.generate_user_data()
 
-    def signup(self):
+    def test_signup(self):
         base_url = IndividualSignup.base_url
 
         # Create Cognito user

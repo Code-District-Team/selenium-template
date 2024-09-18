@@ -35,7 +35,7 @@ class BusinessPlus:
         isinstance_registration.click_continue_button()
         isinstance_registration.personal_info()
         isinstance_registration.click_continue_button()
-        isinstance_businessbaisc.job_title()
+        isinstance_businessbaisc.jobTitle()
         isinstance_registration.click_continue_button()
         isinstance_registration.select_topic()
         isinstance_registration.click_continue_button()
