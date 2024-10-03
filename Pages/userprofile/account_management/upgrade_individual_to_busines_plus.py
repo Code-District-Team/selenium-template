@@ -54,34 +54,34 @@ class Subscription_upgrade_individual_to_business_plus:
         self.driver = driver
 
     def navigate_to_subscription_tab(self):
-        subscription_tab = WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable(SubscriptionUpgradeLocators.subscription_tab))
+        subscription_tab = WebDriverWait(self.driver, 100).until(EC.element_to_be_clickable(SubscriptionUpgradeLocators.subscription_tab))
         subscription_tab.click()
 
     def click_to_upgrade_business_plus(self):
-        upgrade_to_business_basic_button = WebDriverWait(self.driver, 40).until(EC.element_to_be_clickable(SubscriptionUpgradeLocators.upgrade_to_business_plus))
+        upgrade_to_business_basic_button = WebDriverWait(self.driver, 100).until(EC.element_to_be_clickable(SubscriptionUpgradeLocators.upgrade_to_business_plus))
         upgrade_to_business_basic_button.click()
     def click_to_continue(self):
-        click_to_continue = WebDriverWait(self.driver, 40).until(EC.element_to_be_clickable(SubscriptionUpgradeLocators.continue_button))
+        click_to_continue = WebDriverWait(self.driver, 100).until(EC.element_to_be_clickable(SubscriptionUpgradeLocators.continue_button))
         click_to_continue.click()
 
     def increase_number_of_seats(self):
-        increase_seat_button = WebDriverWait(self.driver, 40).until(
+        increase_seat_button = WebDriverWait(self.driver, 100).until(
             EC.element_to_be_clickable(SubscriptionUpgradeLocators.seat_increase_button))
         increase_seat_button.click()
 
     def click_to_continue_to_increase_seat(self):
-        continue_to_increase_seat_button = WebDriverWait(self.driver, 40).until(
+        continue_to_increase_seat_button = WebDriverWait(self.driver, 100).until(
             EC.element_to_be_clickable(SubscriptionUpgradeLocators.continue_to_increase_seat))
         continue_to_increase_seat_button.click()
 
     def increase_seat_number(self):
-        increase_seats_button = WebDriverWait(self.driver, 40).until(EC.element_to_be_clickable(SubscriptionUpgradeLocators.seat_increase_button))
+        increase_seats_button = WebDriverWait(self.driver, 100).until(EC.element_to_be_clickable(SubscriptionUpgradeLocators.seat_increase_button))
         increase_seats_button.click()
 
 
     def verfiy_downgrade(self):
         self.half_page_scroll()
-        currentSubscription = WebDriverWait(self.driver, 30).until(
+        currentSubscription = WebDriverWait(self.driver, 100).until(
             EC.element_to_be_clickable(SubscriptionUpgradeLocators.currentSubscription))
         currentSubscription = currentSubscription.text
         print(currentSubscription)

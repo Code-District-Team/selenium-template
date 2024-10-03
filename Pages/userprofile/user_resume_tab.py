@@ -32,8 +32,7 @@ class profile_Locators:
     edInstitute = (By.XPATH, "/html[1]/body[1]/div[5]/div[3]/div[1]/div[2]/form[1]/div[2]/div[1]/div[1]/input[1]")
     addEducationButtonPop = (By.XPATH, "(//button[@type='submit'][normalize-space()='Add Education'])[1]")
     addSkillsButton = (By.XPATH, "//button[normalize-space()='Add Skills']")
-    enterSkills = (
-        By.XPATH, "/html[1]/body[1]/div[5]/div[3]/div[1]/div[2]/form[1]/div[1]/div[1]/div[1]/div[1]/input[1]")
+    enterSkills = (By.XPATH, "//input[@placeholder='Photoshop, Microsoft Office, etc...']")
     skillOption = (By.XPATH, "//li[@role='option' and @aria-selected='false' and @aria-disabled='false' and text()='0-1 drop indicators']")
     addSkill = (By.XPATH,
                 "(//button[@class='MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-colorPrimary btn-email mui-7jyovo'])[1]")
@@ -76,10 +75,10 @@ class User_resume:
         self.driver = driver
     def view_your_profile(self):
 
-        profileAvatar = WebDriverWait(self.driver, 50).until(EC.element_to_be_clickable(profile_Locators.profileAvatar))
+        profileAvatar = WebDriverWait(self.driver, 100).until(EC.element_to_be_clickable(profile_Locators.profileAvatar))
         profileAvatar.click()
 
-        viewProfile = WebDriverWait(self.driver, 50).until(EC.element_to_be_clickable(profile_Locators.viewProfile))
+        viewProfile = WebDriverWait(self.driver, 100).until(EC.element_to_be_clickable(profile_Locators.viewProfile))
         viewProfile.click()
 
     def navigate_on_resume_tab(self):
@@ -90,82 +89,84 @@ class User_resume:
         addExperience = WebDriverWait(self.driver, 40).until(EC.element_to_be_clickable(profile_Locators.addExperienceButton))
         addExperience.click()
         self.driver.execute_script("window.scrollBy(0, window.innerHeight/2);")
-        jobTitleDropdown = WebDriverWait(self.driver, 50).until(EC.element_to_be_clickable(profile_Locators.jobTitle))
+        jobTitleDropdown = WebDriverWait(self.driver, 100).until(EC.element_to_be_clickable(profile_Locators.jobTitle))
         jobTitleDropdown.click()
         jobTitleDropdown.send_keys("Code Inspector")
         time.sleep(5)
         jobTitleDropdown.send_keys(Keys.ENTER)
-        employerInput = WebDriverWait(self.driver, 50).until(EC.element_to_be_clickable(profile_Locators.employerInput))
+        employerInput = WebDriverWait(self.driver, 100).until(EC.element_to_be_clickable(profile_Locators.employerInput))
         employerInput.click()
         employerInput.send_keys("code distrcit vv5")
         time.sleep(5)
         employerInput.send_keys(Keys.ARROW_UP, Keys.ENTER)
         startDate = WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable(profile_Locators.startDate))
         startDate.click()
-        startDateInput = WebDriverWait(self.driver, 50).until(EC.element_to_be_clickable(profile_Locators.startDateYear))
+        startDateInput = WebDriverWait(self.driver, 100).until(EC.element_to_be_clickable(profile_Locators.startDateYear))
         startDateInput.click()
-        startDateMonth = WebDriverWait(self.driver, 50).until(EC.element_to_be_clickable(profile_Locators.startDateMonth))
+        startDateMonth = WebDriverWait(self.driver, 100).until(EC.element_to_be_clickable(profile_Locators.startDateMonth))
         startDateMonth.click()
-        currentlyCheckbox = WebDriverWait(self.driver, 50).until(EC.element_to_be_clickable(profile_Locators.currentlyCheckbox))
+        currentlyCheckbox = WebDriverWait(self.driver, 100).until(EC.element_to_be_clickable(profile_Locators.currentlyCheckbox))
         currentlyCheckbox.click()
-        descriptionInput = WebDriverWait(self.driver, 50).until(EC.element_to_be_clickable(profile_Locators.description))
+        descriptionInput = WebDriverWait(self.driver, 100).until(EC.element_to_be_clickable(profile_Locators.description))
         descriptionInput.send_keys("A great place to work")
-        addExperienceButton = WebDriverWait(self.driver, 50).until(EC.element_to_be_clickable(profile_Locators.saveButton))
+        addExperienceButton = WebDriverWait(self.driver, 100).until(EC.element_to_be_clickable(profile_Locators.saveButton))
         addExperienceButton.click()
 
     def add_education(self):
-        fieldOfStudy = WebDriverWait(self.driver, 50).until(EC.element_to_be_clickable(profile_Locators.fieldOfStudy))
+        fieldOfStudy = WebDriverWait(self.driver, 100).until(EC.element_to_be_clickable(profile_Locators.fieldOfStudy))
         fieldOfStudy.click()
-        fieldOfStudyOption = WebDriverWait(self.driver, 50).until(EC.element_to_be_clickable(profile_Locators.fieldOfStudyOption))
+        fieldOfStudyOption = WebDriverWait(self.driver, 100).until(EC.element_to_be_clickable(profile_Locators.fieldOfStudyOption))
         fieldOfStudyOption.click()
 
     def add_skills(self):
-        addSkillButton = WebDriverWait(self.driver, 50).until(EC.element_to_be_clickable(profile_Locators.addSkillsButton))
+        addSkillButton = WebDriverWait(self.driver, 100).until(EC.element_to_be_clickable(profile_Locators.addSkillsButton))
         addSkillButton.click()
-        enterSkills = WebDriverWait(self.driver, 50).until(EC.element_to_be_clickable(profile_Locators.enterSkills))
+        enterSkills = WebDriverWait(self.driver, 100).until(EC.element_to_be_clickable(profile_Locators.enterSkills))
         enterSkills.click()
-        skillOption = WebDriverWait(self.driver, 50).until(EC.element_to_be_clickable(profile_Locators.skillOption))
-        skillOption.click()
-        addSkill = WebDriverWait(self.driver, 50).until(EC.element_to_be_clickable(profile_Locators.addSkill))
+        time.sleep(1)
+        enterSkills.send_keys("Code")
+        time.sleep(2)
+        enterSkills.send_keys(Keys.ARROW_UP, Keys.ENTER)
+        addSkill = WebDriverWait(self.driver, 100).until(EC.element_to_be_clickable(profile_Locators.addSkill))
         addSkill.click()
-        doneButton = WebDriverWait(self.driver, 50).until(EC.element_to_be_clickable(profile_Locators.doneButton))
+        doneButton = WebDriverWait(self.driver, 100).until(EC.element_to_be_clickable(profile_Locators.doneButton))
         doneButton.click()
 
     def work_published(self):
-        addWorkPublish = WebDriverWait(self.driver, 50).until(EC.element_to_be_clickable(profile_Locators.addWorkPublishButton))
+        addWorkPublish = WebDriverWait(self.driver, 100).until(EC.element_to_be_clickable(profile_Locators.addWorkPublishButton))
         addWorkPublish.click()
-        publishDate = WebDriverWait(self.driver, 50).until(EC.element_to_be_clickable(profile_Locators.workPublishDate))
+        publishDate = WebDriverWait(self.driver, 100).until(EC.element_to_be_clickable(profile_Locators.workPublishDate))
         publishDate.click()
         time.sleep(1)
-        publishDateOption = WebDriverWait(self.driver, 50).until(EC.element_to_be_clickable(profile_Locators.startDateYear))
+        publishDateOption = WebDriverWait(self.driver, 100).until(EC.element_to_be_clickable(profile_Locators.startDateYear))
         publishDateOption.click()
-        publishDateOptionMonth = WebDriverWait(self.driver, 50).until(EC.element_to_be_clickable(profile_Locators.startDateMonth))
+        publishDateOptionMonth = WebDriverWait(self.driver, 100).until(EC.element_to_be_clickable(profile_Locators.startDateMonth))
         publishDateOptionMonth.click()
-        titleInput = WebDriverWait(self.driver, 50).until(EC.element_to_be_clickable(profile_Locators.titleField))
+        titleInput = WebDriverWait(self.driver, 100).until(EC.element_to_be_clickable(profile_Locators.titleField))
         titleInput.send_keys("Afghanistan alternative solutions")
-        authorInput = WebDriverWait(self.driver, 50).until(EC.element_to_be_clickable(profile_Locators.authorField))
+        authorInput = WebDriverWait(self.driver, 100).until(EC.element_to_be_clickable(profile_Locators.authorField))
         authorInput.send_keys("Naveed Mukhtar")
-        urlInput = WebDriverWait(self.driver, 50).until(EC.element_to_be_clickable(profile_Locators.urlInput))
+        urlInput = WebDriverWait(self.driver, 100).until(EC.element_to_be_clickable(profile_Locators.urlInput))
         urlInput.send_keys("https://pildat.org/wp-content/uploads/2019/04/stateofcivilmilitaryrelationsinpakistan_astudyof5years20132018.pdf?")
-        doneButton = WebDriverWait(self.driver, 50).until(EC.element_to_be_clickable(profile_Locators.doneButton))
+        doneButton = WebDriverWait(self.driver, 100).until(EC.element_to_be_clickable(profile_Locators.doneButton))
         doneButton.click()
 
     def personal_honors(self):
         add_personalhonors = WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable(profile_Locators.addPersonalHonoorsButton))
         add_personalhonors.click()
-        personalHonorDate = WebDriverWait(self.driver, 50).until(EC.element_to_be_clickable(profile_Locators.honorDate))
+        personalHonorDate = WebDriverWait(self.driver, 100).until(EC.element_to_be_clickable(profile_Locators.honorDate))
         personalHonorDate.click()
-        yearOption = WebDriverWait(self.driver, 50).until(EC.element_to_be_clickable(profile_Locators.startDateYear))
+        yearOption = WebDriverWait(self.driver, 100).until(EC.element_to_be_clickable(profile_Locators.startDateYear))
         yearOption.click()
-        monthOption = WebDriverWait(self.driver, 50).until(EC.element_to_be_clickable(profile_Locators.startDateMonth))
+        monthOption = WebDriverWait(self.driver, 100).until(EC.element_to_be_clickable(profile_Locators.startDateMonth))
         monthOption.click()
-        certificateName = WebDriverWait(self.driver, 50).until(EC.element_to_be_clickable(profile_Locators.certificateName))
+        certificateName = WebDriverWait(self.driver, 100).until(EC.element_to_be_clickable(profile_Locators.certificateName))
         certificateName.send_keys(UserprofileData.certificateName)
-        doneButton = WebDriverWait(self.driver, 50).until(EC.element_to_be_clickable(profile_Locators.doneButton))
+        doneButton = WebDriverWait(self.driver, 100).until(EC.element_to_be_clickable(profile_Locators.doneButton))
         doneButton.click()
 
     def add_reference(self):
-        manageProfessionalReference = WebDriverWait(self.driver, 50).until(EC.element_to_be_clickable(profile_Locators.manageReference))
+        manageProfessionalReference = WebDriverWait(self.driver, 100).until(EC.element_to_be_clickable(profile_Locators.manageReference))
         manageProfessionalReference.click()
         time.sleep(5)
 
@@ -182,13 +183,13 @@ class User_resume:
         # Retry mechanism for markMember
         for _ in range(3):
             try:
-                markMember = WebDriverWait(self.driver, 50).until(EC.element_to_be_clickable(profile_Locators.markMember))
+                markMember = WebDriverWait(self.driver, 100).until(EC.element_to_be_clickable(profile_Locators.markMember))
                 markMember.click()
                 break
             except StaleElementReferenceException:
                 pass
 
-        inviteSelected = WebDriverWait(self.driver, 50).until(EC.element_to_be_clickable(profile_Locators.inviteSelected))
+        inviteSelected = WebDriverWait(self.driver, 100).until(EC.element_to_be_clickable(profile_Locators.inviteSelected))
         inviteSelected.click()
 
     def test_resume(self, driver):

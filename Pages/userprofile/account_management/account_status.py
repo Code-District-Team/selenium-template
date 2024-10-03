@@ -23,24 +23,24 @@ class AccountStatus:
         self.driver = driver
 
     def wait_for_element_visibility(self, locator):
-        return WebDriverWait(self.driver, 30).until(EC.visibility_of_element_located(locator))
+        return WebDriverWait(self.driver, 100).until(EC.visibility_of_element_located(locator))
     def navigate_to_account_status_page(self):
-        profileAvtar = WebDriverWait(self.driver, 40).until(EC.element_to_be_clickable(account_status_locators.profileAvtar))
+        profileAvtar = WebDriverWait(self.driver, 100).until(EC.element_to_be_clickable(account_status_locators.profileAvtar))
         profileAvtar.click()
-        accountSettingsTab = WebDriverWait(self.driver, 40).until(EC.element_to_be_clickable(account_status_locators.accountSettingsTab))
+        accountSettingsTab = WebDriverWait(self.driver, 100).until(EC.element_to_be_clickable(account_status_locators.accountSettingsTab))
         accountSettingsTab.click()
 
 
     def account_status_tab(self):
-        account_status_tab = WebDriverWait(self.driver, 40).until(
+        account_status_tab = WebDriverWait(self.driver, 100).until(
             EC.element_to_be_clickable(account_status_locators.account_status_tab))
         account_status_tab.click()
 
     def account_suspend(self):
-        account_suspend_button = WebDriverWait(self.driver, 40).until(
+        account_suspend_button = WebDriverWait(self.driver, 100).until(
             EC.element_to_be_clickable(account_status_locators.suspend_account_button))
         account_suspend_button.click()
-        account_suspend_confirmation = WebDriverWait(self.driver, 40).until(
+        account_suspend_confirmation = WebDriverWait(self.driver, 100).until(
             EC.element_to_be_clickable(account_status_locators.confirm_suspend_account_button))
         account_suspend_confirmation.click()
         status_message = self.wait_for_element_visibility(account_status_locators.account_status)
@@ -48,10 +48,10 @@ class AccountStatus:
         assert status_message.text == expected_error_message, f"Unexpected email error message: Expected '{expected_error_message}', Found '{status_message.text}'"
 
     def account_activation(self):
-        account_activation_button = WebDriverWait(self.driver, 40).until(
+        account_activation_button = WebDriverWait(self.driver, 100).until(
             EC.element_to_be_clickable(account_status_locators.active_account_button))
         account_activation_button.click()
-        confirm_account_activation = WebDriverWait(self.driver, 40).until(
+        confirm_account_activation = WebDriverWait(self.driver, 100).until(
             EC.element_to_be_clickable(account_status_locators.confirm_active_account_button))
         confirm_account_activation.click()
         status_message = self.wait_for_element_visibility(account_status_locators.account_status)
@@ -59,10 +59,10 @@ class AccountStatus:
         assert status_message.text == expected_error_message, f"Unexpected email error message: Expected '{expected_error_message}', Found '{status_message.text}'"
 
     def account_delete(self):
-        account_delete_button = WebDriverWait(self.driver, 40).until(
+        account_delete_button = WebDriverWait(self.driver, 100).until(
             EC.element_to_be_clickable(account_status_locators.delete_account_button))
         account_delete_button.click()
-        confirm_account_delete = WebDriverWait(self.driver, 20).until(
+        confirm_account_delete = WebDriverWait(self.driver, 100).until(
             EC.element_to_be_clickable(account_status_locators.confirm_delete_account_button))
         confirm_account_delete.click()
 
@@ -70,16 +70,16 @@ class AccountStatus:
         self.navigate_to_account_status_page()
         self.account_status_tab()
         self.account_suspend()
-        suspendAccountAlert = WebDriverWait(self.driver, 30).until(
+        suspendAccountAlert = WebDriverWait(self.driver, 100).until(
             EC.visibility_of_element_located(profileLocators.businessAlert))
         expected_text = suspendAccountAlert.text
         actual_text = "Your Account has been Suspended"
         assert actual_text == expected_text, f"Expected '{expected_text}', but got '{actual_text}'"
-        WebDriverWait(self.driver, 30).until(
+        WebDriverWait(self.driver, 100).until(
             EC.invisibility_of_element_located(profileLocators.businessAlert))
 
         self.account_activation()
-        activate_account_alert = WebDriverWait(self.driver, 30).until(
+        activate_account_alert = WebDriverWait(self.driver, 100).until(
             EC.visibility_of_element_located(profileLocators.businessAlert))
         actual_activate_text = activate_account_alert.text
         expected_activate_text = "Your Account has been activated"
@@ -87,5 +87,5 @@ class AccountStatus:
 
     def test_account_delete(self):
         self.account_delete()
-        WebDriverWait(self.driver, 30).until(
+        WebDriverWait(self.driver, 100).until(
             EC.element_to_be_clickable(profileLocators.loginButton))

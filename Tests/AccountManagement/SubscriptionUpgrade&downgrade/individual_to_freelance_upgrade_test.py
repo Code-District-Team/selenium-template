@@ -1,6 +1,5 @@
 from config import Config
 from Pages.login_page import LoginPage
-from Resources.loginData import loginTestData
 from Pages.userprofile.account_management.subscription_upgrade_individual_to_freelance import Subscription_upgrade_individual_to_freelance
 import time
 from Pages.userprofile.Registration.individualSignupAPI import IndividualSignup

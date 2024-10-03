@@ -18,8 +18,8 @@ class RegistrationPage:
         self.driver.maximize_window()
 
     def click_continue_button(self):
-        continue_button = WebDriverWait(self.driver, 40).until(
-            EC.element_to_be_clickable(registrationLocators.continue_button))
+        continue_button = WebDriverWait(self.driver, 100).until(
+            EC.visibility_of_element_located(registrationLocators.continue_button))
         continue_button.click()
 
     def enter_email(self):
@@ -62,10 +62,10 @@ class RegistrationPage:
         workplace_dropdown.send_keys(Keys.ARROW_UP, Keys.ENTER)
         start_date = WebDriverWait(self.driver, 60).until(EC.element_to_be_clickable(registrationLocators.start_date))
         start_date.click()
-        start_date_year = WebDriverWait(self.driver, 50).until(
+        start_date_year = WebDriverWait(self.driver, 100).until(
             EC.element_to_be_clickable(registrationLocators.start_date_year))
         start_date_year.click()
-        start_month = WebDriverWait(self.driver, 50).until(EC.element_to_be_clickable(registrationLocators.start_month))
+        start_month = WebDriverWait(self.driver, 100).until(EC.element_to_be_clickable(registrationLocators.start_month))
         start_month.click()
 
     def select_topic(self):

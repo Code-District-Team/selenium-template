@@ -1,4 +1,4 @@
-import time
+
 
 from config import Config
 from Pages.userprofile.Registration.freerlance_registration_page import FreelanceRegistration

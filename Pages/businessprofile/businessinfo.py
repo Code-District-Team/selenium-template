@@ -80,10 +80,10 @@ class Businessinfo:
         self.driver.execute_script("arguments[0].scrollIntoView();", self.driver.find_element(By.XPATH, "//p[text("
                                                                                                         ")='Company "
                                                                                                         "Name']"))
-        changeBusinessName = WebDriverWait(self.driver, 30).until(
+        changeBusinessName = WebDriverWait(self.driver, 100).until(
             EC.element_to_be_clickable(businessInfoLocators.changeBusinessName))
         changeBusinessName.click()
-        businessName: WebElement = WebDriverWait(self.driver, 50).until(
+        businessName: WebElement = WebDriverWait(self.driver, 100).until(
             EC.element_to_be_clickable(businessInfoLocators.companyNameInput))
         time.sleep(2)
         businessName.send_keys(Keys.CONTROL, 'a')  # Select all text

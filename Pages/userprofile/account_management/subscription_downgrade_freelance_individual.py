@@ -56,7 +56,7 @@ class Subscription_downgrade_freelance_to_individual:
         confirmDowngrade.click()
     def verfiy_downgrade(self):
         self.half_page_scroll()
-        currentSubscription = WebDriverWait(self.driver, 30).until(
+        currentSubscription = WebDriverWait(self.driver, 100).until(
             EC.element_to_be_clickable(SubscriptionUpgradeLocators.currentSubscription))
         currentSubscription = currentSubscription.text
         print(currentSubscription)

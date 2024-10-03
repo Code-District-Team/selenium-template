@@ -1,8 +1,7 @@
-from datetime import datetime, date  # Importing date class from datetime module
+from datetime import datetime, date  # Importing date class rom datetime module
 
 import requests
 import json
-import pytest
 from faker import Faker
 
 faker = Faker()

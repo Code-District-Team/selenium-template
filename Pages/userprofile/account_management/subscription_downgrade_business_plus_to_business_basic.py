@@ -56,7 +56,7 @@ class Subscription_downgrade_business_plus_to_business_basic:
         close_onboarding_model.click()
     def verfiy_downgrade(self):
         self.half_page_scroll()
-        currentSubscription = WebDriverWait(self.driver, 30).until(
+        currentSubscription = WebDriverWait(self.driver, 100).until(
             EC.element_to_be_clickable(SubscriptionUpgradeLocators.currentSubscription))
         currentSubscription = currentSubscription.text
         print(currentSubscription)

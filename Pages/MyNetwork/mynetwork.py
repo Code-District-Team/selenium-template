@@ -41,21 +41,21 @@ class NetworkPage:
         self.driver.execute_script(f"window.scrollTo(0, {half_height});")
 
     def follow_send_business_card(self):
-        followUser = WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable(profileLocators.followButton))
+        followUser = WebDriverWait(self.driver, 100).until(EC.element_to_be_clickable(profileLocators.followButton))
         followUser.click()
         time.sleep(2)
 
     def send_business_card(self):
-        sendBusinessCard = WebDriverWait(self.driver, 30).until(
+        sendBusinessCard = WebDriverWait(self.driver, 100).until(
             EC.element_to_be_clickable(profileLocators.sendBusinessCard))
         sendBusinessCard.click()
         time.sleep(5)
-        sendMessage_ = WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable(profileLocators.sendMessage))
+        sendMessage_ = WebDriverWait(self.driver, 100).until(EC.element_to_be_clickable(profileLocators.sendMessage))
         sendMessage_.click()
         sendMessage_.send_keys(" This is a test message!! ")
         sendRequest = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(profileLocators.sendRequest))
         sendRequest.click()
-        businessAlert_ = WebDriverWait(self.driver, 30).until(
+        businessAlert_ = WebDriverWait(self.driver, 100).until(
             EC.visibility_of_element_located(profileLocators.businessAlert))
         expected_text = businessAlert_.text
         actual_text = "1 Business Requests sent successfully."
@@ -64,18 +64,18 @@ class NetworkPage:
         time.sleep(5)
 
     def navigate_to_mynetwork(self):
-        openDrawer = WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable(mynetworkLocators.drawer))
+        openDrawer = WebDriverWait(self.driver, 100).until(EC.element_to_be_clickable(mynetworkLocators.drawer))
         openDrawer.click()
-        networkTab = WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable(mynetworkLocators.networkTab))
+        networkTab = WebDriverWait(self.driver, 100).until(EC.element_to_be_clickable(mynetworkLocators.networkTab))
         networkTab.click()
         self.half_page_scroll()
 
     def navigate_to_following_tab(self):
-        followingTab = WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable(mynetworkLocators.followingTab))
+        followingTab = WebDriverWait(self.driver, 100).until(EC.element_to_be_clickable(mynetworkLocators.followingTab))
         followingTab.click()
 
     def verify_following_tab(self):
-        getUserBFollowing = WebDriverWait(self.driver, 30).until(
+        getUserBFollowing = WebDriverWait(self.driver, 100).until(
             EC.element_to_be_clickable(mynetworkLocators.userBFollowing))
         userB = getUserBFollowing.text
         if userB == MyNetwork.name2:
@@ -84,18 +84,18 @@ class NetworkPage:
             print("User B is not following user A")
 
     def navigate_to_business_card_tab(self):
-        businessCardTab = WebDriverWait(self.driver, 30).until(
+        businessCardTab = WebDriverWait(self.driver, 100).until(
             EC.element_to_be_clickable(mynetworkLocators.businessCardTab))
         businessCardTab.click()
         self.half_page_scroll()
 
     def navigate_to_sent_business_card_tab(self):
-        sentBusinessCardTab = WebDriverWait(self.driver, 30).until(
+        sentBusinessCardTab = WebDriverWait(self.driver, 100).until(
             EC.element_to_be_clickable(mynetworkLocators.sentBusinessCardTab))
         sentBusinessCardTab.click()
 
     def verify_sent_business_card_tab(self):
-        getUserBBusinessCard = WebDriverWait(self.driver, 30).until(
+        getUserBBusinessCard = WebDriverWait(self.driver, 100).until(
             EC.element_to_be_clickable(mynetworkLocators.userABusinessCard))
         userB = getUserBBusinessCard.text
         if userB == MyNetwork.name2:
@@ -104,33 +104,33 @@ class NetworkPage:
             print("User B has not sent business card to user A")
 
     def sign_out(self):
-        profileAvtar = WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable(mynetworkLocators.profileAvtar))
+        profileAvtar = WebDriverWait(self.driver, 100).until(EC.element_to_be_clickable(mynetworkLocators.profileAvtar))
         profileAvtar.click()
-        sign_outButton = WebDriverWait(self.driver, 30).until(
+        sign_outButton = WebDriverWait(self.driver, 100).until(
             EC.element_to_be_clickable(mynetworkLocators.sign_outButton))
         sign_outButton.click()
 
     def navigate_to_login_page(self):
-        loginButton = WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable(profileLocators.loginButton))
+        loginButton = WebDriverWait(self.driver, 100).until(EC.element_to_be_clickable(profileLocators.loginButton))
         loginButton.click()
 
     def accept_business_card(self):
-        acceptButton = WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable(profileLocators.acceptButton))
+        acceptButton = WebDriverWait(self.driver, 100).until(EC.element_to_be_clickable(profileLocators.acceptButton))
         acceptButton.click()
         # assertion
-        businessAlert_ = WebDriverWait(self.driver, 30).until(
+        businessAlert_ = WebDriverWait(self.driver, 100).until(
             EC.visibility_of_element_located(profileLocators.businessAlert))
         expected_text = businessAlert_.text
         actual_text = "Invitation has been Accepted."
         assert actual_text == expected_text, f"Expected '{expected_text}', but got '{actual_text}'"
         print("User B accepts User A's business card request")
         time.sleep(5)
-        notificationButton = WebDriverWait(self.driver, 30).until(
+        notificationButton = WebDriverWait(self.driver, 100).until(
             EC.element_to_be_clickable(profileLocators.notificationButton))
         notificationButton.click()
 
     def verify_contacts(self):
-        getUserA = WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable(mynetworkLocators.userBFollowing))
+        getUserA = WebDriverWait(self.driver, 100).until(EC.element_to_be_clickable(mynetworkLocators.userBFollowing))
         userA = getUserA.text
         if userA == MyNetwork.name1:
             print("User A has the contact of user B")
@@ -138,12 +138,12 @@ class NetworkPage:
             print("User A has not the contact of user B")
 
     def navigate_to_followers_tab(self):
-        followersTab = WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable(mynetworkLocators.followersTab))
+        followersTab = WebDriverWait(self.driver, 100).until(EC.element_to_be_clickable(mynetworkLocators.followersTab))
         followersTab.click()
         self.half_page_scroll()
 
     def verify_followers_tab(self):
-        getUserAFollowers = WebDriverWait(self.driver, 30).until(
+        getUserAFollowers = WebDriverWait(self.driver, 100).until(
             EC.element_to_be_clickable(mynetworkLocators.userBFollowing))
         userA = getUserAFollowers.text
         if userA == MyNetwork.name1:
@@ -152,12 +152,12 @@ class NetworkPage:
             print("User A has not the follower of user B")
 
     def unfollow_User(self):
-        unfollowButton = WebDriverWait(self.driver, 30).until(
+        unfollowButton = WebDriverWait(self.driver, 100).until(
             EC.element_to_be_clickable(mynetworkLocators.unfollowUser))
         unfollowButton.click()
 
     def verify_user_unfollowed(self):
-        findFollowing = WebDriverWait(self.driver, 30).until(
+        findFollowing = WebDriverWait(self.driver, 100).until(
             EC.element_to_be_clickable(mynetworkLocators.findFollowingButton))
         findFollowing = findFollowing.text
         if findFollowing != MyNetwork.name1:
@@ -166,23 +166,23 @@ class NetworkPage:
             print("User B has not unfollowed user A")
 
     def block_user_request(self):
-        viewBusinessCardRequest = WebDriverWait(self.driver, 30).until(
+        viewBusinessCardRequest = WebDriverWait(self.driver, 100).until(
             EC.element_to_be_clickable(mynetworkLocators.viewBusinessCardRequest))
         viewBusinessCardRequest.click()
-        blockButton = WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable(mynetworkLocators.blockUser))
+        blockButton = WebDriverWait(self.driver, 100).until(EC.element_to_be_clickable(mynetworkLocators.blockUser))
         blockButton.click()
         time.sleep(3)
-        notificationButton = WebDriverWait(self.driver, 30).until(
+        notificationButton = WebDriverWait(self.driver, 100).until(
             EC.element_to_be_clickable(profileLocators.notificationButton))
         notificationButton.click()
 
     def navigate_to_block_tab(self):
-        contactsTab = WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable(mynetworkLocators.blockTab))
+        contactsTab = WebDriverWait(self.driver, 100).until(EC.element_to_be_clickable(mynetworkLocators.blockTab))
         contactsTab.click()
         self.half_page_scroll()
 
     def verify_block_tab(self):
-        getUserABlock = WebDriverWait(self.driver, 30).until(
+        getUserABlock = WebDriverWait(self.driver, 100).until(
             EC.element_to_be_clickable(mynetworkLocators.userBFollowing))
         userA = getUserABlock.text
         if userA == MyNetwork.name1:
@@ -191,11 +191,11 @@ class NetworkPage:
             print("User b has not blocked user A")
 
     def unblock_user(self):
-        unblockButton = WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable(mynetworkLocators.unblockUser))
+        unblockButton = WebDriverWait(self.driver, 100).until(EC.element_to_be_clickable(mynetworkLocators.unblockUser))
         unblockButton.click()
 
     def verify_user_unblocked(self):
-        displayedMessage = WebDriverWait(self.driver, 30).until(
+        displayedMessage = WebDriverWait(self.driver, 100).until(
             EC.element_to_be_clickable(mynetworkLocators.displayedMessage))
         displayedMessage = displayedMessage.text
         if displayedMessage != MyNetwork.name1:

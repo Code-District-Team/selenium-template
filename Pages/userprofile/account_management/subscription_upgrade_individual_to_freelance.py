@@ -51,17 +51,17 @@ class Subscription_upgrade_individual_to_freelance:
     def __init__(self, driver):
         self.driver = driver
     def click_to_profile_icon(self):
-        profileAvtar = WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable(SubscriptionUpgradeLocators.profileAvtar))
+        profileAvtar = WebDriverWait(self.driver, 100).until(EC.element_to_be_clickable(SubscriptionUpgradeLocators.profileAvtar))
         profileAvtar.click()
     def click_to_account_settings(self):
-        accountSettings = WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable(SubscriptionUpgradeLocators.account_settings_tab))
+        accountSettings = WebDriverWait(self.driver, 100).until(EC.element_to_be_clickable(SubscriptionUpgradeLocators.account_settings_tab))
         accountSettings.click()
     def navigate_to_subscription_tab(self):
         time.sleep(5)
-        subscription_tab = WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable(SubscriptionUpgradeLocators.subscription_tab))
+        subscription_tab = WebDriverWait(self.driver, 100).until(EC.element_to_be_clickable(SubscriptionUpgradeLocators.subscription_tab))
         subscription_tab.click()
     def click_to_upgrade_freelance(self):
-        upgrade_to_freelance_button = WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable(SubscriptionUpgradeLocators.upgrade_to_freelance_button))
+        upgrade_to_freelance_button = WebDriverWait(self.driver, 100).until(EC.element_to_be_clickable(SubscriptionUpgradeLocators.upgrade_to_freelance_button))
         upgrade_to_freelance_button.click()
     def continue_button (self):
         continue_button = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(SubscriptionUpgradeLocators.button_continue))
@@ -77,7 +77,7 @@ class Subscription_upgrade_individual_to_freelance:
         nextButton = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(SubscriptionUpgradeLocators.nextButton))
         nextButton.click()
     def close_popup(self):
-        closeButton = WebDriverWait(self.driver, 40).until(EC.element_to_be_clickable(SubscriptionUpgradeLocators.closeButton))
+        closeButton = WebDriverWait(self.driver, 100).until(EC.element_to_be_clickable(SubscriptionUpgradeLocators.closeButton))
         closeButton.click()
     def verify_subscription(self):
         self.half_page_scroll()

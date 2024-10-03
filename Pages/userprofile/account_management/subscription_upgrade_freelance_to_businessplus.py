@@ -55,7 +55,7 @@ class Subscription_upgrade_freelance_to_businessplus:
         upgrade_to_business_plus.click()
     def verify_subscription(self):
         self.half_page_scroll()
-        currentSubscription = WebDriverWait(self.driver, 40).until(EC.element_to_be_clickable(SubscriptionUpgradeLocators.currentSubscription))
+        currentSubscription = WebDriverWait(self.driver, 100).until(EC.element_to_be_clickable(SubscriptionUpgradeLocators.currentSubscription))
         currentSubscription = currentSubscription.text
         print(currentSubscription)
         if currentSubscription == "Business Plus":

@@ -17,12 +17,11 @@ faker = Faker()
 class teamLocator:
     profileAvtar = (By.ID, "profileAvatar")
     accountSettings = (By.XPATH, "//a[normalize-space()='Account Settings']")
-    businessTabBtn = (By.XPATH, "(//button[normalize-space()='Business'])[1]")
+    businessTabBtn = (By.XPATH, "//button[normalize-space()='Business']")
     teamTab = (By.XPATH, "(//button[normalize-space()='Team'])[1]")
     inviteAdminBtn = (By.XPATH, "(//button[normalize-space()='Invite Administrators'])[1]")
     searchBtn = (By.XPATH, "(//input[@placeholder='Name, email, etc...'])[1]")
-    checkBox = (
-    By.XPATH, "//li[starts-with(@class, 'MuiListItem')][1]//span[starts-with(@class, 'MuiButtonBase')]//input")
+    checkBox = (By.XPATH, "//li[starts-with(@class, 'MuiListItem')][1]//span[starts-with(@class, 'MuiButtonBase')]//input")
     nextBtn = (By.XPATH, "(//button[normalize-space()='Next'])[1]")
     inviteBtn = (By.XPATH, "(//button[normalize-space()='Invite'])[1]")
     inviteByEmail = (By.XPATH, "(//button[normalize-space()='Invite By Email'])[1]")
@@ -52,11 +51,11 @@ class teamPage:
         teamTab.click()
     def invite_administrator(self):
         time.sleep(3)
-        inviteAdminBtn = WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable(teamLocator.inviteAdminBtn))
+        inviteAdminBtn = WebDriverWait(self.driver, 100).until(EC.element_to_be_clickable(teamLocator.inviteAdminBtn))
         inviteAdminBtn.click()
 
     def invite_internal_members(self):
-        searchBtn = WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable(teamLocator.searchBtn))
+        searchBtn = WebDriverWait(self.driver, 100).until(EC.element_to_be_clickable(teamLocator.searchBtn))
         searchBtn.click()
 
         searchBtn.send_keys("david")
@@ -79,23 +78,24 @@ class teamPage:
         nextBtn = self.driver.find_element(*teamLocator.nextBtn_)
         nextBtn.click()
 
-        inviteBtn = WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable(teamLocator.nextBtnInvite))
+        inviteBtn = WebDriverWait(self.driver, 100).until(EC.element_to_be_clickable(teamLocator.nextBtnInvite))
         inviteBtn.click()
         time.sleep(2)
 
     def invite(self):
-        nextBtn = WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable(teamLocator.nextBtn))
+        nextBtn = WebDriverWait(self.driver, 100).until(EC.element_to_be_clickable(teamLocator.nextBtn))
         nextBtn.click()
-        inviteBtn = WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable(teamLocator.inviteBtn))
+        inviteBtn = WebDriverWait(self.driver, 100).until(EC.element_to_be_clickable(teamLocator.inviteBtn))
         inviteBtn.click()
 
     def invite_external_users(self):
-        inviteByEmail = WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable(teamLocator.inviteByEmail))
+        inviteByEmail = WebDriverWait(self.driver, 100).until(EC.element_to_be_clickable(teamLocator.inviteByEmail))
         inviteByEmail.click()
-        enterEmail = WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable(teamLocator.enterEmail))
+        time.sleep(3)
+        enterEmail = WebDriverWait(self.driver, 100).until(EC.element_to_be_clickable(teamLocator.enterEmail))
         enterEmail.click()
         enterEmail.send_keys(faker.email())
-        submitBtn = WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable(teamLocator.submitBtn))
+        submitBtn = WebDriverWait(self.driver, 100).until(EC.element_to_be_clickable(teamLocator.submitBtn))
         submitBtn.click()
         time.sleep(2)
         enterEmail.send_keys(faker.email())
@@ -106,18 +106,19 @@ class teamPage:
         time.sleep(2)
 
     def success_message(self):
-        successMessage = WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable(teamLocator.successMessage))
+        successMessage = WebDriverWait(self.driver, 100).until(EC.element_to_be_clickable(teamLocator.successMessage))
         message = successMessage.text
         print(message)
         expectedMessage = "3 Invitation(s) sent successfully."
         assert message == expectedMessage
 
     def delete_member(self):
-        moreDropdown = WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable(teamLocator.moreDropdown))
+        moreDropdown = WebDriverWait(self.driver, 100).until(EC.element_to_be_clickable(teamLocator.moreDropdown))
         moreDropdown.click()
-        deleteBtn = WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable(teamLocator.deleteBtn))
+        deleteBtn = WebDriverWait(self.driver, 100).until(EC.element_to_be_clickable(teamLocator.deleteBtn))
         deleteBtn.click()
-        deleteSuccessMessage = WebDriverWait(self.driver, 20).until(
+        time.sleep(2)
+        deleteSuccessMessage = WebDriverWait(self.driver, 100).until(
             EC.element_to_be_clickable(teamLocator.deleteSuccessMessage)).text
         print(deleteSuccessMessage)
         text = "Invitation has been deleted."

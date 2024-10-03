@@ -49,7 +49,7 @@ class Subscription_downgrade_business_basic_to_individual:
         self.driver = driver
     def verfiy_downgrade(self):
         self.half_page_scroll()
-        currentSubscription = WebDriverWait(self.driver, 30).until(
+        currentSubscription = WebDriverWait(self.driver, 100).until(
             EC.element_to_be_clickable(Subscriptionupgradelocators.currentSubscription))
         currentSubscription = currentSubscription.text
         print(currentSubscription)

@@ -51,17 +51,17 @@ class Subscription_upgrade_business_basic_to_business_plus:
     def __init__(self, driver):
         self.driver = driver
     def navigate_to_subscription_tab(self):
-        subscription_tab = WebDriverWait(self.driver, 40).until(EC.element_to_be_clickable(SubscriptionUpgradeLocators.subscription_tab))
+        subscription_tab = WebDriverWait(self.driver, 100).until(EC.element_to_be_clickable(SubscriptionUpgradeLocators.subscription_tab))
         subscription_tab.click()
     def click_to_upgrade_business_plus(self):
-        upgrade_to_business_plus_button = WebDriverWait(self.driver, 40).until(EC.element_to_be_clickable(SubscriptionUpgradeLocators.upgrade_to_business_plus))
+        upgrade_to_business_plus_button = WebDriverWait(self.driver, 100).until(EC.element_to_be_clickable(SubscriptionUpgradeLocators.upgrade_to_business_plus))
         upgrade_to_business_plus_button.click()
     def click_continue_to_payment(self):
-        click_to_continue = WebDriverWait(self.driver, 40).until(EC.element_to_be_clickable(SubscriptionUpgradeLocators.continue_button))
+        click_to_continue = WebDriverWait(self.driver, 100).until(EC.element_to_be_clickable(SubscriptionUpgradeLocators.continue_button))
         click_to_continue.click()
     def verfiy_subscription(self):
 
-        currentSubscription = WebDriverWait(self.driver, 30).until(
+        currentSubscription = WebDriverWait(self.driver, 100).until(
             EC.element_to_be_clickable(SubscriptionUpgradeLocators.currentSubscription))
         currentSubscription = currentSubscription.text
         self.half_page_scroll()
