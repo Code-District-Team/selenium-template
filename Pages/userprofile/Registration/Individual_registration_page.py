@@ -18,6 +18,7 @@ class RegistrationPage:
         self.driver.maximize_window()
 
     def click_continue_button(self):
+        time.sleep(5)
         continue_button = WebDriverWait(self.driver, 100).until(
             EC.visibility_of_element_located(registrationLocators.continue_button))
         continue_button.click()
