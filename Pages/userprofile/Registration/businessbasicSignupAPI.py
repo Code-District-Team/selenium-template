@@ -1,4 +1,4 @@
-from datetime import datetime, date  # Importing date class rom datetime module
+from datetime import datetime, date  # Importing date class from datetime module
 
 import requests
 import json
