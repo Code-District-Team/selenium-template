@@ -2,7 +2,6 @@ from datetime import datetime, date  # Importing date class from datetime module
 
 import requests
 import json
-import pytest
 from faker import Faker
 
 faker = Faker()
